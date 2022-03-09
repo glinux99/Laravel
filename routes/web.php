@@ -54,5 +54,6 @@ Route::post('/update', [ BanqueController::class, 'update']);
 Route::post('/verifier_solde', [ BanqueController::class, 'verifier_solde']);
 Route::post('/depot_argent', [ BanqueController::class, 'depot_argent']);
 Route::post('/retrait_argent', [ BanqueController::class, 'retrait_argent']);
+Route::post('/virement', [ BanqueController::class, 'virement']);
 Route::get('/delete_add_desactivate_clients_or_agent', [ BanqueController::class, 'alter_clients_and_agents']);
 //Route::get('/products', [ etudiantController::class,'index']);

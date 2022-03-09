@@ -10,6 +10,7 @@
     <script src="{{url('assets/vendor/dist/js/jquery.min.js')}}"></script>
     <title>@yield('titre')</title>
 </head>
+@include('layouts.modals')
 <body class="w-100" style="background-image: url({{url('assets/img/banque_img.jpg')}});background-size: cover;">  
     <!-- Menu principal -->
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark border-bottom " style="background: #0f222b!important; color: rgb(39, 148, 29);line-height: 24px;
@@ -26,7 +27,7 @@
                     <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="icon-home "></span><?php echo _(" Acceuil");?></a>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#transfert"><span class="bi bi-currency-exchange"></span><?php echo _("Virement");?></a>
+                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span><?php echo _("Virement");?></a>
                 </li>
                 <li class="navbar-item mr-3">
                     <a class="nav-link text-white" href="../B_users/message.php" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>

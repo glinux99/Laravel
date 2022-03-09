@@ -10,6 +10,17 @@
     <script src="{{url('assets/vendor/dist/js/jquery.min.js')}}"></script>
     <title>@yield('titre')</title>
 </head>
+@include('layouts.modals')
+@php if(session('account')==='Caissier') 
+    {
+        $adS="Nouveau Client";
+        $modS="Modifier Compte Client";
+    }
+  else {
+    $adS = "Nouveau Agent";
+    $modS="Modifier Compte Agent";
+  }
+@endphp
 <body class="w-100" style="background-image: url({{url('assets/img/banque_img.jpg')}});background-size: cover;">  
     <!-- Menu principal -->
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark border-bottom " style="background: #0f222b!important; color: rgb(39, 148, 29);line-height: 24px;
@@ -65,14 +76,14 @@
                         </a>
                         <div class="collapse" id="coll">
                             <ul class="list-unstyled ms-2">
-                                <li class="mb-2">
-                                    <a href="{{url('add-agents-or-clients')}}">
-                                        <i class="bi-person-plus-fill"></i><span class="ms-1 d-none d-sm-inline"><?php echo _("Nouveau Client");?></span>
+                                <li class="">
+                                    <a href="{{url('add-agents-or-clients')}}" class="nav-link" >
+                                        <i class="bi-person-plus-fill"></i><span class="ms-1 d-none d-sm-inline">{{ __($adS) }}</span>
                                     </a>
                                 </li>
                                 <li >
-                                    <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#recherche">
-                                        <i class="bi-pencil-square "></i><span class="ms-1 d-none d-sm-inline"><?php echo _("Modifier compte Client");?></span>
+                                    <a  href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#recherche" >
+                                        <i class="bi-pencil-square "></i><span class="ms-1 d-none d-sm-inline">{{ __($modS)}}</span>
                                     </a>
                                 </li>
                             </ul>

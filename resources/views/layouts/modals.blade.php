@@ -166,4 +166,36 @@ else{
    </form> 
   </div>
 </div>
+<!-- Virement -->
+<div class="modal show" id="virement" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="1" aria-labelledby="retraitdropLabel" aria-hidden="false">
+  <div class="modal-dialog">
+  <form action="/virement" method="post">
+  @csrf
+    <div class="modal-content adC text-white">
+      <div class="modal-header" style="background: #0f222b!important;">
+        <h5 class="modal-title" id="virementdropLabel">{{ __("VIREMENT SUR UN AUTRE COMPTE CLIENT ")}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
+        </button>
+      </div>
+      <div class="modal-body">
+            <label for="">{{ __("Nom ")}}:</label>
+            <input type="text" name="username" id="" class="form-control mb-3" placeholder='{{ __("Noms du beneficiaire")}}'>
+            <label for="">{{ __("Matricule du Compte Beneficiaire")}}:</label>
+            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
+            <label for="">{{ __("Montant")}}:</label>
+            <div class="input-group mb-3">
+                <input type="number" name="montant" id="" class="form-control" min='0'>
+                <span class="input-group-text" id="basic-addon2">USD</span>
+            </div>
+            <label for="">{{ __("Votre password ")}}:</label>
+            <input type="password" name="psswd" id="" class="form-control mb-3" placeholder='{{ __("password pour confirmer l'envoie") }}''>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Valider</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+      </div>
+    </div>
+   </form> 
+  </div>
+</div>
 @php $modal_aff=0; @endphp

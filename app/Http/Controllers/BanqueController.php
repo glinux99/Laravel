@@ -378,6 +378,50 @@ class BanqueController extends Controller
                                 
 
         }
+        public function virement(Request $request){
+            $data= session('data');
+            $data_users = \DB:: table ('Client')
+                                ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
+                                ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
+                                ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                                ->where ('Customers.password_customers', $request->psswd)
+                                ->where ('Customers.matricule', $data->matricule)->first();
+                                $solde = $data_users->solde;
+                                $solde_f = $solde-$request->montant;
+                               if($solde>5){
+                               $benef = \DB:: table ('Client')
+                                ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
+                                ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
+                                ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                                ->where ('Customers.adresse_mail', $request->mail)
+                                ->orwhere ('Customers.matricule', $request->mail)
+                                ->first();
+                                $soldeb = $benef->solde+$request->montant;
+                                \DB:: table ('Compte') 
+                                ->where('matricule', $benef->matricule) 
+                                ->update(array(
+                                    'solde'=> $soldeb
+                                ));
+                                \DB:: table ('Compte') 
+                                ->where('matricule', $data->matricule) 
+                                ->update(array(
+                                    'solde'=> $solde_f
+                                ));
+
+                                $data =json_decode(json_encode($data), true);
+                                session()->put('error','no_error');
+                                return view('client.client',compact('data'));
+                               }else if($solde ==5){
+                                   session()->put('error','solde_egal');
+                                   return redirect()->back();
+
+                               }else  {
+                                session()->put('error','solde_insuf');
+                                return redirect()->back();
+                               }              
+                                
+
+        }
         public function desactive($id){
             \DB::table('Compte')
                     ->where('id', $id)
