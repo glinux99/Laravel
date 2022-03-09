@@ -5,6 +5,8 @@
     @php
     $admin = 0;
     $caissier = 0;
+    $data_user = session('data_user');
+    dd($data_user);
     if(session('account')=='Admins') $admin =1;
     else if(session('account')==='Caissier') $caissier =1;
     else {

@@ -97,7 +97,7 @@
                       
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
-                        <a href="transaction.php" class="nav-link align-middle px-0 mhl  h-50 ">
+                        <a href="transaction" class="nav-link align-middle px-0 mhl  h-50 ">
                             <i class="bi-bank2 bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Transaction");?></span>
                         </a>
                     </li>

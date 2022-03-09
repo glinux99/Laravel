@@ -294,7 +294,8 @@ class BanqueController extends Controller
                                 ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                                 ->where ('Customers.matricule', $request->mail)
                                 ->orwhere('Customers.adresse_mail', $request->mail)->first();
-        return view('caissier.alter_account', compact('data_user'));
+                                session('data_user', $data_user);
+        return view('caissier.alter_account');
     }
     public function update(Request $request){
         $d=\DB:: table('Customers')
@@ -315,7 +316,8 @@ class BanqueController extends Controller
                     'pays'=>$request->pays,
                     'apropos'=>$request->apropos
                 ));
-                var_dump($d);
+               session('error', 'no-error');
+               return back();
             }
         public function verifier_solde(Request $request){
             $data_users = \DB:: table ('Client')
