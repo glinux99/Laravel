@@ -32,12 +32,10 @@ Route::get('/client', function () {
     return view('client.client');
 })->name('client')
 ->middleware(SignUp::class);
-Route::get('/transaction', function () {
-    return view('transaction');
-})->name('transaction');
 Route::get('/alter_account', function () {
     return view('caissier.alter_account');
 })->name('alter_account');
+Route::get('/transaction', [ BanqueController::class, 'transaction']);
 Route::get('/desactive/{id}', [ BanqueController::class, 'desactive']);
 Route::get('/active/{id}', [ BanqueController::class, 'active']);
 Route::get('/delete/{id}', [ BanqueController::class, 'delete']);

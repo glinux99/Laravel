@@ -446,6 +446,14 @@ class BanqueController extends Controller
                     ->delete();
                     return back();
         }
+        public function transaction(){
+            $mat = session('data');
+            $transaction =\DB::table('Transactions')
+                ->join('Caissier', 'Caissier.id', '=', 'caissier_id')
+                ->join('Customers', 'Customers.id','=', 'customers_id')
+                ->where('Customers.matricule',$mat->matricule)->get();
+                return view('transaction', compact('transaction'));
+        }
         
    
 }
