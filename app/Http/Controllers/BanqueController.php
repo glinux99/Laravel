@@ -192,6 +192,8 @@ class BanqueController extends Controller
             }
                         
                     }
+                    $error ="compte_disable";
+                                return view('login', compact('error'));
     }
     public function session_data(){
         $data= session('data');
