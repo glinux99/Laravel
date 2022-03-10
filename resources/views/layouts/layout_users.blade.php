@@ -85,12 +85,12 @@
                       
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
-                        <a href="{{url('transaction')}}" class="nav-link align-middle px-0 mhl  h-50 ">
+                        <a href="" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#rapport">
                             <i class="bi-bank2 bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Transaction");?></span>
                         </a>
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
-                        <a href="" class="nav-link align-middle px-0 mhl  h-50" data-toggle="modal" data-target="#rapport">
+                        <a href="" class="nav-link align-middle px-0 mhl  h-50" >
                             <i class="bi-graph-up-arrow bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Statistiques");?></span>
                         </a>
                     </li>

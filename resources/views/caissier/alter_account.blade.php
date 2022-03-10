@@ -12,7 +12,6 @@
         $admin = 0;
         $caissier = 0;
     }
-    echo (session('account'));
     @endphp
     <form action="{{ url('update')}}" method="post">
     @csrf

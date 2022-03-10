@@ -201,7 +201,7 @@ else{
 <!-- Rapportn Cli -->
 <div class="modal show" id="rapport" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="1" aria-labelledby="rapportdropLabel" aria-hidden="false">
   <div class="modal-dialog">
-  <form action="/rapport" method="post">
+  <form action="{{ url('rapport')}}" method="post">
   @csrf
     <div class="modal-content adC text-white">
       <div class="modal-header" style="background: #0f222b!important;">
@@ -213,8 +213,8 @@ else{
           @if(session('account')!='Client')
             <input type="text" name="mail" id="" class="form-control" placeholder="{{ __('nom d\'utilisateur ou mail')}}">
           @else
-          <input type="text" name="mail" id="" class="form-control" placeholder="{{ __('nom d\'utilisateur ou mail')}}">
-          <input type="password" name="psswd" id="" class="form-control" placeholder="{{ __('Votre mot de passe')}}">
+          <p class="text-center">Votre mot de passe pour confimer la requette</p>
+          <input type="password" name="psswd" id="" class="form-control mb-3" placeholder="{{ __('Votre mot de passe')}}">
           @endif
       </div>
       <div class="modal-footer">

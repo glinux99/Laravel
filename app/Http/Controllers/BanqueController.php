@@ -512,7 +512,8 @@ class BanqueController extends Controller
             $transaction = \DB::table('Transactions')
                                 ->where('client_mat',$request->mail)
                                 ->orwhere('benef_mat', $request->mail)->get();
-            return view('transaction', compact('transaction'));
+                                $client =1;
+            return view('transaction', compact(['transaction','client']));
         }
         public function desactive($id){
             \DB::table('Compte')
