@@ -88,6 +88,7 @@
                         </div>
                         <div class="col-lg-4">
                             <label for="nomB" >Prendre une photo </label>
+                            <input type="text" name="photo" id="" hidden>
                             <input type="button" class="form-control" value="<?php echo "Capture";?>" data-toggle="modal" data-target="#photo">
                         </div>
                         </div>

@@ -97,59 +97,71 @@ class BanqueController extends Controller
             $insc = \DB::table('Inscription')->Where ('adresse_mail', $request->mail)->first();
         if(!$insc){
             $code_auth = (STRING) (rand(1,9)).(STRING) (rand(1,9)).(STRING) (rand(1,9)).(STRING) (rand(1,9));
-        $code = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6);
-        $order = session('account');
-        \DB::table('Operations')->insert(
-            array(
-                'date_op'=>NOW(),
-                'code_auth'=>$code_auth
-            )
-            );
-            $operation_id = \DB::table('Operations')
-                            ->where('code_auth',$code_auth)->first(); 
-            \DB::table('Compte')->insert(
+            $code = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6);
+            $order = session('account');
+            \DB::table('Operations')->insert(
                 array(
-                    'code_auth'=>$code_auth,
-                    'date_creation'=>NOW(),
-                    'matricule'=>$request->matricule
+                    'date_op'=>NOW(),
+                    'code_auth'=>$code_auth
                 )
                 );
-                    $id_compte =\DB::table('Compte')
-                                    ->where('code_auth',$code_auth)->first();
-                    \DB::table('Adresse')->insert(
-                        array(
-                            'code_auth'=>$code_auth,
-                            'id_compte'=>$id_compte->id
-                        )
-                        );
-                        $adresse_id =\DB::table('Adresse')
-                                            ->where('code_auth',$code_auth)->first();         
-                        \DB::table('Customers')->insert(
+                $operation_id = \DB::table('Operations')
+                                ->where('code_auth',$code_auth)->first(); 
+                \DB::table('Compte')->insert(
+                    array(
+                        'code_auth'=>$code_auth,
+                        'date_creation'=>NOW(),
+                        'matricule'=>$request->matricule
+                    )
+                    );
+                        $id_compte =\DB::table('Compte')
+                                        ->where('code_auth',$code_auth)->first();
+                        \DB::table('Adresse')->insert(
                             array(
-                                'nom'=>$request->nom,
-                                'prenom'=>$request->prenom,
-                                'adresse_mail'=>$request->mail,
-                                'matricule'=>$request->matricule,
-                                'password_customers' =>$request->psswd,
-                                'type_compte'=>'Client',
                                 'code_auth'=>$code_auth,
-                                'adresse_id'=>$adresse_id->id
+                                'id_compte'=>$id_compte->id
                             )
                             );
-                            $customers_id =\DB::table('Customers')
-                                            ->where('code_auth',$code_auth)->first();
-                                            \DB::table('Client')->insert(
-                                                array(
-                                                    'adresse_id'=>$adresse_id->id,
-                                                    'customers_id'=>$customers_id->id,
-                                                    'adresse_mail'=>$request->mail
-                                                )
-                                                );
+                            $adresse_id =\DB::table('Adresse')
+                                                ->where('code_auth',$code_auth)->first();         
+                            \DB::table('Customers')->insert(
+                                array(
+                                    'nom'=>$request->nom,
+                                    'prenom'=>$request->prenom,
+                                    'adresse_mail'=>$request->mail,
+                                    'matricule'=>$request->matricule,
+                                    'password_customers' =>$request->psswd,
+                                    'type_compte'=>'Client',
+                                    'photo'=>$request->photo,
+                                    'code_auth'=>$code_auth,
+                                    'adresse_id'=>$adresse_id->id
+                                )
+                                );
+                                $customers_id =\DB::table('Customers')
+                                                ->where('code_auth',$code_auth)->first();
+                                                if($customers_id->id!=1){
+                                                    \DB::table('Client')->insert(
+                                                        array(
+                                                            'adresse_id'=>$adresse_id->id,
+                                                            'customers_id'=>$customers_id->id,
+                                                            'adresse_mail'=>$request->mail
+                                                        )
+                                                        );
+                                            }else{
+                                                \DB::table('Admins')->insert(
+                                                    array(
+                                                        'adresse_id'=>$adresse_id->id,
+                                                        'customers_id'=>$customers_id->id
+                                                    )
+                                                    );
+                                            }
+                                            
                                                 
         }else {
             $error ="mail_exist";
             return view('login', compact('error'));
         }
+       
         }
         $tables=['Client', 'Caissier', 'Admins'];
         foreach($tables as $items){
@@ -189,6 +201,7 @@ class BanqueController extends Controller
                                 return view('login', compact('error'));
     
                             }
+                            
             }
                         
                     }
@@ -278,6 +291,8 @@ class BanqueController extends Controller
                                     )
                                     );
                                 }
+                                session()->put('error','no-error');
+                                return back();
                 
     }
     public function alter_account(Request $request){
@@ -348,7 +363,8 @@ class BanqueController extends Controller
                                 ->update(array(
                                     'solde'=> $solde
                                 ));                
-                                
+                     session()->put('error','no-error');
+                     return redirect()->route('caissier');           
 
         }
         public function retrait_argent(Request $request){
@@ -359,8 +375,13 @@ class BanqueController extends Controller
                                 ->where ('Customers.matricule', $request->mail)
                                 ->orwhere('Customers.adresse_mail', $request->mail)->first();
                                 $solde = $data_users->solde;
-                                echo $solde.PHP_EOL;
-                                echo ($solde=$solde-$request->montant).PHP_EOL;
+                                if($request->username!='')
+                                    $effect_par=" par ".$request->username;
+                                else $effect_par='';
+                                $trans_mat  = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 6);
+                                $trans_mat = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("0123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
                                if($solde>5){
                                 $solde=$solde-$request->montant;
                                 $matricule=$data_users->matricule;
@@ -369,17 +390,32 @@ class BanqueController extends Controller
                                 ->update(array(
                                     'solde'=> $solde
                                 ));
+                                $id =\DB::table('Caissier')
+                                        ->select('Caissier.id')
+                                        ->join('Customers', 'Customers.id','=','customers_id')
+                                        ->where('Customers.id','=',session('data')->id)->first();
+                                \DB:: table('Transactions')
+                                    ->insert([
+                                        'montant_ret'=>$request->montant,
+                                        'solde'=>$solde,
+                                        'motif'=>'Retrait'.$effect_par,
+                                        'trans_mat'=>$trans_mat,
+                                        'client_mat'=>$matricule,
+                                        'caissier_id'=>$id->id
+                                    ]);
+                                    
                                 // session()->put('error','no_error');
                                 // return redirect()->back();
                                }else if($solde ==5){
                                    session()->put('error','solde_egal');
-                                   return redirect()->back();
+                                   return redirect()->route('caissier');  
 
                                }else  {
                                 session()->put('error','solde_insuf');
-                                return redirect()->back();
+                                return redirect()->route('caissier');  
                                }              
-                                
+                               session()->put('error','no-error');
+                               return redirect()->route('caissier');              
 
         }
         public function virement(Request $request){

@@ -179,9 +179,9 @@ else{
       </div>
       <div class="modal-body">
             <label for="">{{ __("Nom ")}}:</label>
-            <input type="text" name="username" id="" class="form-control mb-3" placeholder='{{ __("Noms du beneficiaire")}}'>
+            <input type="text" name="username" id="" class="form-control mb-3" placeholder='{{ __("Noms du deposant/client")}}'>
             <label for="">{{ __("Matricule du Compte Beneficiaire")}}:</label>
-            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
+            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du beneficiaire">
             <label for="">{{ __("Montant")}}:</label>
             <div class="input-group mb-3">
                 <input type="number" name="montant" id="" class="form-control" min='0'>

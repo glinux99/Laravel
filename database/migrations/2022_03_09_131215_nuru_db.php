@@ -25,7 +25,7 @@ class NuruDb extends Migration
             $table->id();
             $table->timestamp('date_creation')->useCurrent();
             $table->double('solde')->default(0);
-            $table->boolean('status_compte')->default(0);
+            $table->boolean('status_compte')->default(1);
             $table->string('code_auth', 30);
             $table->string('matricule', 17);
         });
@@ -68,13 +68,14 @@ class NuruDb extends Migration
             $table->string('numero_tel')->default('');
             $table->string('type_compte',15)->default('');
             $table->string('genre')->default('');
-            $table->string('photo')->default('assets/img/default_user.png');
+            $table->string('photo')->default('assets/img/default_user.png')->nullable();
             $table->string('code_auth', 30);
             $table->foreignId('adresse_id')->constrained('Adresse')->onDelete('cascade');
         });
         Schema::dropIfExists('Admins');
         Schema::create('Admins',function(Blueprint $table){
             $table->id();
+            $table->foreignId('adresse_id')->constrained('Adresse')->onDelete('cascade');
             $table->foreignId('customers_id')->constrained('Customers')->onDelete('cascade');
         });
         Schema::dropIfExists('Caissier');
@@ -94,6 +95,7 @@ class NuruDb extends Migration
         Schema::dropIfExists('Transactions');
         Schema::create('Transactions',function(Blueprint $table){
             $table->id();
+            $table->timestamp('date_trans')->useCurrent();
             $table->double('montant_ret')->default(0);
             $table->double('solde')->default(0);
             $table->string('motif')->default('');
