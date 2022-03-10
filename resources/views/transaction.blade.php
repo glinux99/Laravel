@@ -20,7 +20,9 @@
                     <tr>
                         <td>Date</td>
                         <td>Transaction</td>
+                        @if(session('account')!='Client')
                         <td>Matricule Client</td>
+                        @endif
                         <td>Solde</td>
                         <td>Retrait / Depot </td>
                         <td>Montant</td>
@@ -35,9 +37,11 @@
                         <td>
                             {{ $items->trans_mat}}
                         </td>
+                        @if(session('account')!='Client')
                         <td>
                             {{ $items->client_mat}}
                         </td>
+                        @endif
                         <td>
                             {{ $items->solde}}
                         </td>

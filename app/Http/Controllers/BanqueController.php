@@ -486,10 +486,19 @@ class BanqueController extends Controller
         }
         public function transaction(){
             $mat = session('data');
-            $transaction =\DB::table('Transactions')
+            $transaction='';
+            if(session('account')=='Caissier'){
+                $transaction =\DB::table('Transactions')
                 ->join('Caissier', 'Caissier.id', '=', 'caissier_id')
                 ->join('Customers', 'Customers.id','=', 'customers_id')
                 ->where('Customers.matricule',$mat->matricule)->get();
+            }else if (session('account')==='Admins'){
+                $transaction =\DB::table('Transactions')->get();
+            }else if(session('account')==='Client'){
+                $transaction =\DB::table('Transactions')
+                ->join('Customers', 'Customers.matricule','=', 'client_mat')
+                ->where('Customers.matricule',$mat->matricule)->get();
+            }
                 return view('transaction', compact('transaction'));
         }
         
