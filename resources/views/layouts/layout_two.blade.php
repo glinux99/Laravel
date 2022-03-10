@@ -15,10 +15,12 @@
     {
         $adS="Nouveau Client";
         $modS="Modifier Compte Client";
+        $men ="Client";
     }
   else {
     $adS = "Nouveau Agent";
     $modS="Modifier Compte Agent";
+    $men = "Agent";
   }
 @endphp
 <body class="w-100" style="background-image: url({{url('assets/img/banque_img.jpg')}});background-size: cover;">  
@@ -72,7 +74,7 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start">
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="#" class="nav-link align-middle px-0 mhl  h-50" data-bs-toggle="collapse" data-bs-target="#coll">
-                            <i class="bi-person-circle bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Client");?></span>
+                            <i class="bi-person-circle bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __($men)}}</span>
                         </a>
                         <div class="collapse" id="coll">
                             <ul class="list-unstyled ms-2">

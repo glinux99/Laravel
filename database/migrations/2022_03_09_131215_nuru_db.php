@@ -101,7 +101,8 @@ class NuruDb extends Migration
             $table->string('motif')->default('');
             $table->string('trans_mat')->default('');
             $table->string('client_mat')->default('');
-            $table->foreignId('caissier_id')->constrained('Caissier')->onDelete('cascade');
+            $table->string('benef_mat')->nullable();
+            $table->foreignId('caissier_id')->nullable()->constrained('Caissier')->onDelete('cascade');
         });
         
     }

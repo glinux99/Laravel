@@ -99,6 +99,10 @@ class BanqueController extends Controller
             $code_auth = (STRING) (rand(1,9)).(STRING) (rand(1,9)).(STRING) (rand(1,9)).(STRING) (rand(1,9));
             $code = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6);
             $order = session('account');
+            \DB::table('Inscription')->insert([
+                'adresse_mail'=>$request->mail,
+                'code'=>$code
+            ]);
             \DB::table('Operations')->insert(
                 array(
                     'date_op'=>NOW(),
@@ -231,6 +235,10 @@ class BanqueController extends Controller
                 $for_account = 'Client';
             break;
         }
+        \DB::table('Inscription')->insert([
+            'adresse_mail'=>$request->mail,
+            'code'=>$code
+        ]);
         \DB::table('Operations')->insert(
             array(
                 'date_op'=>NOW(),
@@ -362,7 +370,25 @@ class BanqueController extends Controller
                                 ->where('matricule', $matricule) 
                                 ->update(array(
                                     'solde'=> $solde
-                                ));                
+                                ));  
+                                $effect_par = ' par '.$request->username;
+                                $trans_mat  = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 6);
+                                $trans_mat = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("0123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
+                                $id =\DB::table('Caissier')
+                                        ->select('Caissier.id')
+                                        ->join('Customers', 'Customers.id','=','customers_id')
+                                        ->where('Customers.id','=',session('data')->id)->first();
+                                \DB:: table('Transactions')
+                                    ->insert([
+                                        'montant_ret'=>$request->montant,
+                                        'solde'=>$solde,
+                                        'motif'=>'Depot '.$effect_par,
+                                        'trans_mat'=>$trans_mat,
+                                        'client_mat'=>$matricule,
+                                        'caissier_id'=>$id->id
+                                    ]);             
                      session()->put('error','no-error');
                      return redirect()->route('caissier');           
 
@@ -447,7 +473,20 @@ class BanqueController extends Controller
                                 ->update(array(
                                     'solde'=> $solde_f
                                 ));
-
+                                $compte_de=$benef->nom.' '.$benef->prenom;
+                                $trans_mat  = substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 6);
+                                $trans_mat = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("0123456789"), 0, 6).'.'.$trans_mat;
+                                $trans_mat = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
+                                \DB:: table('Transactions')
+                                    ->insert([
+                                        'montant_ret'=>$request->montant,
+                                        'solde'=>$solde,
+                                        'motif'=>'Virement sur le compte de '.$compte_de,
+                                        'trans_mat'=>$trans_mat,
+                                        'client_mat'=>$data->matricule,
+                                        'caissier_id'=>null
+                                    ]);
                                 $data =json_decode(json_encode($data), true);
                                 session()->put('error','no_error');
                                 return view('client.client',compact('data'));
