@@ -312,14 +312,21 @@ class BanqueController extends Controller
             case 'Caissier' :
                 $for_account = 'Client';
             break;
+            case 'Client':
+                $for_account = 'Client';
+            break;
         }
-        $customers_id =$for_account.'.Customers_id';
+        $customers_id =$for_account.'.customers_id';
+        $username = $request->mail;
+        if($for_account==='Client'){
+            $username = session('data')->matricule;
+        }
         $data_user = \DB:: table ($for_account)
                                 ->join('Customers', $customers_id, '=', 'Customers.id')
                                 ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
-                                ->where ('Customers.matricule', $request->mail)
-                                ->orwhere('Customers.adresse_mail', $request->mail)->first();
-                                session('data_user', $data_user);
+                                ->where ('Customers.matricule', $username)
+                                ->orwhere('Customers.adresse_mail', $username)->first();
+                                session()->put('data_user', $data_user);
         return view('caissier.alter_account');
     }
     public function update(Request $request){
@@ -500,6 +507,12 @@ class BanqueController extends Controller
                                }              
                                 
 
+        }
+        public function rapport(Request $request){
+            $transaction = \DB::table('Transactions')
+                                ->where('client_mat',$request->mail)
+                                ->orwhere('benef_mat', $request->mail)->get();
+            return view('transaction', compact('transaction'));
         }
         public function desactive($id){
             \DB::table('Compte')

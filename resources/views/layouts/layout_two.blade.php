@@ -104,7 +104,7 @@
                         </a>
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
-                        <a href="rapports.php" class="nav-link align-middle px-0 mhl  h-50" data-toggle="modal" data-target="#rapport">
+                        <a href="" class="nav-link align-middle px-0 mhl  h-50" data-bs-toggle="modal" data-bs-target="#rapport">
                             <i class="bi-calendar-check-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Rapports Clients");?></span>
                         </a>
                     </li>

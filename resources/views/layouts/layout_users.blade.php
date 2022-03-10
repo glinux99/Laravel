@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="{{url('add-agents-or-clients')}}">
+                                    <a href="{{url('alter_account')}}">
                                         <i class="bi-pencil-square"></i><span class="ms-1 d-none d-sm-inline">{{  __ ("Modifier")}}</span>
                                     </a>
                                 </li>

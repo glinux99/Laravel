@@ -6,20 +6,20 @@
     $admin = 0;
     $caissier = 0;
     $data_user = session('data_user');
-    dd($data_user);
     if(session('account')=='Admins') $admin =1;
     else if(session('account')==='Caissier') $caissier =1;
     else {
         $admin = 0;
         $caissier = 0;
     }
+    echo (session('account'));
     @endphp
     <form action="{{ url('update')}}" method="post">
     @csrf
         <div class="row mx-auto">
             <div class="col-lg-9 card adC ">
                 <div class="card-header text-success text-center">
-                    {{ __("Modification du compte ")}} @if($admin) {{ __("pour Agent")}} @else {{ __("pour Client")}} @endif
+                    {{ __("Modification du compte ")}} @if($admin) {{ __("pour Agent")}} @elseif($caissier) {{ __("pour Client")}} @endif
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -74,6 +74,12 @@
                                     <option value="Informaticien">{{ __("Informaticien")}}</option>
                                     <option value="Securite">{{ __("Securite")}}</option>
                                     <option value="autres">{{ __("Autres")}}</option>
+                                @else
+                                    <option value="">--{{ __("defaut").$data_user->type_compte}}--</option>
+                                    <option value="Particulier">{{ __("Particulier")}}</option>
+                                    <option value="Actionnaire">{{ __("Actionnaire/Investisseur")}}</option>
+                                    <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
+                                    <option value="PME">{{ __("PME")}}</option>
                                 @endif
                             </select>
                         </div>

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="w-100 overflow-auto">
-            <table class="text-center table table-bordered table-striped table-hover adC text-white">
+            <table class="text-center table table-bordered table-hover adC text-white">
                 <thead>
                     <tr>
                         <td>Date</td>
@@ -23,9 +23,9 @@
                         @if(session('account')!='Client')
                         <td>Matricule Client</td>
                         @endif
-                        <td>Solde</td>
+                        <td>Solde_CC</td>
                         <td>Retrait / Depot </td>
-                        <td>Montant</td>
+                        <td>Montant_Ret</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
                             {{ $items->motif}}
                         </td>
                         <td>
-                            {{ $items->solde}}
+                            {{ $items->montant_ret}}
                         </td>
                     </tr>
                     @endforeach

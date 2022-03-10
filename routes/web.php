@@ -32,17 +32,16 @@ Route::get('/client', function () {
     return view('client.client');
 })->name('client')
 ->middleware(SignUp::class);
-Route::get('/alter_account', function () {
-    return view('caissier.alter_account');
-})->name('alter_account');
+Route::post('/rapport', [ BanqueController::class, 'rapport']);
 Route::get('/transaction', [ BanqueController::class, 'transaction']);
 Route::get('/desactive/{id}', [ BanqueController::class, 'desactive']);
 Route::get('/active/{id}', [ BanqueController::class, 'active']);
 Route::get('/delete/{id}', [ BanqueController::class, 'delete']);
+Route::get('/alter_account', [ BanqueController::class, 'alter_account']);
 Route::post('/alter_account', [ BanqueController::class, 'alter_account']);
 Route::post('/inscription', [ BanqueController::class, 'connection']);
 Route::post('/connection', [ BanqueController::class, 'connection']);
-Route::get('/login', [ BanqueController::class, 'login'])->name('login')->middleware(SignOn::class);;
+Route::get('/login', [ BanqueController::class, 'login'])->name('login')->middleware(SignOn::class);
 Route::get('/Clients/{data}', [ BanqueController::class, 'accounts']);
 Route::get('/solde-all', [ BanqueController::class, 'solde_banque']);
 Route::get('/add-agents-or-clients', [ BanqueController::class, 'add_agents']);
