@@ -1,10 +1,10 @@
-@extends((session('account')=='Caissier') ? 'layouts.layout_two' : 'layouts.layout_users')
+@extends((((session('account')=='Caissier') || session('account')=='Admins') )? 'layouts.layout_two' : 'layouts.layout_users')
 @section('titre') Verification des vos transactions @stop
 @section('contenu')
     <div class="card adC ">
         <div class="row w-100">
             <div class="col-md-8">
-                <div class="card-header">
+                <div class="card-header text-white">
                 <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
                 <span>{{ $dest_name }}</span>
                 </div >
@@ -25,15 +25,23 @@
                     @endif
                     @foreach($message as $items)
                         @if(($items->source_id)===session('data')->matricule)
-                            <div class="text-white adC table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2 d-flex mb-1" >
-                            <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
-                            <span>{{ $items->messages}}
-                            <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></span>
+                            <div class="d-flex mb-1" >
+                                <div class="text-white d-flex table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2 adC">
+                                    <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
+                                    <div class="ms-2">
+                                        <div><span>{{ $items->messages}}</span></div>
+                                        <div class="text-end">
+                                            <small class="text-muted mt-2">
+                                                <i>{{ $items->date_mess}}</i>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @else
-                        <div class="d-flex text-white justify-content-end adC table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2  mb-1" >
-                        <span>{{ $items->messages}}</span><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
-                        <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></span>
+                        <div class="d-flex text-white justify-content-end table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2  mb-1" >
+                        <div class="adC"><span>{{ $items->messages}}</span><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
+                        <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></div>
                         </div>
                         @endif
                     @endforeach
