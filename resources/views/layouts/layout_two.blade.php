@@ -44,7 +44,7 @@
                 </li>
                 @endif
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../B_users/message.php" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>
+                    <a class="nav-link text-white" href="/message" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">

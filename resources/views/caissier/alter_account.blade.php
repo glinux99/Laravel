@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="nomB" >{{ __("Password")}}</label>
-                        <input type="text" name="psswd" id="" class="form-control" placeholder="{{$data_user->password_customers}}" value="">
+                        <input type="text" name="psswd" id="" class="form-control" placeholder="******************" value="">
                     </div>
                     <div class="col-lg-4">
                         <label for="nomB" >{{ __("Numero Tel:")}} </label>

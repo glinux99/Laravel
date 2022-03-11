@@ -30,7 +30,7 @@
                     <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span><?php echo _("Virement");?></a>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../B_users/message.php" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>
+                    <a class="nav-link text-white" href="/message" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">

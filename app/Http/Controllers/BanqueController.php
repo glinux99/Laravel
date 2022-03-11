@@ -508,6 +508,17 @@ class BanqueController extends Controller
                                 
 
         }
+        public function message($dest){
+            $data = \DB::table("Customers")->get();
+            $message = \DB:: table ("Messages")->get();
+            $dest_name ="Nuru Group";
+            if(isset($dest)){
+                $dest_name = \DB::table("Customers")
+                            ->where("matricule", $dest)->first();
+                            $dest_name = $dest_name->nom. " ".$dest_name->prenom;
+            }
+            return view('message', compact(['message','data', 'dest_name']));
+        }
         public function rapport(Request $request){
             $transaction = \DB::table('Transactions')
                                 ->where('client_mat',$request->mail)
