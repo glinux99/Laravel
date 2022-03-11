@@ -32,6 +32,7 @@ Route::get('/client', function () {
     return view('client.client');
 })->name('client')
 ->middleware(SignUp::class);
+Route::post('/send_message', [ BanqueController::class, 'send_message']);
 Route::get('/message/{dest}', [ BanqueController::class, 'message']);
 Route::post('/rapport', [ BanqueController::class, 'rapport']);
 Route::get('/transaction', [ BanqueController::class, 'transaction']);

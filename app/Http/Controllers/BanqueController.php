@@ -515,10 +515,25 @@ class BanqueController extends Controller
             if(isset($dest)){
                 $dest_name = \DB::table("Customers")
                             ->where("matricule", $dest)->first();
+                            session()->put('dest_matricule', $dest_name->matricule);
+                           if($dest_name){
                             $dest_name = $dest_name->nom. " ".$dest_name->prenom;
+                           }else{
+                            $dest_name = session('dest_name');
+                                return view('message', compact(['message','data', 'dest_name']));
+                           }
             }
+            session()->put('dest_name', $dest_name);
             return view('message', compact(['message','data', 'dest_name']));
         }
+        public function send_message(Request $request){
+            \DB::table('Messages')->insert(array(
+                'source_id'=>session('data')->matricule,
+                'destination_id'=>session('dest_matricule'),
+                'messages'=>$request->message,
+                'mode'=>1
+            ));
+    }
         public function rapport(Request $request){
             $transaction = \DB::table('Transactions')
                                 ->where('client_mat',$request->mail)
