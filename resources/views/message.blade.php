@@ -10,9 +10,10 @@
                 </div >
                 <div class="card-body position-relative">
                     <div class="overflow-auto p-0"style="height: 21rem;">
+                    
                     @php
                         $validator=0;
-                        if(count($message)) $validator=0;
+                        if($message->count()>0) $validator=0;
                         else $validator=1;
                     @endphp
                     @if($validator)
@@ -24,14 +25,15 @@
                     @endif
                     @foreach($message as $items)
                         @if(($items->source_id)===session('data')->matricule)
-                            <div class="text-white table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2 d-flex" >
+                            <div class="text-white adC table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2 d-flex mb-1" >
                             <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
-                            <span>mmmm
-                            <br><small class="text-muted float-right pt-2"><i>date</i></small></span>
+                            <span>{{ $items->messages}}
+                            <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></span>
                             </div>
                         @else
-                        <div class="d-flex text-white justify-content-end table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2 " >
-                        <span>kkkkkk</span><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
+                        <div class="d-flex text-white justify-content-end adC table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2  mb-1" >
+                        <span>{{ $items->messages}}</span><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
+                        <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></span>
                         </div>
                         @endif
                     @endforeach
@@ -55,6 +57,11 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group">
+                            <a href="/message/nuru_banque" class="nav-link p-0 m-0">
+                                <div class="list-group-item adC text-white">
+                                    <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'><span>Nuru banque</span>
+                                </div>
+                            </a>
                         @foreach($data as $items)
                             <a href="/message/{{$items->matricule}}" class="nav-link p-0 m-0">
                                 <div class="list-group-item adC text-white">

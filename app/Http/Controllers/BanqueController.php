@@ -509,30 +509,78 @@ class BanqueController extends Controller
 
         }
         public function message($dest){
-            $data = \DB::table("Customers")->get();
-            $message = \DB:: table ("Messages")->get();
-            $dest_name ="Nuru Group";
-            if(isset($dest)){
-                $dest_name = \DB::table("Customers")
-                            ->where("matricule", $dest)->first();
-                            session()->put('dest_matricule', $dest_name->matricule);
-                           if($dest_name){
-                            $dest_name = $dest_name->nom. " ".$dest_name->prenom;
-                           }else{
-                            $dest_name = session('dest_name');
-                                return view('message', compact(['message','data', 'dest_name']));
-                           }
-            }
-            session()->put('dest_name', $dest_name);
+            $dest_name=\DB::table('Customers')
+                ->where('matricule',$dest)->first();
+                $data = \DB::table('Customers')
+                            ->where('matricule', '!=',session('data')->matricule)->get();
+                if($dest_name){
+                    session()->put('dest_matricule',$dest_name->matricule);
+                    $dest_name = session()->put('dest_name', $dest_name->nom.' '.$dest_name->prenom);   
+                }
+                $dest_name = session('dest_name');
+                $dest_ip = session('dest_matricule');
+                $message = \DB::table('Messages')
+                            ->where(function($req) use($dest_ip){
+                                $req->where('source_id',session('data')->matricule)
+                                    ->where('destination_id',$dest_ip)->get();
+                            })
+                            ->orwhere(function($req) use($dest_ip){
+                                $req->where('destination_id',session('data')->matricule)
+                                    ->where('source_id',$dest_ip)->get();
+                            })->get();
+                            session()->put(array(
+                                'mess'=>$message,
+                                'data_list'=>$data,
+                                'dest_name'=>$dest_name
+                            ));
+                            if($dest=='nuru_banque'){
+                                $dest_name="Nuru Banque";
+                                $message = \DB::table('Messages')
+                                                ->where('mode',0)->get();
+                                                session()->put('dest_nuru','nuru');
+                            }
             return view('message', compact(['message','data', 'dest_name']));
         }
         public function send_message(Request $request){
-            \DB::table('Messages')->insert(array(
-                'source_id'=>session('data')->matricule,
-                'destination_id'=>session('dest_matricule'),
-                'messages'=>$request->message,
-                'mode'=>1
-            ));
+            $data = session('data_list');
+            if(session('dest_nuru')=='nuru'){
+                \DB::table('Messages')->insert(array(
+                    'source_id'=>session('data')->matricule,
+                    'destination_id'=>'',
+                    'messages'=>$request->message,
+                    'mode'=>0
+                ));
+                session()->pull('dest_nuru','');
+                $message = \DB:: table('Messages')
+                                ->where('mode',0)->get();  
+                                $dest_name = 'Nuru Banque';
+            }else{
+                \DB::table('Messages')->insert(array(
+                    'source_id'=>session('data')->matricule,
+                    'destination_id'=>session('dest_matricule'),
+                    'messages'=>$request->message,
+                    'mode'=>1
+                ));
+                $dest_name = session('dest_name');
+                $dest_ip=session('dest_matricule');
+                
+                $message =$message = \DB::table('Messages')
+                                ->where(function($req) use($dest_ip){
+                                    $req->where('source_id',session('data')->matricule)
+                                        ->where('destination_id',$dest_ip)->get();
+                                })
+                                ->orwhere(function($req) use($dest_ip){
+                                    $req->where('destination_id',session('data')->matricule)
+                                        ->where('source_id',$dest_ip)->get();
+                                })->get();
+                                session()->put(array(
+                                    'mess'=>$message,
+                                    'data_list'=>$data,
+                                    'dest_name'=>$dest_name
+                                ));
+                
+            }
+         return view('message', compact(['message','data', 'dest_name']));
     }
         public function rapport(Request $request){
             $transaction = \DB::table('Transactions')
