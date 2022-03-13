@@ -79,3 +79,6 @@
 <!-- Fin footer -->
 </body>
 </html>
+<script>
+    alert('ok');
+</script>

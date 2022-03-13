@@ -27,8 +27,8 @@
                 </li>
                 <li class="nav-item">
                     <select name="langue" id="" class="form-control text-success border-0" style="background: #1D264A!important;">
-                        <option value="">Francais</option>
-                        <option value="">Anglais</option>
+                        <option value="fr">Francais</option>
+                        <option value="en">Anglais</option>
                     </select>
                 </li>
             </ul>
