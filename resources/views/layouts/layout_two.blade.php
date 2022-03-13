@@ -36,32 +36,32 @@
         <div class="collapse navbar-collapse coll justify-content-center">
             <ul class="nav nav-pills" role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="icon-home "></span><?php echo _(" Acceuil");?></a>
+                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="icon-home "></span>{{ __(" Acceuil") }}</a>
                 </li>
                 @if(session('account')==='Caissier')
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#retrait"><span class="bi bi-currency-exchange"></span><?php echo _("Retrait");?></a>
+                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#retrait"><span class="bi bi-currency-exchange"></span>{{ __("Retrait") }}</a>
                 </li>
                 @endif
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span><?php echo _("Message");?></a>
+                    <a class="nav-link text-white" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">
                         <a class="nav-link text-white" href="#" id="drop" data-bs-toggle="dropdown">
-                            <span class="bi-person-plus"></span><?php echo _("Partenaires");?>
+                            <span class="bi-person-plus"></span>{{ __("Partenaires") }}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="drop">
                             <a class="dropdown-item" href="#">BCC</a>
                             <a class="dropdown-item" href="#">Tmb</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><?php echo _("Autres");?></a>
+                            <a class="dropdown-item" href="#">{{ __("Autres") }}</a>
                         </div>
                     </div>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" role="tab" aria-selected="true"><span class="icon-cogs"></span><?php echo _("Info Alert");?></a>
+                    <a class="nav-link text-white" href="#" role="tab" aria-selected="true"><span class="icon-cogs"></span>{{ __("Info Alert") }}</a>
                 </li>
             </ul>
         </div>
@@ -94,35 +94,35 @@
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                             <div class="dropdown">
                                 <a href="#" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#verifier_solde">
-                                <i class="bi-safe-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Verifier Solde");?></span></a>
+                                <i class="bi-safe-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Verifier Solde") }}</span></a>
                             </div>
                       
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="transaction" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-bank2 bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Transaction");?></span>
+                            <i class="bi-bank2 bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Transaction") }}</span>
                         </a>
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="" class="nav-link align-middle px-0 mhl  h-50" data-bs-toggle="modal" data-bs-target="#rapport">
-                            <i class="bi-calendar-check-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Rapports Clients");?></span>
+                            <i class="bi-calendar-check-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Rapports Clients") }}</span>
                         </a>
                     </li>
                     @if(session('account')==='Caissier')
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="#" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#depot">
-                            <i class="bi-stack bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Depot");?></span>
+                            <i class="bi-stack bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Depot") }}</span>
                         </a>
                     </li>
                     @endif
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="#" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-plus-square bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Autres");?></span>
+                            <i class="bi-plus-square bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Autres") }}</span>
                         </a>
                     </li>
                     <li class="nav-item w-100">
                         <a href="{{ url('logout') }}" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Deconnection");?></span>
+                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Deconnection") }}</span>
                         </a>
                     </li>
                     <!-- <div class="dropdown pb-4">
@@ -145,7 +145,7 @@
 <div style="background: #0f222b;" class="border-top">
     <footer class="py-3 container">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-success"><?php echo _("NURU BANQUE");?></a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-success">{{ __("NURU BANQUE") }}</a></li>
         </ul>
         <p class="text-center text-muted ">A propos| Contact | Politique d'utilisation</p>
         <p class="text-center text-muted">copyritht&copy;2022 nurubanque | all rigths reserved | Power by <span style="color: #13c91c;">Subnet Inc.</span></p> 

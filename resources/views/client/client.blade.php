@@ -6,7 +6,7 @@
             <div class="col-lg-6 card adC">
                 <div class="w-100">
                     <div class="card-header text-success">
-                        <?php echo _("Information basique");?>
+                        {{ __("Information basique") }}
                     </div>
                     <div class="card-body px-0">
                         <div class="list-group">
@@ -27,25 +27,25 @@
                 </div>
                 <div class="w-100">
                     <div class="card-header text-success">
-                        <?php echo _("Parametre du Compte");?>
+                        {{ __("Parametre du Compte") }}
                     </div>
                     <div class="card-body px-0">
                         <div class="list-group">
                             <div class="list-group-item d-flex adC">
                                 <div class="col-5 text-white">
-                                    <?php echo _("Langage");?>
+                                    {{ __("Langage") }}
                                 </div>
                                 <div class="col-7 text-muted">
-                                    <?php echo ("Francais");?>
+                                    {{ __("Francais") }}
                                 </div>
                             </div>
                             <div class="list-group-item d-flex adC">
                                 <div class="col-5 text-white">
-                                    <?php echo _("Parametres de confidentialite");?>
+                                    {{ __("Parametres de confidentialite") }}
                                 </div>
                                 <div class="col-7 text-muted">
-                                    <?php echo ("Seuls les administrateurs et les agents de la banque
-                                     peuvent avoir acces a vos donnees pour mieux proteger votre compte");?>
+                                    {{ __("Seuls les administrateurs et les agents de la banque
+                                     peuvent avoir acces a vos donnees pour mieux proteger votre compte") }}
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-6 p-0 adC align-self-center">
                 <div class="card-header text-success">
-                    <?php echo _("Information Supplementaire");?>
+                    {{ __("Information Supplementaire") }}
                 </div>
                 <div class="card-body">
                     <div class="list-group">

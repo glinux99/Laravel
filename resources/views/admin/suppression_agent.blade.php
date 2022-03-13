@@ -6,22 +6,22 @@
         <thead>
             <tr>
                 <td>
-                    <?php echo _("Nom");?>
+                    {{ __("Nom") }}
                 </td>
                 <td>
-                    <?php echo _("Prenom");?>
+                    {{ __("Prenom") }}
                 </td>
                 <td>
-                    <?php echo _("Status du compte");?>
+                    {{ __("Status du compte") }}
                 </td>
                 <td>
-                    <?php echo _("Matricule / E-mail");?>
+                    {{ __("Matricule / E-mail") }}
                 </td>
                 <td>
-                    <?php echo _("Solde");?>
+                    {{ __("Solde") }}
                 </td>
                 <td>
-                    <?php echo _("Type de compte");?>
+                    {{ __("Type de compte") }}
                 </td>
                      </tr>
                     </thead>
@@ -39,11 +39,11 @@
                 <td>@php $desactivate=$items->status_compte;
                     @endphp
                     @if ($desactivate)
-                        <a class="btn btn-dark" href="/desactive/{{$items->id}}"><?php echo _("Desactiver");?></a>
+                        <a class="btn btn-dark" href="/desactive/{{$items->id}}">{{ __("Desactiver") }}</a>
                     @else
-                        <a  class="btn btn-success" href="/active/{{$items->id}}"><?php echo _("Activer");?></a>
+                        <a  class="btn btn-success" href="/active/{{$items->id}}">{{ __("Activer") }}</a>
                     @endif
-                        <a class="btn btn-danger" href="/delete/{{$items->id}}"><?php echo _("Suppression");?></a>
+                        <a class="btn btn-danger" href="/delete/{{$items->id}}">{{ __("Suppression") }}</a>
                 </td>
                 <td>
                     <small>{{ $items->matricule}}</small><br>

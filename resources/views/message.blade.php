@@ -18,9 +18,9 @@
                     @endphp
                     @if($validator)
                             <div class="text-white adC card rounded text-break ps-2 pe-2 pt-2 pb-2 d-flex">
-                                            Les messages sont chiffres par un algorithme propre a nuru_banque. Aucun autre tiers 
+                                            {{ __("Les messages sont chiffres par un algorithme propre a nuru_banque. Aucun autre tiers 
                                             ne peut les lire. Commencer une discussion avec les autres sans les importunes svp.
-                                            En cas de probleme, contactez-nous 24/24!
+                                            En cas de probleme, contactez-nous 24/24!") }}
                             </div>
                     @endif
                     @foreach($message as $items)
@@ -53,7 +53,7 @@
                                 <div class="col-10">
                                 <textarea name="message" id="" rows="" class="form-control "></textarea>
                                 </div>
-                                <div class="col-2"><button type="submit" class="btn btn-success">Envoyer</button></div>
+                                <div class="col-2"><button type="submit" class="btn btn-success">{{ __("Envoyer") }}</button></div>
                             </div>
                         </form>
                    </div>

@@ -5,19 +5,19 @@
     <div class="row mb-5 mt-1 w-100 p-0 m-0 ">
         <div class="col-md-6 m-0 p-0 mx-auto" style="background:#0f222bd2;">
             <div class="card-header text-success text-uppercase text-center">
-                Nuru Banque <?php echo _("Administation $agent2 ");?>
+                Nuru Banque {{ __("Administation $agent2 ") }}
             </div>
             <div class="card-group shadow mb-1 col-11 mx-auto" >
                 <div class="card adC me-1">
                     <a href="{{url('Clients/accounts')}}" class="nav-link text-center">
                         <span class="bi-person bi--5xl text-center"></span><br>
-                        <small class="text-center text-muted"><?php echo _("Comptes Clients");?></small>
+                        <small class="text-center text-muted">{{ __("Comptes Clients") }}</small>
                     </a>
                 </div>
                 <div class="card adC m-0 p-0">
                     <a href="{{url('add-agents-or-clients')}}" class="nav-link text-center">
                         <span class="bi-person-plus-fill bi--5xl"></span><br>
-                        <small class="text-center text-muted"><?php echo _("Ajouter $agent3");?></small>
+                        <small class="text-center text-muted">{{ __("Ajouter $agent3") }}</small>
                     </a>
                 </div>
             </div>
@@ -25,21 +25,21 @@
                 <div class="card text-center adC me-1">
                     <a href="{{url('solde-all')}}" class="nav-link">
                     <span class="bi-bank2 bi--5xl"></span><br>
-                    <small class="text-center text-muted"><?php echo _("Solde courant de la banque");?></small>
+                    <small class="text-center text-muted">{{ __("Solde courant de la banque") }}</small>
                     </a>
                 </div>
                 @if ($agent4 === 'caissier')
                 <div class="card adC">
                     <a href="{{url('delete_add_desactivate_clients_or_agent')}}" class="nav-link text-center">
                         <span class="bi-arrow-counterclockwise text-center bi--5xl"></span><br>
-                        <small class="text-center text-muted"><?php echo _(" Annuler la derniere transaction");?></small>
+                        <small class="text-center text-muted">{{ __(" Annuler la derniere transaction") }}</small>
                     </a>
                 </div> 
                 @elseif($agent4 === 'administrateur')
                 <div class="card adC">
                     <a href="{{url('delete_add_desactivate_clients_or_agent')}}" class="nav-link text-center">
                         <span class="bi-person-x-fill text-center bi--5xl"></span><br>
-                        <small class="text-center text-muted"><?php echo _(" Supprimer un Client/Agent");?></small>
+                        <small class="text-center text-muted">{{ __(" Supprimer un Client/Agent") }}</small>
                     </a>
                 </div>
                 @endif
@@ -48,13 +48,13 @@
                 <div class="card text-center adC me-1">
                     <a href="" class="nav-link text-center">
                         <span class="bi-currency-exchange bi--5xl"></span><br>
-                        <small class="text-center text-muted"><?php echo _("Verifier les payements");?></small>
+                        <small class="text-center text-muted">{{ __("Verifier les payements") }}</small>
                     </a>
                 </div>
                 <div class="card adC">
                     <a href="{{url($agent5)}}" class="nav-link text-center">
                         <span class="bi-house-door bi--5xl text-center"></span><br>
-                        <small class="text-center text-muted"><?php echo _("Menu principal");?></small>
+                        <small class="text-center text-muted">{{ __("Menu principal") }}</small>
                     </a>
                 </div>
             </div>
@@ -73,30 +73,30 @@
                     </div>
               </div>
               <span class='text-muted'>
-                  <?php  echo _("Le solde du compte principale de la banque s'eleve a un montant de");?><span class='text-danger' style='font-weight: bolder'> 2000.45</span> USD 
+                  {{ ("Le solde du compte principale de la banque s'eleve a un montant de") }}<span class='text-danger' style='font-weight: bolder'> 2000.45</span> USD 
               </span>
             </div>
         @endif
         @if (isset($data_active))
         <div class="col-md-6 col-12 adC text-success text-center align-self-center">
             <div class="card-header text-uppercase text-center">
-                <?php echo _("INFORMATION SUR LES CLIENTS");?>
+                {{ __("INFORMATION SUR LES CLIENTS") }}
             </div>
             <div class="card-body text-success overflow-auto px-auto">
                 <table class="adC w-100 table table-striped table-hover table-bordered text-primary table-card">
                     <thead>
                         <tr>
                             <td>
-                                <?php echo _("Nom");?>
+                                {{ __("Nom") }}
                             </td>
                             <td>
-                                <?php echo _("Prenom");?>
+                                {{ __("Prenom") }}
                             </td>
                             <td>
-                                <?php echo _("Matricule / E-mail");?>
+                                {{ __("Matricule / E-mail") }}
                             </td>
                             <td>
-                                <?php echo _("Solde");?>
+                                {{ __("Solde") }}
                             </td>
                         </tr>
                     </thead>

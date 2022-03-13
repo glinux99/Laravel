@@ -19,8 +19,8 @@
             <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="submit" class="btn btn-primary">{{ __("Rechercher") }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 
@@ -58,8 +58,8 @@ else{
             <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="submit" class="btn btn-primary">{{ __("Rechercher") }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 
@@ -130,7 +130,7 @@ else{
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-danger">Valider</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 
@@ -160,7 +160,7 @@ else{
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-danger">Valider</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 
@@ -192,7 +192,7 @@ else{
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success">Valider</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 
@@ -219,7 +219,7 @@ else{
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-danger">Valider</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuller</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
    </form> 

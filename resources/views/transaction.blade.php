@@ -18,16 +18,16 @@
             <table class="text-center table table-bordered table-hover adC text-white">
                 <thead>
                     <tr>
-                        <td>Date</td>
-                        <td>Transaction</td>
+                        <td>{{ __("Date") }}</td>
+                        <td>{{ __("Transaction") }}</td>
                         @if(session('account')!='Client')
                         @if($client!=1)
-                        <td>Matricule Client</td>
+                        <td>{{ __("Matricule Client") }}</td>
                         @endif
                         @endif
-                        <td>Solde</td>
-                        <td>Retrait / Depot </td>
-                        <td>Montant_Ret</td>
+                        <td>{{ __("Solde") }}</td>
+                        <td>{{ __("Retrait / Depot ") }}</td>
+                        <td>{{ __("Montant_Ret") }}</td>
                     </tr>
                 </thead>
                 <tbody>
