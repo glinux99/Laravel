@@ -33,6 +33,12 @@ Route::group(['middleware'=>['web']], function(){
         return view('client.client');
     })->name('client')
     ->middleware(SignUp::class);
+    //pour lesessaie
+    Route::get('/lang_session', function(Request $request){
+        session()->put('lang', $request->langue);
+        return back();
+        
+    });
     Route::post('/send_message', [ BanqueController::class, 'send_message']);
     Route::get('/message/{dest}', [ BanqueController::class, 'message']);
     Route::post('/rapport', [ BanqueController::class, 'rapport']);

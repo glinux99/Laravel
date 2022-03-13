@@ -26,8 +26,9 @@
                     <a href="#" class="nav-link text-white">{{ __("Statistiques")}}</a>
                 </li>
                 <li class="nav-item">
-                    <select name="langue" id="" class="form-control text-success border-0" style="background: #1D264A!important;">
-                        <option value="fr">Francais</option>
+                    <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
+                        <option value="">@if(session('langue')==='fr') {{ 'Francais' }} @else {{ 'Anglais' }} @endif</option>
+                        <option value="fr" >Francais</option>
                         <option value="en">Anglais</option>
                     </select>
                 </li>

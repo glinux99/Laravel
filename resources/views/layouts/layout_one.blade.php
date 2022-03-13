@@ -80,5 +80,10 @@
 </body>
 </html>
 <script>
-    alert('ok');
+   document.getElementById('langue').addEventListener('change', function() {
+       window.location.href="/lang_session?langue="+this.value;
+
+
+   
+});
 </script>
