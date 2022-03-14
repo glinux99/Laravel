@@ -1,3 +1,5 @@
+<div class="bfh-datepicker">
+</div>
 @extends('layouts.layout_one')
 @section('titre')Bienvenu sur notre banque en ligne @endsection
 @section('menu-second')
