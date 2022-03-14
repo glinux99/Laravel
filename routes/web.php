@@ -65,3 +65,6 @@ Route::group(['middleware'=>['web']], function(){
     //Route::get('/products', [ etudiantController::class,'index']);
     
 });
+Route:: fallback(function(){
+    return view('acceuil');
+});
