@@ -1,5 +1,5 @@
 @extends('layouts.layout_one')
-@section('titre')Veuillez vous connecter @endsection
+@section('titre'){{ __("Veuillez vous connecter")}} @endsection
 @section ('menu-second')
     <div class="text-end col-lg-8 col-7 my-auto">
         <a href="mailto:security@nurubanque.cd">{{ __("Securite") }}</a>&nbsp;&nbsp;|
@@ -60,7 +60,7 @@ $matricule2 = substr(str_shuffle("1234567890"),0,2);
                                     {{ __("Mot de passe oublie?") }}
                                 </a>
                             </div>
-                            <p class="text-center"><i>Privacy term of visit</i></p> 
+                            <p class="text-center"><i>{{ __("Privacy term of visit") }}</i></p> 
                         </div>
                     </div>
                     <div class="tab-pane fade {{ $desactivator }} " id="card-login" role="tabpanel" aria-labelledby="card-log">
@@ -94,7 +94,7 @@ $matricule2 = substr(str_shuffle("1234567890"),0,2);
         <div class="col-md-6 align-self-center border border-2 border-success" style="background: #0f222b!important;">
             <div class="card-body shadow">
                 <p>{{ __("Bienvenu sur") }}</p>
-                <p class="h3 col-8" style="color: rgb(39, 148, 29);">NURU MERCHANT PORTAIL</p>
+                <p class="h3 col-8" style="color: rgb(39, 148, 29);">{{ __("NURU MERCHANT PORTAIL") }}</p>
                 <div class="d-flex border-bottom border-white border-2">
                     <span class="bi-hand-index bi--3xl me-2"></span>
                     <p>

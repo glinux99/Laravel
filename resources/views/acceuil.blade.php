@@ -11,7 +11,7 @@
                     <a href="{{ Route('login')}}" class="nav-link text-white">{{ __("Mon compte")}}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white ">{{ __("Mes payements")}}</a>
+                    <a href="#" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white">{{ __("Mon epargne")}}</a>
@@ -41,7 +41,7 @@
     <div class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="card carousel-item active">
-                <img src="{{url('assets/img/banque_img.jpg')}}" alt="" class="card-img-top">
+                <img src="{{url('assets/img/fr4.jpg')}}" alt="" class="card-img-top">
                 <div class="card-img-overlay d-flex ">
                    <div class="mx-auto align-self-center pb-5 text-center">
                         <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus d'avantages") }}
@@ -56,9 +56,9 @@
                 </div>
             </div>
             <div class="card carousel-item">
-                <img src="{{url('assets/img/banque_img.jpg')}}" alt="" class="card-img-top">
-                <div class="card-img-overlay d-flex ">
-                   <div class="mx-auto align-self-center pb-5 text-center">
+                <img src="{{url('assets/img/fr5.png')}}" alt="" class="card-img-top w-50 mx-auto d-block">
+                <div class="card-img-overlay d-flex pb-5">
+                   <div class="mx-auto align-self-center  text-center">
                         <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus de facilite") }}
                         </h3>
                         <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilite")}}
