@@ -73,7 +73,7 @@
                     </div>
               </div>
               <span class='text-muted'>
-                  {{ ("Le solde du compte principale de la banque s'eleve a un montant de") }}<span class='text-danger' style='font-weight: bolder'> 2000.45</span> USD 
+                  {{ __("Le solde du compte principale de la banque s'eleve a un montant de") }}<span class='text-danger' style='font-weight: bolder'> 2000.45</span> USD 
               </span>
             </div>
         @endif
