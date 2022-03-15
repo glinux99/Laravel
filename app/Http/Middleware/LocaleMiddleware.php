@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class SetLangage
+class LocaleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,10 @@ class SetLangage
      */
     public function handle(Request $request, Closure $next)
     {
-        //session()->put('lang','en');
-        \App::setLocale(session('lang'));
-        return $next($request);
+        if(\Session::has('locale'))
+   {
+       \App::setlocale(\Session::get('locale'));
+   }
+   return $next($request);
     }
 }

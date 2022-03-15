@@ -42,7 +42,7 @@ $matricule2 = substr(str_shuffle("1234567890"),0,2);
                             <div class="w-100">
                                 <form action="/connection" method="post">
                                 @csrf
-                                    <input type="text" name="mail" id="" class="form-control mb-3" placeholder="{{ __("nom d'utilisateur ou adresse mail") }}" required>
+                                    <input type="text" name="mail" id="" class="form-control mb-3" placeholder='{{ __("nom d utilisateur ou adresse mail") }}' required>
                                     <input type="password" name="psswd" id="" class="form-control mb-3" placeholder="*************************" required>
                                     <button type="submit" class="btn btn-dark w-50">{{ __("Connection") }}</button>
                                 </form>

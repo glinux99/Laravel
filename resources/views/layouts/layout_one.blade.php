@@ -81,9 +81,6 @@
 </html>
 <script>
    document.getElementById('langue').addEventListener('change', function() {
-       window.location.href="/lang_session?langue="+this.value;
-
-
-   
+       window.location.href="/locale/"+this.value;
 });
 </script>

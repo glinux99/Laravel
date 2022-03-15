@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Http\Middleware\SignUp;
 use App\Http\Middleware\SignOn;
 use App\Http\Controllers\BanqueController;
+use App\Http\Controllers\LocaleController;
+use App\Http\Middleware\LocaleMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,11 @@ use App\Http\Controllers\BanqueController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
-Route::group(['middleware'=>['web']], function(){
     Route::get('/', function () {
         return view('acceuil');
     });
@@ -36,6 +41,8 @@ Route::group(['middleware'=>['web']], function(){
     //pour lesessaie
     Route::get('/lang_session', function(Request $request){
         session()->put('lang', $request->langue);
+        \App::setLocale( $request->langue);
+        // dd(\App::getLocale());
         return back();
         
     });
@@ -63,8 +70,7 @@ Route::group(['middleware'=>['web']], function(){
     Route::post('/virement', [ BanqueController::class, 'virement']);
     Route::get('/delete_add_desactivate_clients_or_agent', [ BanqueController::class, 'alter_clients_and_agents']);
     //Route::get('/products', [ etudiantController::class,'index']);
-    
-});
-Route:: fallback(function(){
-    return view('acceuil');
-});
+
+// Route:: fallback(function(){
+//     return view('acceuil');
+// });

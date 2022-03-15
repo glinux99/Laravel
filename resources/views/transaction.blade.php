@@ -21,9 +21,12 @@
                         <td>{{ __("Date") }}</td>
                         <td>{{ __("Transaction") }}</td>
                         @if(session('account')!='Client')
-                        @if($client!=1)
-                        <td>{{ __("Matricule Client") }}</td>
-                        @endif
+                        @php 
+                        if(!isset($client)){
+                            $client = 0;@endphp
+                            <td>{{ __("Matricule Client") }}</td>
+                       @php }
+                        @endphp
                         @endif
                         <td>{{ __("Solde") }}</td>
                         <td>{{ __("Retrait / Depot ") }}</td>
