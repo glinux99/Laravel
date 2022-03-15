@@ -281,15 +281,22 @@
             <div class="row">
                 <div class="col-lg-7 card overflow-auto"style="clip-path: polygon(100% 0, 100% 46%, 93% 50%, 100% 54%, 100% 100%, 0 100%, 0% 80%, 0 0);">
                 <p>
-                  <div class="d-flex">
+                  <div class="row " style="background: #0f222b!important;">
+                      <div class="col-1">
                       <span class="bi-calendar bi--4xl"></span>
-                      <div class="d-flex flex-column p-0 m-0">
-                        <span class="h3 p-0 m-0"> {{ __("Cours d'echange actuel") }}</span>
-                        <small>{{ \Carbon\Carbon::now()->toDateString() }}</small>
+                      </div>
+                      <div class="col-11 row text-white" style="background: #0f222b!important;">
+                        <div class="col-7 d-flex flex-column p-0 m-0">
+                            <span class="h3 p-0 m-0"> {{ __("Cours d'echange actuel") }}</span>
+                            <small>{{ \Carbon\Carbon::now()->toDateString() }}</small>
+                        </div>
+                        <div class="col-5">
+                            {{ __("1 USD = 2000.1420 CDF") }} <br> {{ __("cours moyen") }}
+                        </div>
                       </div>
                   </div>
                 </p>    
-                <table class="table table-bordered text-primary table-hover text-center table-striped">
+                <table style="background: #0f222b!important;" class="table table-bordered text-primary table-hover text-center table-striped">
                         <thead>
                             <tr>
                                 <td>{{ __("Unite") }}</td>
@@ -313,7 +320,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-lg-5 card">
+                <div class="col-lg-5 card mx-auto p-2">
                     <div class="row">
                         <div class="col-4">
                             <label for="">{{ __("Montant") }} </label>
@@ -328,7 +335,8 @@
                             <input type="text" class="form-control">
                         </div>
                     </div>
-
+                    <a href="http://" class="text-center"><span class="text-center bi-caret-down bi--5xl"></span></a>
+                    <p class="result " style="height: 50px;background: #0f222b!important;"></p>
                 </div>
             </div>
         </div>
