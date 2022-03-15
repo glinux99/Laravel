@@ -44,7 +44,7 @@
                 <img src="{{url('assets/img/fr4.jpg')}}" alt="" class="card-img-top">
                 <div class="card-img-overlay d-flex ">
                    <div class="mx-auto align-self-center pb-5 text-center">
-                        <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus d'avantages") }}
+                        <h3 class="text-uppercase fw-bold text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus d'avantages") }}
                         </h3>
                         <h6 class="text-white"style="font-weight: 100;">{{ __("Beneficiez de nombreux produits et services lie a votre compte")}}
                         </h6>
@@ -56,10 +56,10 @@
                 </div>
             </div>
             <div class="card carousel-item">
-                <img src="{{url('assets/img/fr5.png')}}" alt="" class="card-img-top w-50 mx-auto d-block">
+                <img src="{{url('assets/img/fr5.png')}}" alt="" class="card-img-top w-50 mx-auto d-block" style="transform: scale(2);">
                 <div class="card-img-overlay d-flex pb-5">
                    <div class="mx-auto align-self-center  text-center">
-                        <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus de facilite") }}
+                        <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilite") }}
                         </h3>
                         <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilite")}}
                         </h6>
@@ -122,6 +122,213 @@
                     <div class="w-100">
 
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100">
+        <div class="card-header text-center">
+            {{ __("TAUX D'ECHANGE")}}
+        </div>
+        @php
+            $taux = array (
+                    array(
+                    "unite"=>1,
+                    "code"=>"AOA",
+                    "libele"=>"KWANZA ANGOLAIS",
+                    "cours_a"=>3.7576,
+                    "cours_m"=>3.8342,
+                    "cours_v"=>3.9109
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"BIF",
+                    "libele"=>"FRANC BURUNDAIS",
+                    "cours_a"=>0.9789,
+                    "cours_m"=>0.9989,
+                    "cours_v"=>1.0188
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"CNY",
+                    "libele"=>"YUAN CHINOIS",
+                    "cours_a"=>309.3899,
+                    "cours_m"=>315.7040,
+                    "cours_v"=>322.0180
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"JPY",
+                    "libele"=>"YEN JAPONAIS",
+                    "cours_a"=>17.0727,
+                    "cours_m"=>17.4212,
+                    "cours_v"=>17.7696
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"RWF",
+                    "libele"=>"FRANC RWANDAIS",
+                    "cours_a"=>1.8860,
+                    "cours_m"=>1.9245,
+                    "cours_v"=>1.9630
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"TZS",
+                    "libele"=>"SHILLING TANZANIEN",
+                    "cours_a"=>0.8472,
+                    "cours_m"=>0.8645,
+                    "cours_v"=>0.8817
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"UGX",
+                    "libele"=>"SHILLING OUGANDAIS",
+                    "cours_a"=>0.5577,
+                    "cours_m"=>0.5691,
+                    "cours_v"=>0.5805
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"USD",
+                    "libele"=>"DOLLAR AMERICAIN",
+                    "cours_a"=>1960.1392,
+                    "cours_m"=>2000.1420,
+                    "cours_v"=>2040.1449
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"ZMW",
+                    "libele"=>"KWACHA ZAMBIEN",
+                    "cours_a"=>111.3718,
+                    "cours_m"=>113.6447,
+                    "cours_v"=>115.9175
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"EUR",
+                    "libele"=>"EURO",
+                    "cours_a"=>22223.9894,
+                    "cours_m"=>2269.3770,
+                    "cours_v"=>2314.7645
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"XAF",
+                    "libele"=>"FRANC CFA",
+                    "cours_a"=>3.3905,
+                    "cours_m"=>3.4596,
+                    "cours_v"=>3.5288
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"ZAR",
+                    "libele"=>"RAND SUD AFRICAIN",
+                    "cours_a"=>129.3587,
+                    "cours_m"=>131.9987,
+                    "cours_v"=>134.6387
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"AUD",
+                    "libele"=>"DOLLAR AUSTRALIEN",
+                    "cours_a"=>1413.7104,
+                    "cours_m"=>1442.5616,
+                    "cours_v"=>147.4129
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"CAD",
+                    "libele"=>"DOLLAR CANADIEN",
+                    "cours_a"=>1528.2164,
+                    "cours_m"=>1569.6089,
+                    "cours_v"=>1601.0008
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"CHF",
+                    "libele"=>"FRANC SUISSE",
+                    "cours_a"=>2141.8313,
+                    "cours_m"=>2185.5421,
+                    "cours_v"=>2229.2529
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"GBP",
+                    "libele"=>"LIVRE STERLING",
+                    "cours_a"=>2668.0016,
+                    "cours_m"=>2722.4506,
+                    "cours_v"=>27776.8996
+                    ),
+                    array(
+                    "unite"=>1,
+                    "code"=>"XDR",
+                    "libele"=>"D.T.S",
+                    "cours_a"=>2748.7620,
+                    "cours_m"=>2804.8592,
+                    "cours_v"=>2860.9563
+                    )
+
+
+
+
+
+
+
+            );
+        @endphp
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-7 card overflow-auto"style="clip-path: polygon(100% 0, 100% 46%, 93% 50%, 100% 54%, 100% 100%, 0 100%, 0% 80%, 0 0);">
+                <p>
+                  <div class="d-flex">
+                      <span class="bi-calendar bi--4xl"></span>
+                      <div class="d-flex flex-column p-0 m-0">
+                        <span class="h3 p-0 m-0"> {{ __("Cours d'echange actuel") }}</span>
+                        <small>{{ \Carbon\Carbon::now()->toDateString() }}</small>
+                      </div>
+                  </div>
+                </p>    
+                <table class="table table-bordered text-primary table-hover text-center table-striped">
+                        <thead>
+                            <tr>
+                                <td>{{ __("Unite") }}</td>
+                                <td>{{ __("code") }}</td>
+                                <td> {{ __("libele") }}</td>
+                                <td> {{ __("Cours acheteur") }}</td>
+                                <td> {{ __("Cours moyen ") }}</td>
+                                <td> {{ __("Cours vendeur ") }}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach($taux as $items)
+                                <tr>
+                                @foreach($items as $item)
+                                <td>{{ $item}}</td>
+                                @endforeach
+                                </tr>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-5 card">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="">{{ __("Montant") }} </label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="">De</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="">A</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
