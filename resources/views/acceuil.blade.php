@@ -268,13 +268,6 @@
                     "cours_m"=>2804.8592,
                     "cours_v"=>2860.9563
                     )
-
-
-
-
-
-
-
             );
         @endphp
         <div class="card-body">
@@ -321,6 +314,10 @@
                     </table>
                 </div>
                 <div class="col-lg-5 card mx-auto p-2">
+                     <div class=" d-flex flex-column p-0 m-0 text-white text-center" style="background: #0f222b!important;">
+                        <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
+                        <small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
+                    </div>
                     <div class="row">
                         <div class="col-4">
                             <label for="">{{ __("Montant") }} </label>
@@ -338,17 +335,84 @@
                     <a href="http://" class="text-center"><span class="text-center bi-caret-down bi--5xl"></span></a>
                     <p class="result " style="height: 50px;background: #0f222b!important;"></p>
                     <div>
-                        
+                        <canvas id="cours_G" width="30" height="20"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<canvas id="myChart" width="100" height="100"></canvas>
+<canvas id="cours" width="100" height="100"></canvas>
 <script>
-const ctx = document.getElementById('myChart');
+const ctx = document.getElementById('cours_G');
+var tb = <?php echo json_encode($taux);?>;
+var datax=new Array();
+var datay=new Array();
+var dataz=new Array();
+var dataf=new Array();
+var min_tb = ['CNY','JPY','RWF','CHF','USD','EURO','GBP'];
+for(var x=0; x<tb.length; x++){
+    //alert(tb[x]['code']);
+    for(var y=0; y<min_tb.length; y++){
+        if(min_tb[y]=== tb[x]['code']){
+            datax[x]=tb[x]['code'];
+            datay [x] = tb[x]['cours_a'];
+            dataz [x] = tb[x]['cours_m'];
+            dataf [x] = tb[x]['cours_v'];
+        };
+    }
+}
+const data = {
+  labels: datax,
+  datasets: [{
+    label: 'Money Analyse Data : Cours Acheteur',
+    data: datay,
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    backgroundColor: 'red',
+  },
+  {
+    label: 'Money Analyse Data : Cours Moyen',
+    data: dataz,
+    fill: false,
+    backgroundColor: 'green',
+    borderColor: 'blue',
+  },
+  {
+    label: 'Money Analyse Data : Cours Vendeur',
+    data: dataf,
+    fill: false,
+    backgroundColor: 'blue',
+    borderColor: 'red',
+  }]
+};
+const myChart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: {
+    plugins: {
+            title: {
+                display: true,
+                text: 'Graphique de Money par rapport a la money congolaise',
+                color: 'green',
+                fontSize: 50,
+            }
+        },
+    animations: {
+      tension: {
+        duration: 3000,
+        easing: 'linear',
+        from: 2,
+        to: 1,
+        loop: true
+      }
+    }
+  }
+});
+</script>
+
+<script>
+const ctx2 = document.getElementById('cours');
 var tb = <?php echo json_encode($taux);?>;
 var datax=new Array();
 var datay=new Array();
@@ -361,7 +425,7 @@ for(var x=0; x<tb.length; x++){
     dataz [x] = tb[x]['cours_m'];
     dataf [x] = tb[x]['cours_v'];
 }
-const data = {
+const data2 = {
   labels: datax,
   datasets: [{
     label: 'Money Analyse Data : Cours Acheteur',
@@ -382,9 +446,9 @@ const data = {
     borderColor: 'red',
   }]
 };
-const myChart = new Chart(ctx, {
+const myChart2 = new Chart(ctx2, {
   type: 'line',
-  data: data,
+  data: data2,
   options: {
     animations: {
       tension: {
@@ -398,8 +462,6 @@ const myChart = new Chart(ctx, {
   }
 });
 </script>
-
- 
 
  
 @endsection
