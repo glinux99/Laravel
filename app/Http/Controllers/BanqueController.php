@@ -235,6 +235,7 @@ class BanqueController extends Controller
                 $for_account = 'Client';
             break;
         }
+        
         \DB::table('Inscription')->insert([
             'adresse_mail'=>$request->mail,
             'code'=>$code

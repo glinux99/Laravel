@@ -208,7 +208,7 @@
                     "unite"=>1,
                     "code"=>"EUR",
                     "libele"=>"EURO",
-                    "cours_a"=>22223.9894,
+                    "cours_a"=>2223.9894,
                     "cours_m"=>2269.3770,
                     "cours_v"=>2314.7645
                     ),
@@ -234,7 +234,7 @@
                     "libele"=>"DOLLAR AUSTRALIEN",
                     "cours_a"=>1413.7104,
                     "cours_m"=>1442.5616,
-                    "cours_v"=>147.4129
+                    "cours_v"=>1471.4129
                     ),
                     array(
                     "unite"=>1,
@@ -258,7 +258,7 @@
                     "libele"=>"LIVRE STERLING",
                     "cours_a"=>2668.0016,
                     "cours_m"=>2722.4506,
-                    "cours_v"=>27776.8996
+                    "cours_v"=>2776.8996
                     ),
                     array(
                     "unite"=>1,
@@ -338,28 +338,69 @@
                     <a href="http://" class="text-center"><span class="text-center bi-caret-down bi--5xl"></span></a>
                     <p class="result " style="height: 50px;background: #0f222b!important;"></p>
                     <div>
-                    <!doctype html><html lang="en" prefix="og: http://ogp.me/ns#"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><base target="_blank"/><title>Webpack App</title><link href="/assets/css/main.0cd3731fe7db71dd4667.css" rel="stylesheet"/></head><body><script>var _paq = (window._paq = window._paq || [])
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView'])
-      _paq.push(['disableCookies'])
-      _paq.push(['enableLinkTracking'])
-      ;(function () {
-        var u = '//paw.in.devexperts.com/'
-        _paq.push(['setTrackerUrl', u + 'matomo.php'])
-        _paq.push(['setSiteId', '3'])
-        var d = document,
-          g = d.createElement('script'),
-          s = d.getElementsByTagName('script')[0]
-        g.type = 'text/javascript'
-        g.async = true
-        g.src = u + 'matomo.js'
-        s.parentNode.insertBefore(g, s)
-      })()</script><div id="root"></div><script type="module" src="/assets/js/main.1b0a549e5eabf7abfd37.es6.js"></script><script nomodule src="/assets/js/main.1b0a549e5eabf7abfd37.es5.js"></script></body></html>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<canvas id="myChart" width="100" height="100"></canvas>
+<script>
+const ctx = document.getElementById('myChart');
+var tb = <?php echo json_encode($taux);?>;
+var datax=new Array();
+var datay=new Array();
+var dataz=new Array();
+var dataf=new Array();
+for(var x=0; x<tb.length; x++){
+    //alert(tb[x]['code']);
+    datax[x]=tb[x]['code'];
+    datay [x] = tb[x]['cours_a'];
+    dataz [x] = tb[x]['cours_m'];
+    dataf [x] = tb[x]['cours_v'];
+}
+const data = {
+  labels: datax,
+  datasets: [{
+    label: 'Money Analyse Data : Cours Acheteur',
+    data: datay,
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+  },
+  {
+    label: 'Money Analyse Data : Cours Moyen',
+    data: dataz,
+    fill: false,
+    borderColor: 'blue',
+  },
+  {
+    label: 'Money Analyse Data : Cours Vendeur',
+    data: dataf,
+    fill: false,
+    borderColor: 'red',
+  }]
+};
+const myChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: {
+    animations: {
+      tension: {
+        duration: 3000,
+        easing: 'linear',
+        from: 0.5,
+        to: -0.1,
+        loop: true
+      }
+    }
+  }
+});
+</script>
+
+ 
+
+ 
 @endsection
 
