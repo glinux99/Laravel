@@ -313,27 +313,63 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-lg-5 card mx-auto p-2">
-                     <div class=" d-flex flex-column p-0 m-0 text-white text-center" style="background: #0f222b!important;">
-                        <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
-                        <small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
-                    </div>
+                <div class="col-lg-5 card mx-auto pt-3">
+                <div class="row " style="background: #0f222b!important;">
+                      <div class="col-1">
+                      <span class="bi-calendar bi--4xl"></span>
+                      </div>
+                      <div class="col-11 text-white" style="background: #0f222b!important;">
+                        <div class="p-0 m-0 text-center">
+                            <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
+                            <br><small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
+                        </div>
+                      </div>
+                  </div>
+                    <form action="/calcul_money" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-4">
                             <label for="">{{ __("Montant") }} </label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="montant">
                         </div>
                         <div class="col-4">
                             <label for="">De</label>
-                            <input type="text" class="form-control">
+                            <select name="from_conv" id="" class="form-control">
+                                <option value="1" >CDF</option>
+                            @foreach ($taux as $items)
+                                @php
+                                if(is_array($items)){
+                                        echo "<option value='".$items['cours_m']."'>".$items['code']."</option>";                               
+                                     
+                                }
+                                @endphp
+                            @endforeach
+                            </select>
                         </div>
                         <div class="col-4">
-                            <label for="">A</label>
-                            <input type="text" class="form-control">
+                            <label for="">A</label><i class="flag flag-us"></i>
+                            <select name="to_conv" id="" class="form-control">
+                            <option value="1">CDF</option>
+                            @foreach ($taux as $items)
+                                @php
+                                if(is_array($items)){
+                                        echo "<option value='".$items['cours_m']."'>".$items['code']."</option>";                               
+                                     
+                                }
+                                @endphp
+                            @endforeach
+                            </select>
                         </div>
                     </div>
-                    <a href="http://" class="text-center"><span class="text-center bi-caret-down bi--5xl"></span></a>
-                    <p class="result " style="height: 50px;background: #0f222b!important;"></p>
+                    <div class="text-center">
+                     <button type="submit" class="btn"><span class="text-center bi-caret-down bi--5xl"></span></button>
+                    </div>
+                    </form>
+                    <p class="result text-white text-center pt-2 " style="height: 50px;background: #0f222b!important;">
+                               <span>{{
+                                $result ?? '0'
+                                }}</span>
+                    </p>
                     <div>
                         <canvas id="cours_G" width="30" height="20"></canvas>
                     </div>
@@ -395,7 +431,6 @@ const myChart = new Chart(ctx, {
                 display: true,
                 text: 'Graphique de Money par rapport a la money congolaise',
                 color: 'green',
-                fontSize: 50,
             }
         },
     animations: {

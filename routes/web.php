@@ -22,7 +22,13 @@ Route::get('locale/{locale}', function ($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
-
+    Route::post('/calcul_money', function (Request $request){
+        $montant= $request->montant;
+        $from_conv = $request->from_conv;
+        $to_conv =$request->to_conv;
+        $result = $montant*($from_conv/$to_conv);
+        return view('acceuil', compact('result'));
+    });
     Route::get('/', function () {
         return view('acceuil');
     });
