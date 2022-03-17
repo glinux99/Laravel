@@ -7,6 +7,7 @@ use App\Http\Middleware\SignOn;
 use App\Http\Controllers\BanqueController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Middleware\LocaleMiddleware;
+use App\Http\Controllers\pdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +59,7 @@ Route::get('locale/{locale}', function ($locale){
         return back();
         
     });
+    Route::get('/pdf', [ pdfController::class, 'index']);
     Route::post('/send_message', [ BanqueController::class, 'send_message']);
     Route::get('/message/{dest}', [ BanqueController::class, 'message']);
     Route::post('/rapport', [ BanqueController::class, 'rapport']);

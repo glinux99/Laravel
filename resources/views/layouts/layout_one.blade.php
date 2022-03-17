@@ -83,8 +83,97 @@
                 <li class="nav-item">
                     <a href="/mon_epargne" class="nav-link text-white">{{ __("Mon epargne")}}</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown m-0 p-0">
                     <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown2">
+                            <small>{{ __("Reglementation")}}</small>
+                            <div class="dropdown-content2 left">
+                                <div>
+                                    <a href="" class="nav-link p-0 m-0"><small>{{ __("Textes legaux") }}</small></a>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <a href="" class="nav-link p-0 m-0"><small>{{ __("Textes Reglementaires") }}</small></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown3">
+                        <small>{{ __("Etablissements de credits")}}</small>
+                            <div class="dropdown-content3 left">
+                                <div>
+                                    <small>{{ __("Operationnel") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Radies") }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown4">
+                        <small>{{ __("Autres intermediaire financiers")}}</small>
+                        <div class="dropdown-content4 left">
+                                <div>
+                                    <small>{{ __("Banques") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Institutions de MIcro Finance") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Cooperatives d'epargnes et de credits") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Institutions financiers") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Specialisees") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Caisse d'epargne et de credit") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Societes financieres") }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div>
+                        <small>{{ __("Commissaire aux comptes")}}</small>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div>
+                        <small>{{ __("Publications")}}</small>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown5">
+                        <small>{{ __("Sites et Logiciels")}}</small>
+                            <div class="dropdown-content5 left">
+                                <div>
+                                    <small>{{ __("Site web Microfiance") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Logiciel BSA") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Logiciel FinA") }}</small>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <div>
+                                    <small>{{ __("Logiciel Isys-Ceri") }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="/statistiques" class="nav-link text-white">{{ __("Statistiques")}}</a>
@@ -121,3 +210,27 @@
        window.location.href="/locale/"+this.value;
 });
 </script>
+<style>
+.left{
+    margin-top: -2rem;
+    margin-left: 10rem;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+*[class^="dropdown-content"] {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content, .dropdown2:hover .dropdown-content2,.dropdown3:hover .dropdown-content3,.dropdown4:hover .dropdown-content4,.dropdown5:hover .dropdown-content5  {
+  display: block;
+}
+</style>
