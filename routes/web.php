@@ -32,6 +32,9 @@ Route::get('locale/{locale}', function ($locale){
     Route::get('/', function () {
         return view('acceuil');
     });
+    Route::get('/statistiques', function () {
+        return view('statistiques');
+    });
     Route::get('/admin', function () {
         return view('admin.admin');
     })->name('administrateur')

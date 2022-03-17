@@ -1,5 +1,5 @@
 @extends('layouts.layout_one')
-@section('titre') {{ __("Bienvenu sur notre banque en ligne")}} @endsection
+@section('titre') {{ __("Statistiques de la Banque")}} @endsection
 @section('menu-second')
     <div class="col-lg-9 col-7 p-0 m-0 nav navbar-expand-lg">
         <button type="button" class="navbar-toggler p-2  my-auto" data-bs-toggle="collapse" data-bs-target=".men" style="max-height: 40px;">
@@ -23,7 +23,7 @@
                     <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/statistiques" class="nav-link text-white">{{ __("Statistiques")}}</a>
+                    <a href="#" class="nav-link text-white">{{ __("Statistiques")}}</a>
                 </li>
                 <li class="nav-item">
                     <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
@@ -38,40 +38,7 @@
 @endsection
 @section('contenu-start')
 <div class="w-100">
-    <div class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="card carousel-item active">
-                <img src="{{url('assets/img/fr4.jpg')}}" alt="" class="card-img-top">
-                <div class="card-img-overlay d-flex ">
-                   <div class="mx-auto align-self-center pb-5 text-center">
-                        <h3 class="text-uppercase fw-bold text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus d'avantages") }}
-                        </h3>
-                        <h6 class="text-white"style="font-weight: 100;">{{ __("Beneficiez de nombreux produits et services lie a votre compte")}}
-                        </h6>
-                        <div class="col-6 col-lg-4 mx-auto">
-                            <a class="list-group-item text-warning" href="/login" >{{  __("Debuter avec nous") }}
-                            </a>
-                        </div>
-                   </div>
-                </div>
-            </div>
-            <div class="card carousel-item">
-                <img src="{{url('assets/img/fr5.png')}}" alt="" class="card-img-top w-50 mx-auto d-block" style="transform: scale(2);">
-                <div class="card-img-overlay d-flex pb-5">
-                   <div class="mx-auto align-self-center  text-center">
-                        <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilite") }}
-                        </h3>
-                        <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilite")}}
-                        </h6>
-                        <div class="col-6 col-lg-4 mx-auto">
-                            <a class="list-group-item text-warning" href="/login" >{{  __("Debuter avec nous") }}
-                            </a>
-                        </div>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<canvas id="cours" width="30" height="20"></canvas>
     <div class="w-100 text-white px-3" style="background: #011720d3!important;">
         <div class="navbar navbar-dark d-flex justify-content-center">
             <div class=" d-flex flex-columns">
@@ -379,7 +346,7 @@
         </div>
     </div>
 </div> 
-
+<canvas id="cours" width="100" height="100"></canvas>
 <script>
 const ctx = document.getElementById('cours_G');
 var tb = <?php echo json_encode($taux);?>;
