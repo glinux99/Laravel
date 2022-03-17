@@ -64,6 +64,42 @@
     </div>
     <div style="background: #011720d3!important; min-height: 2.5rem;" class="row m-auto">
         <div class="col-lg-3 col-5 ps-4 pt-1" style="font-size: 20px;font-weight: bolder;background-color: green;color: white; clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);">Nuru Merchant Bank</div>
+        @if($login!="ok")
+        <div class="col-lg-9 col-7 p-0 m-0 nav navbar-expand-lg">
+        <button type="button" class="navbar-toggler p-2  my-auto" data-bs-toggle="collapse" data-bs-target=".men" style="max-height: 40px;">
+            <span class="bi-plus"></span>
+        </button>
+        <div class="collapse navbar-collapse men">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a href="/" class="nav-link text-white">{{ __("Acceuil")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('login')}}" class="nav-link text-white">{{ __("Mon compte")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/mon_epargne" class="nav-link text-white">{{ __("Mon epargne")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/statistiques" class="nav-link text-white">{{ __("Statistiques")}}</a>
+                </li>
+                <li class="nav-item">
+                    <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
+                        <option value="">Langue 🇫🇷🇬🇧&emsp;</option>
+                        <option value="fr" >🇫🇷&emsp;Francais</option>
+                        <option value="en">🇬🇧&emsp;Anglais</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+        @endif
         @yield('menu-second')
     </div>
 @yield('contenu-start')

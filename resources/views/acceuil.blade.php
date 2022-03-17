@@ -1,41 +1,8 @@
 @extends('layouts.layout_one')
 @section('titre') {{ __("Bienvenu sur notre banque en ligne")}} @endsection
-@section('menu-second')
-    <div class="col-lg-9 col-7 p-0 m-0 nav navbar-expand-lg">
-        <button type="button" class="navbar-toggler p-2  my-auto" data-bs-toggle="collapse" data-bs-target=".men" style="max-height: 40px;">
-            <span class="bi-plus"></span>
-        </button>
-        <div class="collapse navbar-collapse men">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a href="{{ Route('login')}}" class="nav-link text-white">{{ __("Mon compte")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("Mon epargne")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("Mes credits")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/statistiques" class="nav-link text-white">{{ __("Statistiques")}}</a>
-                </li>
-                <li class="nav-item">
-                    <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
-                        <option value="">Langue 🇫🇷🇬🇧&emsp;</option>
-                        <option value="fr" >🇫🇷&emsp;Francais</option>
-                        <option value="en">🇬🇧&emsp;Anglais</option>
-                    </select>
-                </li>
-            </ul>
-        </div>
-    </div>
-@endsection
+@php 
+$login='non';
+@endphp
 @section('contenu-start')
 <div class="w-100">
     <div class="carousel slide" data-bs-ride="carousel">

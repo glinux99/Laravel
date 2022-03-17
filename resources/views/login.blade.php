@@ -1,5 +1,8 @@
 @extends('layouts.layout_one')
 @section('titre'){{ __("Veuillez vous connecter")}} @endsection
+@php
+$login ='ok';
+@endphp
 @section ('menu-second')
     <div class="text-end col-lg-8 col-7 my-auto">
         <a href="mailto:security@nurubanque.cd">{{ __("Securite") }}</a>&nbsp;&nbsp;|

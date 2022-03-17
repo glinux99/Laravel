@@ -35,6 +35,9 @@ Route::get('locale/{locale}', function ($locale){
     Route::get('/statistiques', function () {
         return view('statistiques');
     });
+    Route::get('/mon_epargne', function () {
+        return view('mon_epargne');
+    });
     Route::get('/admin', function () {
         return view('admin.admin');
     })->name('administrateur')

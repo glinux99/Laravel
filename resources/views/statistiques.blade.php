@@ -1,41 +1,8 @@
 @extends('layouts.layout_one')
 @section('titre') {{ __("Statistiques de la Banque")}} @endsection
-@section('menu-second')
-    <div class="col-lg-9 col-7 p-0 m-0 nav navbar-expand-lg">
-        <button type="button" class="navbar-toggler p-2  my-auto" data-bs-toggle="collapse" data-bs-target=".men" style="max-height: 40px;">
-            <span class="bi-plus"></span>
-        </button>
-        <div class="collapse navbar-collapse men">
-            <ul class="nav nav-pills justify-content-center">
-                <li class="nav-item">
-                    <a href="{{ Route('login')}}" class="nav-link text-white">{{ __("Mon compte")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("Mon epargne")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("Mes credits")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">{{ __("Statistiques")}}</a>
-                </li>
-                <li class="nav-item">
-                    <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
-                        <option value="">Langue 🇫🇷🇬🇧&emsp;</option>
-                        <option value="fr" >🇫🇷&emsp;Francais</option>
-                        <option value="en">🇬🇧&emsp;Anglais</option>
-                    </select>
-                </li>
-            </ul>
-        </div>
-    </div>
-@endsection
+@php 
+$login='non';
+@endphp
 @section('contenu-start')
 <div class="w-100">
 <canvas id="cours" width="30" height="20"></canvas>
@@ -237,183 +204,216 @@
                     )
             );
         @endphp
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-7 card overflow-auto"style="clip-path: polygon(100% 0, 100% 46%, 93% 50%, 100% 54%, 100% 100%, 0 100%, 0% 80%, 0 0);">
-                <p>
-                  <div class="row " style="background: #0f222b!important;">
-                      <div class="col-1">
-                      <span class="bi-calendar bi--4xl"></span>
-                      </div>
-                      <div class="col-11 row text-white" style="background: #0f222b!important;">
-                        <div class="col-7 d-flex flex-column p-0 m-0">
-                            <span class="h3 p-0 m-0"> {{ __("Cours d'echange actuel") }}</span>
-                            <small>{{ \Carbon\Carbon::now()->toDateString() }}</small>
-                        </div>
-                        <div class="col-5">
-                            {{ __("1 USD = 2000.1420 CDF") }} <br> {{ __("cours moyen") }}
-                        </div>
-                      </div>
-                  </div>
-                </p>    
-                <table style="background: #0f222b!important;" class="table table-bordered text-primary table-hover text-center table-striped">
+        <div class="row container-fluid">
+            <div class="card col-md-7 mx-auto">
+                <div class="card-header text-center">
+                    {{__("Rapport de performance des monnaies Internationales")}}
+                </div>
+                <div class="card-body">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <td>{{ __("Unite") }}</td>
-                                <td>{{ __("code") }}</td>
-                                <td> {{ __("libele") }}</td>
-                                <td> {{ __("Cours acheteur") }}</td>
-                                <td> {{ __("Cours moyen ") }}</td>
-                                <td> {{ __("Cours vendeur ") }}</td>
+                                <td>
+                                    {{__("Periode")}}
+                                </td>
+                                <td class="text-end">
+                                    {{__("Variation")}}
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                @foreach($taux as $items)
-                                <tr>
-                                @foreach($items as $item)
-                                <td>{{ $item}}</td>
-                                @endforeach
-                                </tr>
-                                @endforeach
+                                <td>
+                                    {{ __("1er Janvier")}}
+                                </td>
+                                <td class="text-end">
+                                    -3.09%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{__("Depuis 24h")}}
+                                </td>
+                                <td class="text-end">
+                                    +0.29%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                {{__("1 semaine")}}
+                                </td>
+                                <td class="text-end">
+                                    +1.25%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __("1 mois")}}
+                                </td>
+                                <td class="text-end">
+                                    -3.39%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __("6 mois")}}
+                                </td>
+                                <td class="text-end">
+                                    -5.74%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __("1 an")}}
+                                </td>
+                                <td class="text-end">
+                                    -6.59%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __("3 ans")}}
+                                </td>
+                                <td class="text-end">
+                                    +19.41%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __("5 ans")}}
+                                </td>
+                                <td class="text-end">
+                                    +54.95%
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    <i><a href="https://www.capital.fr/devises/cours/EUR/CDF" class="nav-link">capital (source)</a></i>
+                    <span>Toutes les informations sur le cours Euro Franc congolais : taux de change, convertisseur et données historiques</span>
                 </div>
-                <div class="col-lg-5 card mx-auto pt-3">
-                <div class="row " style="background: #0f222b!important;">
-                      <div class="col-1">
-                      <span class="bi-calendar bi--4xl"></span>
-                      </div>
-                      <div class="col-11 text-white" style="background: #0f222b!important;">
-                        <div class="p-0 m-0 text-center">
-                            <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
-                            <br><small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
-                        </div>
-                      </div>
-                  </div>
-                    <form action="/calcul_money" method="post">
-                    @csrf
-                    <a href="#ancre1"></a>
-                    <div class="row" >
-                        <div class="col-4">
-                            <label for="">{{ __("Montant") }} </label>
-                            <input type="text" class="form-control" name="montant">
-                        </div>
-                        <div class="col-4">
-                            <label for="">De</label>
-                            <select name="from_conv" id="" class="form-control">
-                                <option value="1" >CDF</option>
-                            @foreach ($taux as $items)
-                                @php
-                                if(is_array($items)){
-                                        echo "<option value='".$items['cours_m']."'>".$items['code']."</option>";                               
-                                     
-                                }
-                                @endphp
+            </div>
+            <div class="col-md-5 card">
+                <div class="card-header">
+                    {{ __("Principale devises")}}
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        @php
+                            $devises = [
+                                'Kuwaiti Dinar'=>[
+                                'USD rate'=>3.30,
+                                'EURO Rate'=>2.88,
+                                'Code'=>'KWD'],
+                                'Bahraini Dinar'=>[
+                                'USD rate'=>2.66,
+                                'EURO Rate'=>2.32,
+                                'Code'=>'BHD'],
+                                'Omani Rial'=>[
+                                'USD rate'=>2.60,
+                                'EURO Rate'=>2.27,
+                                'Code'=>'OMR'],
+                                'Jordanian Dinar'=>[
+                                'USD rate'=>1.41,
+                                'EURO Rate'=>1.23,
+                                'Code'=>'JOD'],
+                                'British Pound Sterling'=>[
+                                'USD rate'=>1.22,
+                                'EURO Rate'=>1.07,
+                                'Code'=>'GBP'],
+                                'Cayman Islands Dollar'=>[
+                                'USD rate'=>1.22,
+                                'EURO Rate'=>1.07,
+                                'Code'=>'KYD'],
+                                'European Euro'=>[
+                                'USD rate'=>1.14,
+                                'EURO Rate'=>1,
+                                'Code'=>'EURO'],
+                                'Swiss Franc'=>[
+                                'USD rate'=>1.08,
+                                'EURO Rate'=>0.94,
+                                'Code'=>'CHF'],
+                                'US Dollar'=>[
+                                'USD rate'=>1,
+                                'EURO Rate'=>0.87,
+                                'Code'=>'USD'],
+                                'Canadian Dollar'=>[
+                                'USD rate'=>0.78,
+                                'EURO Rate'=>0.68,
+                                'Code'=>'CAD'],
+                                'Singapore Dollar'=>[
+                                'USD rate'=>0.74,
+                                'EURO Rate'=>0.65,
+                                'Code'=>'SGD'],
+                                'Brunei Dollar'=>[
+                                'USD rate'=>0.74,
+                                'EURO Rate'=>0.75,
+                                'Code'=>'BND'],
+                                'Australian Dollar'=>[
+                                'USD rate'=>0.71,
+                                'EURO Rate'=>0.62,
+                                'Code'=>'AUD'],
+                                'New Zealand Dollar'=>[
+                                'USD rate'=>0.66,
+                                'EURO Rate'=>0.59,
+                                'Code'=>'NZD'],
+                                'Azerbaijani Manat'=>[
+                                'USD rate'=>0.59,
+                                'EURO Rate'=>0.51,
+                                'Code'=>'AZN'],
+                                'Bulgarian Lev'=>[
+                                'USD rate'=>0.58,
+                                'EURO Rate'=>0.51,
+                                'Code'=>'BGN'],
+                                'Bosnia and Herzegovina Convertible Mark'=>[
+                                'USD rate'=>0.58,
+                                'EURO Rate'=>0.51,
+                                'Code'=>'BAM'],
+                                'Aruban Florin'=>[
+                                'USD rate'=>0.56,
+                                'EURO Rate'=>0.49,
+                                'Code'=>'AWG'],
+                                'Fijian Dollar'=>[
+                                'USD rate'=>0.47,
+                                'EURO Rate'=>0.41,
+                                'Code'=>'FJD'],
+                                'Israeli Shekel'=>[
+                                'USD rate'=>0.31,
+                                'EURO Rate'=>0.27,
+                                'Code'=>'ILS']
+                                
+                                ];
+                        @endphp
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ __("USD Rate")}}
+                                </td>
+                                <td>
+                                    {{ __("Euro Rate")}}
+                                </td>
+                                <td>
+                                    {{ __("Code")}}
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($devises as $items => $values)
+                            <tr>
+                            <td>{{ $items }} </td>
+                            @foreach ($values as $item)
+                                <td>{{ $item}}</td>
                             @endforeach
-                            </select>
-                        </div>
-                        <div class="col-4">
-                            <label for="">A</label><i class="flag flag-us"></i>
-                            <select name="to_conv" id="" class="form-control">
-                            <option value="1">CDF</option>
-                            @foreach ($taux as $items)
-                                @php
-                                if(is_array($items)){
-                                        echo "<option value='".$items['cours_m']."'>".$items['code']."</option>";                               
-                                     
-                                }
-                                @endphp
+                            </tr>
                             @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                     <button type="submit" class="btn"><span class="text-center bi-caret-down bi--5xl"></span></button>
-                    </div>
-                    </form>
-                    <p class="result text-white text-center pt-2 " style="height: 50px;background: #0f222b!important;">
-                               <span>{{
-                                $result ?? '0'
-                                }}</span>
-                    </p>
-                    <div>
-                        <canvas id="cours_G" width="30" height="20"></canvas>
-                    </div>
+                        </tbody>
+                    </table>
+                    <i> <a href="https://fr.fxssi.com/top-10-les-monnaies-les-plus-cheres-du-monde" class="nav-link">{{ __("Donnees tire du site") }} fxssi {{ __("(TOP 10 - les monnaies les plus chères du monde 2022) ")}}(source)</a></i>
                 </div>
             </div>
         </div>
     </div>
 </div> 
-<canvas id="cours" width="100" height="100"></canvas>
-<script>
-const ctx = document.getElementById('cours_G');
-var tb = <?php echo json_encode($taux);?>;
-var datax=new Array();
-var datay=new Array();
-var dataz=new Array();
-var dataf=new Array();
-var min_tb = ['CNY','JPY','RWF','CHF','USD','EURO','GBP'];
-for(var x=0; x<tb.length; x++){
-    //alert(tb[x]['code']);
-    for(var y=0; y<min_tb.length; y++){
-        if(min_tb[y]=== tb[x]['code']){
-            datax[x]=tb[x]['code'];
-            datay [x] = tb[x]['cours_a'];
-            dataz [x] = tb[x]['cours_m'];
-            dataf [x] = tb[x]['cours_v'];
-        };
-    }
-}
-const data = {
-  labels: datax,
-  datasets: [{
-    label: 'Money Analyse Data : Cours Acheteur',
-    data: datay,
-    fill: false,
-    borderColor: 'rgb(75, 192, 192)',
-    backgroundColor: 'red',
-  },
-  {
-    label: 'Money Analyse Data : Cours Moyen',
-    data: dataz,
-    fill: false,
-    backgroundColor: 'green',
-    borderColor: 'blue',
-  },
-  {
-    label: 'Money Analyse Data : Cours Vendeur',
-    data: dataf,
-    fill: false,
-    backgroundColor: 'blue',
-    borderColor: 'red',
-  }]
-};
-const myChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: {
-    plugins: {
-            title: {
-                display: true,
-                text: 'Graphique de Money par rapport a la money congolaise',
-                color: 'green',
-            }
-        },
-    animations: {
-      tension: {
-        duration: 3000,
-        easing: 'linear',
-        from: 2,
-        to: 1,
-        loop: true
-      }
-    }
-  }
-});
-</script>
-
 <script>
 const ctx2 = document.getElementById('cours');
 var tb = <?php echo json_encode($taux);?>;
