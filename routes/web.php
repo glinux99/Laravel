@@ -24,15 +24,23 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
     Route::post('/calcul_money', function (Request $request){
-        $montant= $request->montant;
+        try{
+            $montant= $request->montant;
         $from_conv = $request->from_conv;
         $to_conv =$request->to_conv;
         $result = $montant*($from_conv/$to_conv);
-        return view('acceuil', compact('result'));
+        session()->put('result', $result);
+        return redirect(url('/#echange'));
+        }catch(Exception $e){
+            session()->put('error','no_valide_enter');
+            session()->put('result', 0);
+            return redirect(url('/#echange'));
+        }
+        //return view('acceuil#echange', compact('result'));
     });
     Route::get('/', function () {
         return view('acceuil');
-    });
+    })->name('acceuil');
     Route::get('/statistiques', function () {
         return view('statistiques');
     });

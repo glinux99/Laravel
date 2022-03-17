@@ -93,7 +93,7 @@ $login='non';
             </div>
         </div>
     </div>
-    <div class="w-100">
+    <div class="w-100" id="taux">
         <div class="card-header text-center">
             {{ __("TAUX D'ECHANGE")}}
         </div>
@@ -243,7 +243,7 @@ $login='non';
                 <p>
                   <div class="row " style="background: #0f222b!important;">
                       <div class="col-1">
-                      <span class="bi-calendar bi--4xl"></span>
+                      <span class="bi-calendar-date bi--4xl text-success"></span>
                       </div>
                       <div class="col-11 row text-white" style="background: #0f222b!important;">
                         <div class="col-7 d-flex flex-column p-0 m-0">
@@ -282,11 +282,29 @@ $login='non';
                 </div>
                 <div class="col-lg-5 card mx-auto pt-3">
                 <div class="row " style="background: #0f222b!important;">
-                      <div class="col-1">
-                      <span class="bi-calendar bi--4xl"></span>
+                      <div class="col-2">
+                        <div class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner text-success">
+                                <div class="carousel-item active ">
+                                    <span class="bi-currency-dollar bi--4xl"></span>
+                                </div>
+                                <div class="carousel-item">
+                                    <span class="bi-currency-yen bi--4xl"></span>
+                                </div>
+                                <div class="carousel-item">
+                                    <span class="bi-currency-euro bi--4xl"></span>
+                                </div>
+                                <div class="carousel-item">
+                                    <span class="bi-currency-pound bi--4xl"></span>
+                                </div>
+                                <div class="carousel-item">
+                                    <span class="bi-currency-bitcoin bi--4xl"></span>
+                                </div>
+                            </div>
+                        </div>
                       </div>
-                      <div class="col-11 text-white" style="background: #0f222b!important;">
-                        <div class="p-0 m-0 text-center">
+                      <div class="col-10 text-white" style="background: #0f222b!important;">
+                        <div class="p-0 m-0 text-center" id="echange">
                             <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
                             <br><small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
                         </div>
@@ -294,7 +312,6 @@ $login='non';
                   </div>
                     <form action="/calcul_money" method="post">
                     @csrf
-                    <a href="#ancre1"></a>
                     <div class="row" >
                         <div class="col-4">
                             <label for="">{{ __("Montant") }} </label>
@@ -335,7 +352,7 @@ $login='non';
                     </form>
                     <p class="result text-white text-center pt-2 " style="height: 50px;background: #0f222b!important;">
                                <span>{{
-                                $result ?? '0'
+                                session('result') ?? '0'
                                 }}</span>
                     </p>
                     <div>

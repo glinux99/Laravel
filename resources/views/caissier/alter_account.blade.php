@@ -1,4 +1,4 @@
-@extends('layouts.layout_two')
+@extends((((session('account')=='Caissier') || session('account')=='Admins') )? 'layouts.layout_two' : 'layouts.layout_users')
 @section('titre')Ajouter un agent @endsection
 @section('contenu')
 <!-- A enlever lors du deployement -->

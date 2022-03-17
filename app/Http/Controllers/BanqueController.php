@@ -10,11 +10,16 @@ class BanqueController extends Controller
         return view('login');
     }
     public function accounts($data){
-        if($data =='accounts'){
-            $data_active =1;
-            $data_users = \DB:: table ('Client')
-                                ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')->get();
-            return view('admin.admin', compact(['data_users', 'data_active']));
+        try{
+            if($data =='accounts'){
+                $data_active =1;
+                $data_users = \DB:: table ('Client')
+                                    ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')->get();
+                return view('admin.admin', compact(['data_users', 'data_active']));
+            }
+        }catch (Exception $e){
+            session()->put('error','one_thing_not_running');
+            return redirect(url('/'));
         }
     }
     public function solde_banque(){
@@ -584,10 +589,33 @@ class BanqueController extends Controller
          return view('message', compact(['message','data', 'dest_name']));
     }
         public function rapport(Request $request){
-            $transaction = \DB::table('Transactions')
+            $transaction ="";
+            if(session('account')!='Client'){
+                $transaction = \DB::table('Transactions')
                                 ->where('client_mat',$request->mail)
                                 ->orwhere('benef_mat', $request->mail)->get();
+            }else{
+                $autori = \DB::table("Customers")
+                            ->where('password_customers', $request->psswd)->first();
+                if($autori){
+                    $transaction = \DB::table('Transactions')
+                                ->where('client_mat',$request->mail)
+                                ->orwhere('benef_mat', $request->mail)->get();
+                }else{
+                    $data = session('data');
+                    $data = json_decode(json_encode($data), true);
+                    return view('client.client',compact('data'));
+                }
+            }
                                 $client =1;
+                                if(isset($request->mail)){
+                                    $cli_mat = $request->mail;
+                                }else $cli_mat = session('data')->matricule;
+                                $nom = \DB::table("Customers")
+                                            ->where('matricule', $cli_mat)->first();
+                                session()->put('nom_cli_trans', $nom->nom.' '.$nom->prenom);
+                                session()->put('trans_pdf',$transaction);
+                                session()->put('matCli',$cli_mat);
             return view('transaction', compact(['transaction','client']));
         }
         public function desactive($id){
@@ -621,7 +649,13 @@ class BanqueController extends Controller
                 ->join('Customers', 'Customers.id','=', 'customers_id')
                 ->where('Customers.matricule',$mat->matricule)->get();
             }else if (session('account')==='Admins'){
-                $transaction =\DB::table('Transactions')->get();
+                $transaction =\DB::table('Transactions')
+                                    ->join('Caissier','Caissier.id','=','caissier_id')
+                                    ->join('Customers','customers_id','=','Customers.id')
+                                    ->get();
+                session()->put('trans_pdf', $transaction);
+                session()->put('matCli', 'Rapport de tous nos clients');
+                session()->put('nom_cli_trans', 'Rapport de tous nos clients');
             }else if(session('account')==='Client'){
                 $transaction =\DB::table('Transactions')
                 ->join('Customers', 'Customers.matricule','=', 'client_mat')

@@ -6,7 +6,7 @@
             <div class="card-header">
             {{ __("HISTORIQUE DE TRANSACTION DE VOTRE COMPTE")}}
             </div> 
-            <a class="btn btn-success mt-2" href="#">{{ __("Generer l'appecu en pdf")}}</a>
+            <a class="btn btn-success mt-2" href="/pdf">{{ __("Generer l'appecu en pdf")}}</a>
             <div class=" mx-auto" style="max-width:max-content">
                 <div class="input-group mt-2">
                     <button type="submit" class="btn btn-dark">{{ __("Transaction durant")}}</button>
