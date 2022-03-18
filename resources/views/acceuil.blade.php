@@ -4,10 +4,8 @@
 $login='non';
 @endphp
 @section('contenu-start')
-<div class="w-100 position-relative">
-<div style="z-index: 2!important;" class="position-absolute col-lg-12 mx-auto">@include('layouts.errorException')</div>
-    <div class="position-absolute" style="z-index: 1!important;">  
-        <div class="carousel slide" data-bs-ride="carousel">
+<div class="w-100 ">
+<div class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="card carousel-item active">
                     <img src="{{url('assets/img/fr4.jpg')}}" alt="" class="card-img-top">
@@ -364,7 +362,6 @@ $login='non';
                 </div>
             </div>
         </div>
-    </div>
 </div> 
 
 <script>

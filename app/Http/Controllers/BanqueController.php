@@ -18,7 +18,7 @@ class BanqueController extends Controller
                 return view('admin.admin', compact(['data_users', 'data_active']));
             }
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -30,7 +30,7 @@ class BanqueController extends Controller
             $data = session('data');
             return view('admin.admin', compact(['solde', 'data', 'solde_all']));
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -38,7 +38,7 @@ class BanqueController extends Controller
         try{
             return view('admin.add_agent');
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -53,7 +53,7 @@ class BanqueController extends Controller
             }
             return back();
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
 
@@ -189,6 +189,7 @@ class BanqueController extends Controller
                                                     
             }else {
                 $error ="mail_exist";
+                session()->flash('error', 'mail_exist');
                 return view('login', compact('error'));
             }
            
@@ -228,6 +229,7 @@ class BanqueController extends Controller
                                      }
                                  }else{
                                     $error ="compte_disable";
+                                    session()->flash('error', $error);
                                     return view('login', compact('error'));
         
                                 }
@@ -236,9 +238,10 @@ class BanqueController extends Controller
                             
                         }
                         $error ="compte_disable";
+                        session()->flash('error', $error);
                                     return view('login', compact('error'));
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -248,7 +251,7 @@ class BanqueController extends Controller
             $data = json_decode(json_encode($data), true);
             return $data;
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -257,7 +260,7 @@ class BanqueController extends Controller
             session()->flush();
             return view('acceuil');
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -341,10 +344,10 @@ class BanqueController extends Controller
                                             )
                                             );
                                         }
-                                        session()->put('error','no-error');
+                                        session()->flash('error','no_error');
                                         return back();
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
                 
@@ -378,13 +381,13 @@ class BanqueController extends Controller
                                        }
                                         session()->put('data_user', $data_user2);
                                         if(!session('data_user')){
-                                            session()->put('error', 'no_autorization');
+                                            session()->flash('error', 'no_autorization');
                                             return back();
                                         }
                                        // var_dump($data_user);
                 return view('caissier.alter_account');
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -408,10 +411,10 @@ class BanqueController extends Controller
                     'pays'=>$request->pays,
                     'apropos'=>$request->apropos
                 ));
-               session('error', 'no-error');
+               session('error', 'no_error');
                return back();
         }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -428,7 +431,7 @@ class BanqueController extends Controller
                                 $data_users =json_decode(json_encode($data_users), true);
                                return view('caissier.caissier', compact(['data_users','modal_aff']));
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -466,10 +469,10 @@ class BanqueController extends Controller
                                         'client_mat'=>$matricule,
                                         'caissier_id'=>$id->id
                                     ]);             
-                     session()->put('error','no-error');
+                     session()->flash('error','no_error');
                      return redirect()->route('caissier');   
             }  catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }      
 
@@ -512,20 +515,20 @@ class BanqueController extends Controller
                                         'caissier_id'=>$id->id
                                     ]);
                                     
-                                // session()->put('error','no_error');
+                                // session()->flash('error','no_error');
                                 // return redirect()->back();
                                }else if($solde ==5){
-                                   session()->put('error','solde_egal');
+                                   session()->flash('error','solde_egal');
                                    return redirect()->route('caissier');  
 
                                }else  {
-                                session()->put('error','solde_insuf');
+                                session()->flash('error','solde_insuf');
                                 return redirect()->route('caissier');  
                                }              
-                               session()->put('error','no-error');
+                               session()->flash('error','no_error');
                                return redirect()->route('caissier');  
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }           
 
@@ -575,18 +578,18 @@ class BanqueController extends Controller
                                         'caissier_id'=>null
                                     ]);
                                 $data =json_decode(json_encode($data), true);
-                                session()->put('error','no_error');
+                                session()->flash('error','no_error');
                                 return view('client.client',compact('data'));
                                }else if($solde ==5){
-                                   session()->put('error','solde_egal');
+                                   session()->flash('error','solde_egal');
                                    return redirect()->back();
 
                                }else  {
-                                session()->put('error','solde_insuf');
+                                session()->flash('error','solde_insuf');
                                 return redirect()->back();
                                }  
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -624,7 +627,7 @@ class BanqueController extends Controller
                             }
             return view('message', compact(['message','data', 'dest_name']));
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -670,7 +673,7 @@ class BanqueController extends Controller
                     }
                 return view('message', compact(['message','data', 'dest_name']));
            }catch (Exception $e){
-            session()->put('error','one_thing_not_running');
+            session()->flash('error','one_thing_not_running');
             return redirect(url('/'));
         }
     }
@@ -722,7 +725,7 @@ class BanqueController extends Controller
                         }             
                     return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -735,7 +738,7 @@ class BanqueController extends Controller
                     ));
                     return back();
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -748,7 +751,7 @@ class BanqueController extends Controller
                     ));
                     return back();
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -759,7 +762,7 @@ class BanqueController extends Controller
                     ->delete();
                     return back();
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
@@ -788,7 +791,7 @@ class BanqueController extends Controller
                         session()->put('trans_pdf', $transaction);
                     return view('transaction', compact('transaction'));
             }catch (Exception $e){
-                session()->put('error','one_thing_not_running');
+                session()->flash('error','one_thing_not_running');
                 return redirect(url('/'));
             }
         }
