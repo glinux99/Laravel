@@ -368,12 +368,20 @@ class BanqueController extends Controller
                 if($for_account==='Client'){
                     $username = session('data')->matricule;
                 }
+                $data_user2='';
                 $data_user = \DB:: table ($for_account)
                                         ->join('Customers', $customers_id, '=', 'Customers.id')
                                         ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
-                                        ->where ('Customers.matricule', $username)
-                                        ->orwhere('Customers.adresse_mail', $username)->first();
-                                        session()->put('data_user', $data_user);
+                                       ->get();
+                                       foreach($data_user as $items){
+                                           if($items->matricule===$username) $data_user2=$items;
+                                       }
+                                        session()->put('data_user', $data_user2);
+                                        if(!session('data_user')){
+                                            session()->put('error', 'no_autorization');
+                                            return back();
+                                        }
+                                       // var_dump($data_user);
                 return view('caissier.alter_account');
         }catch (Exception $e){
             session()->put('error','one_thing_not_running');
