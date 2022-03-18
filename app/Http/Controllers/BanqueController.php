@@ -677,18 +677,14 @@ class BanqueController extends Controller
         public function rapport(Request $request){
             try{
                 $transaction ="";
+                $trans="";
                     if(session('account')!='Client'){
                         $chp = ['client_mat', 'benef_mat'];
                         $transaction = \DB::table('Transactions')
-                                        ->join('Customers', 'matricule', $chp[0])
+                                        ->join('Customers', 'matricule', 'client_mat')
                                         ->where('client_mat',$request->mail)
                                         ->orwhere('benef_mat', $request->mail)->get();
-                                        if(!$transaction){
-                                            $transaction = \DB::table('Transactions')
-                                        ->join('Customers', 'matricule', $chp[1])
-                                        ->where('client_mat',$request->mail)
-                                        ->orwhere('benef_mat', $request->mail)->get();
-                                        }
+                                        $trans=$transaction;
                                         if(session('account')==='Admins'){
                                             $transaction = \DB::table('Transactions')
                                                 ->join('Caissier', 'Caissier.id', 'caissier_id')
@@ -701,8 +697,8 @@ class BanqueController extends Controller
                                     ->where('password_customers', $request->psswd)->first();
                         if($autori){
                             $transaction = \DB::table('Transactions')
-                                        ->where('client_mat',$request->mail)
-                                        ->orwhere('benef_mat', $request->mail)->get();
+                                        ->where('client_mat',$autori->matricule)
+                                        ->orwhere('benef_mat', $autori->matricule)->get();
                         }else{
                             $data = session('data');
                             $data = json_decode(json_encode($data), true);
@@ -720,12 +716,11 @@ class BanqueController extends Controller
                                         session()->put('matCli',$cli_mat);
                                         //var_dump($transaction);
                                         // var_dump(session('data')->matricule);
-                                        $transaction = json_decode(json_encode($transaction),true);
-                                        foreach($transaction as $items ){
-                                            var_dump($items);
-                                        }
-                                        echo 'adsd';
-                    //return view('transaction', compact(['transaction','client']));
+                        //var_dump($trans);
+                        if($trans){
+                            $transaction = $trans;
+                        }             
+                    return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
                 session()->put('error','one_thing_not_running');
                 return redirect(url('/'));
