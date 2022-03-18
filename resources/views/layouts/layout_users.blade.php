@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse coll justify-content-center">
             <ul class="nav nav-pills" role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="icon-home "></span>{{ __(" Acceuil") }}</a>
+                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
                     <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span>{{ __("Virement") }}</a>

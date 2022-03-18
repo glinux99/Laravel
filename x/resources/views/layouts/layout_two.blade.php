@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse coll justify-content-center">
             <ul class="nav nav-pills" role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="icon-home "></span><?php echo _(" Acceuil");?></a>
+                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="bi-house-door "></span><?php echo _(" Acceuil");?></a>
                 </li>
                 <li class="navbar-item mr-3">
                     <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#transfert"><span class="bi bi-currency-exchange"></span><?php echo _("Retrait");?></a>

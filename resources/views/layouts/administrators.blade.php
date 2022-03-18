@@ -28,14 +28,14 @@
                     <small class="text-center text-muted">{{ __("Solde courant de la banque") }}</small>
                     </a>
                 </div>
-                @if ($agent4 === 'caissier')
+                @if (session('account') === 'Caissier')
                 <div class="card adC">
-                    <a href="{{url('delete_add_desactivate_clients_or_agent')}}" class="nav-link text-center">
+                    <a href="#" class="nav-link text-center">
                         <span class="bi-arrow-counterclockwise text-center bi--5xl"></span><br>
                         <small class="text-center text-muted">{{ __(" Annuler la derniere transaction") }}</small>
                     </a>
                 </div> 
-                @elseif($agent4 === 'administrateur')
+                @elseif(session('account') === 'Admins')
                 <div class="card adC">
                     <a href="{{url('delete_add_desactivate_clients_or_agent')}}" class="nav-link text-center">
                         <span class="bi-person-x-fill text-center bi--5xl"></span><br>
@@ -73,7 +73,7 @@
                     </div>
               </div>
               <span class='text-muted'>
-                  {{ __("Le solde du compte principale de la banque s'eleve a un montant de") }}<span class='text-danger' style='font-weight: bolder'> 2000.45</span> USD 
+                  {{ __("Le solde du compte principale de la banque s'eleve a un montant de") }}<span class='text-danger' style='font-weight: bolder'> {{ $solde_all }}</span> USD 
               </span>
             </div>
         @endif

@@ -25,8 +25,10 @@ class BanqueController extends Controller
     public function solde_banque(){
         try{
             $solde=1;
-        $data = session('data');
-        return view('admin.admin', compact(['solde', 'data']));
+            $solde_all =\DB::table('Compte')
+                    ->sum('solde');
+            $data = session('data');
+            return view('admin.admin', compact(['solde', 'data', 'solde_all']));
         }catch (Exception $e){
             session()->put('error','one_thing_not_running');
             return redirect(url('/'));
@@ -42,11 +44,14 @@ class BanqueController extends Controller
     }
     public function alter_clients_and_agents(){
         try{
-            $data_users = \DB:: table ('Customers')
+            if(session('account')==='Admins'){
+                $data_users = \DB:: table ('Customers')
                         ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                         ->join('Compte', 'Adresse.id_compte', '=','Compte.id')->get();
                         
-        return view('admin.suppression_agent', compact(['data_users']));
+                return view('admin.suppression_agent', compact(['data_users']));
+            }
+            return back();
         }catch (Exception $e){
             session()->put('error','one_thing_not_running');
             return redirect(url('/'));
