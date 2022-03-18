@@ -203,7 +203,7 @@
     </footer>
 </div>
 <!-- Fin footer -->
-</body>
+< /body>
 </html>
 <script>
    document.getElementById('langue').addEventListener('change', function() {

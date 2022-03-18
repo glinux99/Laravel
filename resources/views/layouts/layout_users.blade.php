@@ -121,8 +121,11 @@
         </div>
         
     </div>
-    <div class="col-md-10 col-10 p-0">
+    <div class="col-md-10 col-10 p-0 position-relative">
+        <div style="z-index: 2!important;" class="position-absolute col-lg-12 mx-auto">@include('layouts.errorException')</div>
+        <div class="position-absolute w-100" style="z-index: 1!important;">
         @yield('contenu')
+        </div>
     </div>
 </div>
 <!-- Footer -->

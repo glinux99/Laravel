@@ -4,6 +4,7 @@
 $login='non';
 @endphp
 @section('contenu-start')
+@include('layouts.modals')
 <div class="w-100 ">
 <div class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
