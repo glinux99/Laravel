@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 class BanqueController extends Controller
 {
     public function login(){
-        return \Redirect::to('login');
+        echo session('lang');
+        \App::setLocale('en');
+        //return \Redirect::to('login');
     }
     public function accounts($data){
         try{
@@ -258,6 +260,7 @@ class BanqueController extends Controller
     public function logout(){
         try{
             session()->flush();
+            \App::setLocale('fr');
             return view('acceuil');
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');

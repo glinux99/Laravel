@@ -20,8 +20,9 @@ use App\Http\Controllers\pdfController;
 |
 */
 Route::get('locale/{locale}', function ($locale){
-    Session::put('locale', $locale);
-    return redirect()->back();
+    session()->put('locale', $locale);
+    //echo session('locale');
+    return redirect(url('/'));
 });
     Route::post('/calcul_money', function (Request $request){
         try{

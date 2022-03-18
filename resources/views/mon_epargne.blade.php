@@ -25,7 +25,7 @@ $login='non';
             </div>
             <div class="card-body">
                 {{ __("Coffre fort est notre nouveau compte d'épargne pour les 11 à 15 ans sous surveillance parentale. Les bonnes habitudes financières pour votre enfant commencent ici. ")}}
-                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">Lire plus a propos de Coffre Fort Epargne? </button></div>
+                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">{{ __("Lire plus a propos de Coffre Fort Epargne?") }} </button></div>
             </div>
         </div>
         <div class="card m-2 shadow-lg" style="">
@@ -53,7 +53,7 @@ $login='non';
             </div>
             <div class="card-body">
                 {{ __("Le principe est donc que tout ce qui pousse les congolais à rechercher davantage le dollar, et donc à vouloir l'obtenir en échange contre la monnaie nationale, est de nature à provoquer la dépréciation du franc congolais par rapport au dollar si on ne trouve pas des vendeurs de dollar au taux de change en vigueur")}}
-                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">Lire plus a propos de Coffre Fort Epargne? </button></div>
+                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">{{ __("Lire plus a propos de Coffre Fort Epargne?") }} </button></div>
             </div>
         </div>
         <div class="m-2 card shadow-lg">
@@ -62,7 +62,7 @@ $login='non';
             </div>
             <div class="card-body">
                 {{ __("Essayer de calculer le montant totale de votre sommes en une monnaie locale ou Internationnale avec Notre Super Calculateur. Ainsi vous pouvez retirer partout dans nos distributeur sur le meilleur taux du jour")}}
-                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">Lire plus a propos de Coffre Fort Epargne? </button></div>
+                <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">{{ __("Lire plus a propos de Coffre Fort Epargne?") }} </button></div>
             </div>
         </div>
     </div>
