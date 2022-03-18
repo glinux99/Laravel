@@ -1,5 +1,5 @@
 @extends('layouts.layout_two')
-@section('titre')Ajouter un agent @endsection
+@section('titre') {{__("Ajouter un agent")}} @endsection
 @section('contenu')
 <!-- A enlever lors du deployement -->
     @php

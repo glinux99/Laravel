@@ -289,7 +289,7 @@ $login='non';
                         </tbody>
                     </table>
                     <i><a href="https://www.capital.fr/devises/cours/EUR/CDF" class="nav-link">capital (source)</a></i>
-                    <span>Toutes les informations sur le cours Euro Franc congolais : taux de change, convertisseur et données historiques</span>
+                    <span>{{ __("Toutes les informations sur le cours Euro Franc congolais : taux de change, convertisseur et données historiques") }}</span>
                 </div>
             </div>
             <div class="col-md-5 card">

@@ -1,5 +1,5 @@
 @extends('layouts.layout_two')
-@section('titre')Bienvenu cher {{ $agent }} @endsection
+@section('titre')  {{__("Bienvenu cher ")}} {{ $agent }} @endsection
 @section('contenu')
 @include('layouts.modals')
     <div class="row mb-5 mt-1 w-100 p-0 m-0 ">

@@ -88,7 +88,7 @@ else{
                   <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client" value="{{ $data_users['matricule']}}" readonly>
                   <div class="input-group">
                   <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">Solde</span>
+                    <span class="input-group-text" id="basic-addon1"> {{ __("Solde") }}</span>
                     <input type="text" class="form-control" value="{{ $data_users['solde'].' USD'}}"aria-describedby="basic-addon1" readonly>
                   </div>
                   </div>
@@ -99,7 +99,7 @@ else{
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("fermer") }}</button>
       </div>
     </div>
    </form> 
@@ -119,9 +119,9 @@ else{
       </div>
       <div class="modal-body">
       <label for="">{{ __("Nom ")}}:</label>
-            <input type="text" name="username" id="" class="form-control mb-3" placeholder="Noms du deposant">
+            <input type="text" name="username" id="" class="form-control mb-3" placeholder="{{ __('Noms du deposant') }}">
             <label for="">{{ __("Matricule du Compte Beneficiaire")}}:</label>
-            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
+            <input type="text" name="mail" id="" class="form-control mb-3" placeholder='{{ __("mail ou matricule du Client")}}'>
             <label for="">{{ __("Montant")}}:</label>
             <div class="input-group mb-3">
                 <input type="number" name="montant" id="" class="form-control" min='0'>
@@ -129,7 +129,7 @@ else{
             </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Valider</button>
+        <button type="submit" class="btn btn-danger">{{ __("Valider") }}</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
@@ -149,9 +149,9 @@ else{
       </div>
       <div class="modal-body">
       <label for="">{{ __("Nom ")}}:</label>
-            <input type="text" name="username" id="" class="form-control mb-3" placeholder="Noms du deposant">
+            <input type="text" name="username" id="" class="form-control mb-3" placeholder='{{ __("Noms du deposant") }}'>
             <label for="">{{ __("Matricule du Compte Beneficiaire")}}:</label>
-            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
+            <input type="text" name="mail" id="" class="form-control mb-3" placeholder='{{ __("mail ou matricule du Client") }}'>
             <label for="">{{ __("Montant")}}:</label>
             <div class="input-group mb-3">
                 <input type="number" name="montant" id="" class="form-control" min='0'>
@@ -159,7 +159,7 @@ else{
             </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Valider</button>
+        <button type="submit" class="btn btn-danger">{{ __("Valider") }}</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
@@ -181,7 +181,7 @@ else{
             <label for="">{{ __("Nom ")}}:</label>
             <input type="text" name="username" id="" class="form-control mb-3" placeholder='{{ __("Noms du deposant/client")}}'>
             <label for="">{{ __("Matricule du Compte Beneficiaire")}}:</label>
-            <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du beneficiaire">
+            <input type="text" name="mail" id="" class="form-control mb-3" placeholder='{{ __("mail ou matricule du beneficiaire") }}'>
             <label for="">{{ __("Montant")}}:</label>
             <div class="input-group mb-3">
                 <input type="number" name="montant" id="" class="form-control" min='0'>
@@ -191,7 +191,7 @@ else{
             <input type="password" name="psswd" id="" class="form-control mb-3" placeholder='{{ __("password pour confirmer l'envoie") }}''>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Valider</button>
+        <button type="submit" class="btn btn-success">{{ __("Valider") }}</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>
@@ -213,12 +213,12 @@ else{
           @if(session('account')!='Client')
             <input type="text" name="mail" id="" class="form-control" placeholder="{{ __('nom d\'utilisateur ou mail')}}">
           @else
-          <p class="text-center">Votre mot de passe pour confimer la requette</p>
+          <p class="text-center"> {{ __("Votre mot de passe pour confimer la requette") }}</p>
           <input type="password" name="psswd" id="" class="form-control mb-3" placeholder="{{ __('Votre mot de passe')}}">
           @endif
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-danger">Valider</button>
+        <button type="submit" class="btn btn-danger"> {{ __("Valider") }}</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __("Annuler") }}</button>
       </div>
     </div>

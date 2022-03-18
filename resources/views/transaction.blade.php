@@ -1,5 +1,5 @@
 @extends((((session('account')=='Caissier') || session('account')=='Admins') )? 'layouts.layout_two' : 'layouts.layout_users')
-@section('titre') Verification des vos transactions @stop
+@section('titre') {{__("Verification des vos transactions")}} @stop
 @section('contenu')
     <div class="card adC">
         <div class="card-header text-center text-success">

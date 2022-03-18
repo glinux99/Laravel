@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body px-0">
                         <div class="list-group">
-                            @php $x = ['Noms'=>$data['nom'].' '.$data['prenom'],'Email'=>$data['adresse_mail'],'Nuru Banque ID'=>$data['matricule'], 'Password'=>'******************************'];
+                            @php $x = [ __('Noms')=>$data['nom'].' '.$data['prenom'],__('Email')=>$data['adresse_mail'],'Nuru Banque ID'=>$data['matricule'], 'Password'=>'******************************'];
                             @endphp
                             @foreach ($x as $item => $val)
                                 <div class="list-group-item d-flex adC">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group">
-                        @php $x = ['Genre'=>$data['genre'],'Numero Tel'=>$data['numero_tel'],'Type de Compte'=>$data['type_compte'], 'Adresse'=>$data['quart_av'],'Ville'=>$data['ville'], 'Province'=>$data['province'], 'Pays'=>$data['province'],'A propos'=>$data['apropos']];
+                        @php $x = [__('Genre')=>$data['genre'],__('Numero Tel')=>$data['numero_tel'],__('Type de Compte')=>$data['type_compte'], __('Adresse')=>$data['quart_av'],'Ville'=>$data['ville'], __('Province')=>$data['province'], __('Pays')=>$data['province'],__('A propos')=>$data['apropos']];
                         @endphp
                         @foreach ($x as $item => $val)
                             <div class="list-group-item d-flex adC">

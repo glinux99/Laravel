@@ -1,5 +1,5 @@
 @extends('layouts.layout_one')
-@section('titre') {{ __("Statistiques de la Banque")}} @endsection
+@section('titre') {{ __("Mon epargne d'argent")}} @endsection
 @php 
 $login='non';
 @endphp

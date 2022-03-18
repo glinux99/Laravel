@@ -1,5 +1,5 @@
 @extends('layouts.layout_two')
-@section('titre')ASuppressionm desactivation ou activation des agents et Clients @endsection
+@section('titre'){{__("Suppression desactivation ou activation des agents et Clients")}} @endsection
 @section('contenu')
 <div class="card-body text-success text-center overflow-auto w-100 p-1">
     <table class="adC table w-100 table-striped table-hover table-bordered text-primary table-card">
