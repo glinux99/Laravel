@@ -670,9 +670,17 @@ class BanqueController extends Controller
             try{
                 $transaction ="";
                     if(session('account')!='Client'){
+                        $chp = ['client_mat', 'benef_mat'];
                         $transaction = \DB::table('Transactions')
+                                        ->join('Customers', 'matricule', $chp[0])
                                         ->where('client_mat',$request->mail)
                                         ->orwhere('benef_mat', $request->mail)->get();
+                                        if(!$transaction){
+                                            $transaction = \DB::table('Transactions')
+                                        ->join('Customers', 'matricule', $chp[1])
+                                        ->where('client_mat',$request->mail)
+                                        ->orwhere('benef_mat', $request->mail)->get();
+                                        }
                     }else{
                         $autori = \DB::table("Customers")
                                     ->where('password_customers', $request->psswd)->first();
@@ -760,6 +768,7 @@ class BanqueController extends Controller
                             ->join('Customers', 'Customers.matricule','=', 'client_mat')
                             ->where('Customers.matricule',$mat->matricule)->get();
                         }
+                        session()->put('trans_pdf', $transaction);
                     return view('transaction', compact('transaction'));
             }catch (Exception $e){
                 session()->put('error','one_thing_not_running');

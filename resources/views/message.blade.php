@@ -4,7 +4,7 @@
     <div class="card adC ">
         <div class="row w-100">
             <div class="col-md-8">
-                <div class="card-header text-white">
+                <div class="card-header text-white adC">
                 <img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
                 <span>{{ $dest_name }}</span>
                 </div >
@@ -40,7 +40,7 @@
                             </div>
                         @else
                         <div class="d-flex text-white justify-content-end table-card rounded ms-4 text-break ps-2 pe-2 pt-2 pb-2  mb-1" >
-                        <div class="adC"><span>{{ $items->messages}}</span><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'>
+                        <div class="adC"><img src="{{url('assets/img/default_user.png')}}" alt='profil' width='40' height='40' class='rounded-circle'><span>{{ $items->messages}}</span>
                         <br><small class="text-muted float-right pt-2"><i>{{ $items->date_mess}}</i></small></div>
                         </div>
                         @endif
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card-header">
+                <div class="card-header adC text-center text-white">
                     Chat Live
                 </div>
                 <div class="card-body">
