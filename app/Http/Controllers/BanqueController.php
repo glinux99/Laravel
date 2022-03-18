@@ -495,7 +495,8 @@ class BanqueController extends Controller
                                 $trans_mat = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
                                if($solde>5){
                                 $solde=$solde-$request->montant;
-                                $matricule=$data_users->matricule;
+                                if($solde>5){
+                                    $matricule=$data_users->matricule;
                                 $data_users = \DB:: table ('Compte') 
                                 ->where('matricule', $matricule) 
                                 ->update(array(
@@ -514,10 +515,12 @@ class BanqueController extends Controller
                                         'client_mat'=>$matricule,
                                         'caissier_id'=>$id->id
                                     ]);
+                                    session()->flash('error','no_error');
+                                }else session()->flash('error','solde_insuf');
                                     
                                 // session()->flash('error','no_error');
                                 // return redirect()->back();
-                               }else if($solde ==5){
+                               }else if($solde === 5){
                                    session()->flash('error','solde_egal');
                                    return redirect()->route('caissier');  
 
@@ -525,7 +528,6 @@ class BanqueController extends Controller
                                 session()->flash('error','solde_insuf');
                                 return redirect()->route('caissier');  
                                }              
-                               session()->flash('error','no_error');
                                return redirect()->route('caissier');  
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
@@ -544,7 +546,7 @@ class BanqueController extends Controller
                                 ->where ('Customers.matricule', $data->matricule)->first();
                                 $solde = $data_users->solde;
                                 $solde_f = $solde-$request->montant;
-                               if($solde>5){
+                               if($solde_f>5){
                                $benef = \DB:: table ('Client')
                                 ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
                                 ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
@@ -580,7 +582,7 @@ class BanqueController extends Controller
                                 $data =json_decode(json_encode($data), true);
                                 session()->flash('error','no_error');
                                 return view('client.client',compact('data'));
-                               }else if($solde ==5){
+                               }else if($solde === 5){
                                    session()->flash('error','solde_egal');
                                    return redirect()->back();
 
