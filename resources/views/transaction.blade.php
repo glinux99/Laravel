@@ -33,6 +33,7 @@
                         <td>{{ __("Montant_Ret") }}</td>
                     </tr>
                 </thead>
+                
                 <tbody>
                     @foreach($transaction as $items)
                     <tr>

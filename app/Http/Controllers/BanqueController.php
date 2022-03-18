@@ -689,6 +689,13 @@ class BanqueController extends Controller
                                         ->where('client_mat',$request->mail)
                                         ->orwhere('benef_mat', $request->mail)->get();
                                         }
+                                        if(session('account')==='Admins'){
+                                            $transaction = \DB::table('Transactions')
+                                                ->join('Caissier', 'Caissier.id', 'caissier_id')
+                                                ->join('Customers', 'Customers.id','Caissier.customers_id')
+                                                ->where('matricule',$request->mail)->get();
+                                                
+                                        }
                     }else{
                         $autori = \DB::table("Customers")
                                     ->where('password_customers', $request->psswd)->first();
@@ -711,7 +718,14 @@ class BanqueController extends Controller
                                         session()->put('nom_cli_trans', $nom->nom.' '.$nom->prenom);
                                         session()->put('trans_pdf',$transaction);
                                         session()->put('matCli',$cli_mat);
-                    return view('transaction', compact(['transaction','client']));
+                                        //var_dump($transaction);
+                                        // var_dump(session('data')->matricule);
+                                        $transaction = json_decode(json_encode($transaction),true);
+                                        foreach($transaction as $items ){
+                                            var_dump($items);
+                                        }
+                                        echo 'adsd';
+                    //return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
                 session()->put('error','one_thing_not_running');
                 return redirect(url('/'));
