@@ -88,7 +88,7 @@
                     </a>
                     <a href="" class="nav-link">
                         <li class="nav-item">
-                            <span class="bi-people-fill"></span><span><?php echo _("Actionnaire/Investisseur");?></span>
+                            <span class="bi-people-fill"></span><span><?php echo _("Actionnaire / Investisseur");?></span>
                         </li>
                     </a>
                     <a href="" class="nav-link">

@@ -23,9 +23,9 @@ class pdfController extends Controller
 		// fond de couleur gris (valeurs en RGB)
 		$this->fpdf->setFillColor(230,230,230);
  		$this->fpdf->SetX(70);
-        $this->fpdf->Cell(60,8,'NURU BANQUE RAPPORT',0,1,'C',1);
+        $this->fpdf->Cell(60,8,__('NURU BANQUE RAPPORT'),0,1,'C',1);
         
-        $this->fpdf->Cell(0,10,'Nuru_banque@2022 sur www.nurubanque.cd ',0,0,'C', );
+        $this->fpdf->Cell(0,10,__('Nuru_banque@2022 sur www.nurubanque.cd '),0,0,'C', );
 		$this->fpdf->Ln(15);
 		$this->fpdf->SetFont('Helvetica','I',11);
         $codex = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6);
@@ -33,11 +33,11 @@ class pdfController extends Controller
 		$codex = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$codex;
 		$codex = substr(str_shuffle("0123456789"), 0, 6).'.'.$codex;
 		$codex = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$codex;
-		$this->fpdf->Cell(110,8,'ID-RAPPORT: '.$codex,0,1,'L',1);
+		$this->fpdf->Cell(110,8,__('ID-RAPPORT: ').$codex,0,1,'L',1);
         $this->fpdf->Ln(1);
-        $this->fpdf->Cell(110,8,'Client: '.session('nom_cli_trans'),0,1,'L',1);
+        $this->fpdf->Cell(110,8,__('Client: ').session('nom_cli_trans'),0,1,'L',1);
         $this->fpdf->Ln(1);
-        $this->fpdf->Cell(110,8,'Matricule Client: '.session('matCli'),0,1,'L',1);
+        $this->fpdf->Cell(110,8,__('Matricule Client: ').session('matCli'),0,1,'L',1);
         $this->fpdf->Ln(1);
         $date = date('d-m-Y h:i:s');
         $this->fpdf->Cell(110,8,'Date: '.$date,0,1,'L',1);
@@ -47,21 +47,23 @@ class pdfController extends Controller
             $this->fpdf->SetFont('Helvetica','',10);
             $this->fpdf->Cell(8,8, '#',1,0,'C');
             $this->fpdf->SetX(10);
-            $this->fpdf->Cell(38,8, 'Date / Heure',1,0,'C');
+            $this->fpdf->Cell(38,8, __('Date / Heure'),1,0,'C');
             $this->fpdf->SetX(48);
             $this->fpdf->Cell(60,8, "Transaction ID",1,0,'C');
             $this->fpdf->SetX(108); 
             //mot doit etre inferieur a 30 cad 30-12
-            if(session('account')==='Client') $this->fpdf->Cell(60,8, 'Motif de la transaction',1,0,'C');
-            else $this->fpdf->Cell(60,8, 'Matricule du Client / Nom',1,0,'C');
+            if(session('account')==='Client') $this->fpdf->Cell(60,8, __('Motif de la transaction'),1,0,'C');
+            else $this->fpdf->Cell(60,8, __('Matricule du Client / Nom'),1,0,'C');
             $this->fpdf->SetX(168);
-            $this->fpdf->Cell(20,8, "Solde($)",1,0,'C');
+            $this->fpdf->Cell(20,8, __("Solde($)"),1,0,'C');
             $this->fpdf->SetX(188); 
-            $this->fpdf->Cell(20,8, "Montant($)",1,0,'C');
+            $this->fpdf->Cell(20,8, __("Montant($)"),1,0,'C');
+            $x=0;
         foreach($db as $items){
+            $x++;
             $this->fpdf->Ln(8);
             $this->fpdf->SetX(2);
-            $this->fpdf->Cell(8,8, $items->id,1,0,'C');
+            $this->fpdf->Cell(8,8, $x,1,0,'C');
             $this->fpdf->SetX(10);
             $this->fpdf->Cell(38,8, $items->date_trans,1,0,'C');
             $this->fpdf->SetX(48);

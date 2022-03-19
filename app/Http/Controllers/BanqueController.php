@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use Exception;
 
 class BanqueController extends Controller
 {
@@ -21,7 +22,7 @@ class BanqueController extends Controller
             }
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function solde_banque(){
@@ -33,7 +34,7 @@ class BanqueController extends Controller
             return view('admin.admin', compact(['solde', 'data', 'solde_all']));
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function add_agents(){
@@ -41,7 +42,7 @@ class BanqueController extends Controller
             return view('admin.add_agent');
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function alter_clients_and_agents(){
@@ -56,7 +57,7 @@ class BanqueController extends Controller
             return back();
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
 
     }
@@ -244,7 +245,7 @@ class BanqueController extends Controller
                                     return view('login', compact('error'));
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function session_data(){
@@ -254,7 +255,7 @@ class BanqueController extends Controller
             return $data;
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function logout(){
@@ -264,7 +265,7 @@ class BanqueController extends Controller
             return view('acceuil');
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function add_agent_submit(Request $request){
@@ -351,7 +352,7 @@ class BanqueController extends Controller
                                         return back();
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
                 
     }
@@ -391,7 +392,7 @@ class BanqueController extends Controller
                 return view('caissier.alter_account');
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
     public function update(Request $request){
@@ -418,7 +419,7 @@ class BanqueController extends Controller
                return back();
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
         public function verifier_solde(Request $request){
@@ -435,7 +436,7 @@ class BanqueController extends Controller
                                return view('caissier.caissier', compact(['data_users','modal_aff']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function depot_argent(Request $request){
@@ -467,7 +468,7 @@ class BanqueController extends Controller
                                     ->insert([
                                         'montant_ret'=>$request->montant,
                                         'solde'=>$solde,
-                                        'motif'=>'Depot '.$effect_par,
+                                        'motif'=>__('Depot ').$effect_par,
                                         'trans_mat'=>$trans_mat,
                                         'client_mat'=>$matricule,
                                         'caissier_id'=>$id->id
@@ -476,7 +477,7 @@ class BanqueController extends Controller
                      return redirect()->route('caissier');   
             }  catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }      
 
         }
@@ -513,7 +514,7 @@ class BanqueController extends Controller
                                     ->insert([
                                         'montant_ret'=>$request->montant,
                                         'solde'=>$solde,
-                                        'motif'=>'Retrait'.$effect_par,
+                                        'motif'=>__('Retrait').$effect_par,
                                         'trans_mat'=>$trans_mat,
                                         'client_mat'=>$matricule,
                                         'caissier_id'=>$id->id
@@ -534,7 +535,7 @@ class BanqueController extends Controller
                                return redirect()->route('caissier');  
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }           
 
         }
@@ -550,7 +551,7 @@ class BanqueController extends Controller
                                 $solde = $data_users->solde;
                                 $solde_f = $solde-$request->montant;
                                if($solde_f>5){
-                               $benef = \DB:: table ('Client')
+                                $benef = \DB:: table ('Client')
                                 ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
                                 ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
                                 ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
@@ -576,10 +577,11 @@ class BanqueController extends Controller
                                 \DB:: table('Transactions')
                                     ->insert([
                                         'montant_ret'=>$request->montant,
-                                        'solde'=>$solde,
-                                        'motif'=>'Virement sur le compte de '.$compte_de,
+                                        'solde'=>$solde_f,
+                                        'motif'=>__('Virement sur le compte de ').$compte_de,
                                         'trans_mat'=>$trans_mat,
                                         'client_mat'=>$data->matricule,
+                                        'benef_mat' =>$request->mail,
                                         'caissier_id'=>null
                                     ]);
                                 $data =json_decode(json_encode($data), true);
@@ -595,7 +597,7 @@ class BanqueController extends Controller
                                }  
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function message($dest){
@@ -633,7 +635,7 @@ class BanqueController extends Controller
             return view('message', compact(['message','data', 'dest_name']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function send_message(Request $request){
@@ -679,7 +681,7 @@ class BanqueController extends Controller
                 return view('message', compact(['message','data', 'dest_name']));
            }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
-            return redirect(url('/'));
+            return redirect(url('admin'));
         }
     }
         public function rapport(Request $request){
@@ -731,7 +733,7 @@ class BanqueController extends Controller
                     return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function desactive($id){
@@ -744,7 +746,7 @@ class BanqueController extends Controller
                     return back();
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function active($id){
@@ -757,7 +759,7 @@ class BanqueController extends Controller
                     return back();
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function delete($id){
@@ -768,7 +770,7 @@ class BanqueController extends Controller
                     return back();
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         public function transaction(){
@@ -797,7 +799,7 @@ class BanqueController extends Controller
                     return view('transaction', compact('transaction'));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
-                return redirect(url('/'));
+                return redirect(url('admin'));
             }
         }
         

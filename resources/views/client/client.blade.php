@@ -58,7 +58,7 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group">
-                        @php $x = [__('Genre')=>$data['genre'],__('Numero Tel')=>$data['numero_tel'],__('Type de Compte')=>$data['type_compte'], __('Adresse')=>$data['quart_av'],'Ville'=>$data['ville'], __('Province')=>$data['province'], __('Pays')=>$data['province'],__('A propos')=>$data['apropos']];
+                        @php $x = [__('Genre')=>$data['genre'],__('Numero Tel')=>$data['numero_tel'],__('Type de Compte')=>$data['type_compte'], __('Adresse')=>$data['quart_av'],'Ville'=>$data['ville'], __('Province')=>$data['province'], __('Pays')=>$data['province'],__('À propos')=>$data['apropos']];
                         @endphp
                         @foreach ($x as $item => $val)
                             <div class="list-group-item d-flex adC">

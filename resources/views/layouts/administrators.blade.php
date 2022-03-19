@@ -32,7 +32,7 @@
                 <div class="card adC">
                     <a href="#" class="nav-link text-center">
                         <span class="bi-arrow-counterclockwise text-center bi--5xl"></span><br>
-                        <small class="text-center text-muted">{{ __(" Annuler la derniere transaction") }}</small>
+                        <small class="text-center text-muted">{{ __(" Annuler la dernière transaction") }}</small>
                     </a>
                 </div> 
                 @elseif(session('account') === 'Admins')

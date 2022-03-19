@@ -60,7 +60,7 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group">
-                        @php $x = ['Genre'=>'F','Numero Tel'=>'+243 97 0912428','Type de Compte'=>'Caissier', 'Adresse'=>'Goma','Ville'=>'Goma', 'Province'=>'Nord-Kivu', 'Pays'=>'RDC','A propos'=>''];
+                        @php $x = ['Genre'=>'F','Numero Tel'=>'+243 97 0912428','Type de Compte'=>'Caissier', 'Adresse'=>'Goma','Ville'=>'Goma', 'Province'=>'Nord-Kivu', 'Pays'=>'RDC','À propos'=>''];
                         @endphp
                         @foreach ($x as $item => $val)
                             <div class="list-group-item d-flex adC">

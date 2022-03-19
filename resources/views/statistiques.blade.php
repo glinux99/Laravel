@@ -23,7 +23,7 @@ $login='non';
                     </a>
                     <a href="" class="nav-link">
                         <li class="nav-item">
-                            <span class="bi-people-fill"></span><span>{{  __("Actionnaire/Investisseur") }}</span>
+                            <span class="bi-people-fill"></span><span>{{  __("Actionnaire / Investisseur") }}</span>
                         </li>
                     </a>
                     <a href="" class="nav-link">

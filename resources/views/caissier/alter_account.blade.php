@@ -63,7 +63,7 @@
                                 @if($caissier)
                                     <option value="">--{{ __("Select Categorie client")}}--</option>
                                     <option value="Particulier">{{ __("Particulier")}}</option>
-                                    <option value="Actionnaire">{{ __("Actionnaire/Investisseur")}}</option>
+                                    <option value="Actionnaire">{{ __("Actionnaire / Investisseur")}}</option>
                                     <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
                                     <option value="PME">{{ __("PME")}}</option>
                                     <option value="Entreprise">{{ __("Entreprise")}}</option>
@@ -76,7 +76,7 @@
                                 @else
                                     <option value="">--{{ __("defaut").$data_user->type_compte}}--</option>
                                     <option value="Particulier">{{ __("Particulier")}}</option>
-                                    <option value="Actionnaire">{{ __("Actionnaire/Investisseur")}}</option>
+                                    <option value="Actionnaire">{{ __("Actionnaire / Investisseur")}}</option>
                                     <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
                                     <option value="PME">{{ __("PME")}}</option>
                                 @endif
@@ -117,8 +117,8 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <label for="apropos">{{ __("A propos de moi")}}:</label>
-                                <textarea name="apropos" placeholder="A propos de moi" class="form-control"> {{ $data_user->apropos}}</textarea>
+                                <label for="apropos">{{ __("À propos de moi")}}:</label>
+                                <textarea name="apropos" placeholder="À propos de moi" class="form-control"> {{ $data_user->apropos}}</textarea>
                             </div>
                         </div>
                         <div class="text-center">

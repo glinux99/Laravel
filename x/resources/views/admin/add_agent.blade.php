@@ -50,7 +50,7 @@
                             @if($agent4==='caissier')
                                 <option value="">--<?php echo _("Select Categorie client");?>--</option>
                                 <option value="Particulier"><?php echo _("Particulier");?></option>
-                                <option value="Actionnaire"><?php echo _("Actionnaire/Investisseur");?></option>
+                                <option value="Actionnaire"><?php echo _("Actionnaire / Investisseur");?></option>
                                 <option value="Emploi"><?php echo _("Candidat a l emploi");?></option>
                                 <option value="PME"><?php echo _("PME");?></option>
                                 <option value="Entreprise"><?php echo _("Entreprise");?></option>
@@ -98,8 +98,8 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <label for="apropos"><?php echo _("A propos du Caissier")?>:</label>
-                            <textarea name="apropos" placeholder="A propos de moi" class="form-control"> </textarea>
+                            <label for="apropos"><?php echo _("À propos du Caissier")?>:</label>
+                            <textarea name="apropos" placeholder="À propos de moi" class="form-control"> </textarea>
                         </div>
                     </div>
                     <div class="text-center">
