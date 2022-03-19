@@ -703,11 +703,10 @@ class BanqueController extends Controller
                     if(session('account')!='Client'){
                         $chp = ['client_mat', 'benef_mat'];
                         $transaction = \DB::table('Transactions')
-                                        ->table('Customers')
                                         ->where('client_mat',$request->mail)
                                         ->orwhere('benef_mat', $request->mail)->get();
                                         $trans=$transaction;
-                                        dd($trans);
+                                        //dd($trans);
                                         if(session('account')==='Admins'){
                                             $transaction = \DB::table('Transactions')
                                                 ->join('Caissier', 'Caissier.id', 'caissier_id')
@@ -742,7 +741,8 @@ class BanqueController extends Controller
                         //var_dump($trans);
                         if($trans){
                             $transaction = $trans;
-                        }             
+                        }
+                    session()->flash('trans_pdf', $transaction);             
                     return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');

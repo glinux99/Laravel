@@ -53,7 +53,7 @@ class pdfController extends Controller
             $this->fpdf->SetX(108); 
             //mot doit etre inferieur a 30 cad 30-12
             if(session('account')==='Client') $this->fpdf->Cell(60,8, __('Motif de la transaction'),1,0,'C');
-            else $this->fpdf->Cell(60,8, __('Matricule du Client / Nom'),1,0,'C');
+            else $this->fpdf->Cell(60,8, __('Matricule du Client'),1,0,'C');
             $this->fpdf->SetX(168);
             $this->fpdf->Cell(20,8, __("Solde($)"),1,0,'C');
             $this->fpdf->SetX(188); 
@@ -73,7 +73,7 @@ class pdfController extends Controller
             if(session('account')==='Client') $this->fpdf->Cell(60,8, $items->motif,1,0,'C');
             else{
                 $this->fpdf->SetFont('Helvetica','',8);
-                $this->fpdf->Cell(60,8,$items->client_mat.' / '.$items->nom.' '.$items->prenom ,1,0,'C');
+                $this->fpdf->Cell(60,8,$items->client_mat,1,0,'C');
                 $this->fpdf->SetFont('Helvetica','',10);
             }
             $this->fpdf->SetX(168);
