@@ -64,7 +64,7 @@
                                     <option value="">--{{ __("Select Categorie client")}}--</option>
                                     <option value="Particulier">{{ __("Particulier")}}</option>
                                     <option value="Actionnaire">{{ __("Actionnaire / Investisseur")}}</option>
-                                    <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
+                                    <option value="Emploi">{{ __("Candidat à l'emploi")}}</option>
                                     <option value="PME">{{ __("PME")}}</option>
                                     <option value="Entreprise">{{ __("Entreprise")}}</option>
                                 @elseif($admin)
@@ -74,10 +74,10 @@
                                     <option value="Securite">{{ __("Securite")}}</option>
                                     <option value="autres">{{ __("Autres")}}</option>
                                 @else
-                                    <option value="">--{{ __("defaut").$data_user->type_compte}}--</option>
+                                    <option value="">--{{ __("défaut").$data_user->type_compte}}--</option>
                                     <option value="Particulier">{{ __("Particulier")}}</option>
                                     <option value="Actionnaire">{{ __("Actionnaire / Investisseur")}}</option>
-                                    <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
+                                    <option value="Emploi">{{ __("Candidat à l'emploi")}}</option>
                                     <option value="PME">{{ __("PME")}}</option>
                                 @endif
                             </select>
@@ -86,7 +86,7 @@
                             <label for="nomB" >Genre</label>
                             <select name="genre" id="" class="form-control">
                                 <option value="">--{{ __("Select Genre")}}--</option>
-                                <option value="F">{{ __("Feminin")}}</option>
+                                <option value="F">{{ __("Féminin")}}</option>
                                 <option value="M">{{ __("Masculin")}}</option>
                             </select>
                         </div>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
             <div class="col-lg-3 align-self-center text-center">
-                <p class="card-header">{{ __("Photo par defaut du client")}}</p>
+                <p class="card-header">{{ __("Photo par défaut du client")}}</p>
                 <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
             </div>
         </div>

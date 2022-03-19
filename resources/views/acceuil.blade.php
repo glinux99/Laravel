@@ -14,10 +14,10 @@ $login='non';
                     <div class="mx-auto align-self-center pb-5 text-center">
                             <h3 class="text-uppercase fw-bold text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span></span>{{  __(" avec plus d'avantages") }}
                             </h3>
-                            <h6 class="text-white"style="font-weight: 100;">{{ __("Beneficiez de nombreux produits et services lie a votre compte")}}
+                            <h6 class="text-white"style="font-weight: 100;">{{ __("Bénéficiez de nombreux produits et services lié à votre compte: ")}}
                             </h6>
                             <div class="col-6 col-lg-4 mx-auto">
-                                <a class="list-group-item text-warning" href="/login" >{{  __("Debuter avec nous") }}
+                                <a class="list-group-item text-warning" href="/login" >{{  __("Débuter avec nous") }}
                                 </a>
                             </div>
                     </div>
@@ -27,12 +27,12 @@ $login='non';
                     <img src="{{url('assets/img/fr5.png')}}" alt="" class="card-img-top w-50 mx-auto d-block" style="transform: scale(2);">
                     <div class="card-img-overlay d-flex pb-5">
                     <div class="mx-auto align-self-center  text-center">
-                            <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilite") }}
+                            <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilité") }}
                             </h3>
-                            <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilite")}}
+                            <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilité")}}
                             </h6>
                             <div class="col-6 col-lg-4 mx-auto">
-                                <a class="list-group-item text-warning" href="/login" >{{  __("Debuter avec nous") }}
+                                <a class="list-group-item text-warning" href="/login" >{{  __("Débuter avec nous") }}
                                 </a>
                             </div>
                     </div>
@@ -248,7 +248,7 @@ $login='non';
                         </div>
                         <div class="col-11 row text-white" style="background: #0f222b!important;">
                             <div class="col-7 d-flex flex-column p-0 m-0">
-                                <span class="h3 p-0 m-0"> {{ __("Cours d'echange actuel") }}</span>
+                                <span class="h3 p-0 m-0"> {{ __("Cours d'échange actuel") }}</span>
                                 <small>{{ \Carbon\Carbon::now()->toDateString() }}</small>
                             </div>
                             <div class="col-5">
@@ -306,7 +306,7 @@ $login='non';
                         </div>
                         <div class="col-10 text-white" style="background: #0f222b!important;">
                             <div class="p-0 m-0 text-center" id="echange">
-                                <span class="h3 p-0 m-0"> {{ __("Bureau d'echange au taux courant") }}</span>
+                                <span class="h3 p-0 m-0"> {{ __("Bureau d'échange au taux courant") }}</span>
                                 <br><small>{{ __("Passez dans tout nos distributeurs suivant le meme taux.") }}</small>
                             </div>
                         </div>

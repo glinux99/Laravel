@@ -6,7 +6,7 @@
     <div class="row mx-auto">
         <div class="col-lg-9 card adC ">
             <div class="card-header text-success text-center">
-                <?php echo _('Creation du compte ');?>{{$agent6 ?? ''}}
+                <?php echo _('Création du compte ');?>{{$agent6 ?? ''}}
             </div>
             <div class="card-body">
                 <div class="row">
@@ -51,7 +51,7 @@
                                 <option value="">--<?php echo _("Select Categorie client");?>--</option>
                                 <option value="Particulier"><?php echo _("Particulier");?></option>
                                 <option value="Actionnaire"><?php echo _("Actionnaire / Investisseur");?></option>
-                                <option value="Emploi"><?php echo _("Candidat a l emploi");?></option>
+                                <option value="Emploi"><?php echo _("Candidat à l'emploi");?></option>
                                 <option value="PME"><?php echo _("PME");?></option>
                                 <option value="Entreprise"><?php echo _("Entreprise");?></option>
                             @elseif($agent4==='administrateur')
@@ -67,7 +67,7 @@
                         <label for="nomB" >Genre</label>
                         <select name="genre" id="" class="form-control">
                             <option value="">--<?php echo _("Select Genre");?>--</option>
-                            <option value="F"><?php echo _("Feminin");?></option>
+                            <option value="F"><?php echo _("Féminin");?></option>
                             <option value="M"><?php echo _("Masculin");?></option>
                         </select>
                     </div>
@@ -108,7 +108,7 @@
                 </div>
             </div>
         <div class="col-lg-3 align-self-center text-center">
-            <p class="card-header"><?php echo _('Photo par defaut du client');?></p>
+            <p class="card-header"><?php echo _('Photo par défaut du client');?></p>
             <img src="{{url('assets/img/default_user.png")}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
         </div>
     </div>

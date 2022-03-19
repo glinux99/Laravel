@@ -408,7 +408,7 @@ $login='non';
                             @endforeach
                         </tbody>
                     </table>
-                    <i> <a href="https://fr.fxssi.com/top-10-les-monnaies-les-plus-cheres-du-monde" class="nav-link">{{ __("Donnees tire du site") }} fxssi {{ __("(TOP 10 - les monnaies les plus chères du monde 2022) ")}}(source)</a></i>
+                    <i> <a href="https://fr.fxssi.com/top-10-les-monnaies-les-plus-cheres-du-monde" class="nav-link">{{ __("Données tire du site") }} fxssi {{ __("(TOP 10 - les monnaies les plus chères du monde 2022) ")}}(source)</a></i>
                 </div>
             </div>
         </div>

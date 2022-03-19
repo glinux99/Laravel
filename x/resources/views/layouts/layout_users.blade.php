@@ -100,7 +100,7 @@
                     </li>
                     <li class="nav-item w-100">
                         <a href="{{ url('logout') }}" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Deconnection");?></span>
+                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline"><?php echo _("Déconnection");?></span>
                         </a>
                     </li>
                     <!-- <div class="dropdown pb-4">

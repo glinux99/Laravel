@@ -15,7 +15,7 @@
                         <a class="nav-link active" id="username-log" data-bs-toggle="tab" href="#username" role="tab" aria-controls="username" aria-selected="true"><?php echo _("Username login");?></a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="card-log" data-bs-toggle="tab" href="#card-login" role="tab" aria-controls="card-login" aria-selected="false"><?php echo _("Creation compte");?></a>
+                        <a class="nav-link" id="card-log" data-bs-toggle="tab" href="#card-login" role="tab" aria-controls="card-login" aria-selected="false"><?php echo _("Création du compte ");?></a>
                     </li>
                 </ul>
                 <div class="tab-content m-auto " id="">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="tab-pane fade" id="card-login" role="tabpanel" aria-labelledby="card-log">
                         <div class="text-center w-75 m-auto">
-                            <p class="m-0 p-0"><?php echo _("Creer votre compte facilement");?></p>
+                            <p class="m-0 p-0"><?php echo _("Créez votre compte facilement");?></p>
                             <div class="w-100">
                                 <form action="" method="post">
                                     <input type="text" name="name" id="" class="form-control mb-3" placeholder="<?php echo ('votre nom');?>" required>

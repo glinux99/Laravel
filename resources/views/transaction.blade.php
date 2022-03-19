@@ -6,7 +6,7 @@
             <div class="card-header">
             {{ __("HISTORIQUE DE TRANSACTION DE VOTRE COMPTE")}}
             </div> 
-            <a class="btn btn-success mt-2" href="/pdf">{{ __("Generer l'appecu en pdf")}}</a>
+            <a class="btn btn-success mt-2" href="/pdf">{{ __("Générer l'apperçu en pdf")}}</a>
             <div class=" mx-auto" style="max-width:max-content">
                 <div class="input-group mt-2">
                     <button type="submit" class="btn btn-dark">{{ __("Transaction durant")}}</button>
@@ -29,7 +29,7 @@
                         @endphp
                         @endif
                         <td>{{ __("Solde") }}</td>
-                        <td>{{ __("Retrait / Depot ") }}</td>
+                        <td>{{ __("Retrait / Dépôt ") }}</td>
                         <td>{{ __("Montant_Ret") }}</td>
                     </tr>
                 </thead>

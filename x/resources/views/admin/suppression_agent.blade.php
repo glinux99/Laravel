@@ -36,7 +36,7 @@
 
                 <td>
                     @if (isset($desactivate))
-                        <button type="submit" class="btn btn-dark"><?php echo _("Desactiver");?></button>
+                        <button type="submit" class="btn btn-dark"><?php echo _("Désactiver");?></button>
                     @else
                         <button type="submit" class="btn btn-success"><?php echo _("Activer");?></button>
                     @endif

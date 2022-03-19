@@ -39,7 +39,7 @@
                 <td>@php $desactivate=$items->status_compte;
                     @endphp
                     @if ($desactivate)
-                        <a class="btn btn-dark" href="/desactive/{{$items->id}}">{{ __("Desactiver") }}</a>
+                        <a class="btn btn-dark" href="/desactive/{{$items->id}}">{{ __("Désactiver") }}</a>
                     @else
                         <a  class="btn btn-success" href="/active/{{$items->id}}">{{ __("Activer") }}</a>
                     @endif

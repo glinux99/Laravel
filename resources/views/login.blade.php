@@ -32,7 +32,7 @@ $matricule2 = substr(str_shuffle("1234567890"),0,2);
                         <a class="nav-link active" id="username-log" data-bs-toggle="tab" href="#username" role="tab" aria-controls="username" aria-selected="true">{{ __("Username login") }}</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="card-log" data-bs-toggle="tab" href="#card-login" role="tab" aria-controls="card-login" aria-selected="false">{{ __("Creation compte") }}</a>
+                        <a class="nav-link" id="card-log" data-bs-toggle="tab" href="#card-login" role="tab" aria-controls="card-login" aria-selected="false">{{ __("Création du compte ") }}</a>
                     </li>
                 </ul>
                 <div class="tab-content m-auto " id="">
@@ -71,7 +71,7 @@ $matricule2 = substr(str_shuffle("1234567890"),0,2);
                         @csrf
                             <div class="text-center w-75 m-auto">
                                 @include('layouts.error', ['error'=>$error])
-                                <p class="m-0 p-0">{{ __("Creer votre compte facilement") }}</p>
+                                <p class="m-0 p-0">{{ __("Créez votre compte facilement") }}</p>
                                 <div class="w-100">
                                     <input type="text" name="nom" id="" class="form-control mb-3" placeholder="{{ __('votre nom') }}" required>
                                     <input type="text" name="prenom" id="" class="form-control mb-3" placeholder="{{ __('votre prenom') }}" required>

@@ -24,7 +24,7 @@ $login='non';
                 <span class="bi-people-fill"></span> {{ __("Un coffre fort pour votre enfant")}}
             </div>
             <div class="card-body">
-                {{ __("Coffre fort est notre nouveau compte d'épargne pour les 11 à 15 ans sous surveillance parentale. Les bonnes habitudes financières pour votre enfant commencent ici. ")}}
+                {{ __("Coffre-fort est notre nouveau compte d'épargne pour les 11 à 15 ans sous surveillance parentale. Les bonnes habitudes financières pour votre enfant commencent ici. ")}}
                 <div class="text-center"><button type="submit" class="btn btn-success" style="height: 5rem">{{ __("Lire plus a propos de Coffre Fort Epargne?") }} </button></div>
             </div>
         </div>
@@ -58,7 +58,7 @@ $login='non';
         </div>
         <div class="m-2 card shadow-lg">
             <div class="card-title text-center h4 pt-2 border-bottom border-2 pb-2">
-                <span class="bi-calculator-fill"></span> {{ __("Calculateur de taux d'echange ")}}
+                <span class="bi-calculator-fill"></span> {{ __("Calculateur de taux d'échange "")}}
             </div>
             <div class="card-body">
                 {{ __("Essayer de calculer le montant totale de votre sommes en une monnaie locale ou Internationnale avec Notre Super Calculateur. Ainsi vous pouvez retirer partout dans nos distributeur sur le meilleur taux du jour")}}

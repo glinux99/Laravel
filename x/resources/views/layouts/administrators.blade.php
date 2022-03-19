@@ -47,7 +47,7 @@
                 <div class="card text-center adC me-1">
                     <a href="" class="nav-link text-center">
                         <span class="bi-currency-exchange bi--5xl"></span><br>
-                        <small class="text-center text-muted"><?php echo _("Verifier les payements");?></small>
+                        <small class="text-center text-muted"><?php echo _("Vérifier les payements");?></small>
                     </a>
                 </div>
                 <div class="card adC">

@@ -49,7 +49,7 @@ else{
   @csrf
     <div class="modal-content adC text-white">
       <div class="modal-header" style="background: #0f222b!important;">
-        <h5 class="modal-title" id="verifier_soldedropLabel">{{ __("VERIFIER SOLDE DU COMPTE ")}} </h5>
+        <h5 class="modal-title" id="verifier_soldedropLabel">{{ __("VÉRIFIER SOLDE DU COMPTE ")}} </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
         </button>
       </div>
@@ -72,7 +72,7 @@ else{
   @csrf
     <div class="modal-content adC text-white ">
       <div class="modal-header" style="background: #0f222b!important;">
-        <h5 class="modal-title" id="verifier_soldedropLabel">{{ __("VERIFIER SOLDE DU COMPTE  : RESULTAT")}} </h5>
+        <h5 class="modal-title" id="verifier_soldedropLabel">{{ __("VÉRIFIER SOLDE DU COMPTE  : RESULTAT")}} </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
         </button>
       </div>
@@ -106,14 +106,14 @@ else{
   </div>
 </div>
 
-<!-- Depot -->
+<!-- Dépôt -->
 <div class="modal show" id="depot" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="1" aria-labelledby="depotdropLabel" aria-hidden="false">
   <div class="modal-dialog">
   <form action="/depot_argent" method="post">
   @csrf
     <div class="modal-content adC text-white">
       <div class="modal-header" style="background: #0f222b!important;">
-        <h5 class="modal-title" id="depotdropLabel">{{ __("DEPOT SUR LE COMPTE CLIENT ")}} </h5>
+        <h5 class="modal-title" id="depotdropLabel">{{ __("DÉPÔT SUR LE COMPTE CLIENT ")}} </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
         </button>
       </div>

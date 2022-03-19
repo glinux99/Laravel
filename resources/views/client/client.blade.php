@@ -36,7 +36,7 @@
                                     {{ __("Langage") }}
                                 </div>
                                 <div class="col-7 text-muted">
-                                    {{ __("Francais") }}
+                                    {{ __("Français") }}
                                 </div>
                             </div>
                             <div class="list-group-item d-flex adC">

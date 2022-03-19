@@ -20,14 +20,14 @@
                     <a href="#" class="nav-link text-white"><?php echo _('Mes credits');?></a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white"><?php echo _('intermediaire Financiers');?></a>
+                    <a href="#" class="nav-link text-white"><?php echo _('Intermédiaire Financiers');?></a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link text-white"><?php echo _('Statistiques');?></a>
                 </li>
                 <li class="nav-item">
                     <select name="langue" id="" class="form-control text-success border-0" style="background: #1D264A!important;">
-                        <option value="">Francais</option>
+                        <option value="">Français</option>
                         <option value="">Anglais</option>
                     </select>
                 </li>
@@ -48,7 +48,7 @@
                         <h6 class="text-white"style="font-weight: 100;"><?php echo _('Beneficiez de nombreux produits et services lie a votre compte');?>
                         </h6>
                         <div class="col-6 col-lg-4 mx-auto">
-                            <a class="list-group-item text-warning" href="B_users/loginsecure.php" ><?php echo _("Debuter avec nous");?>
+                            <a class="list-group-item text-warning" href="B_users/loginsecure.php" ><?php echo _("Débuter avec nous");?>
                             </a>
                         </div>
                    </div>
@@ -58,12 +58,12 @@
                 <img src="{{url('assets/img/banque_img.jpg")}}" alt="" class="card-img-top">
                 <div class="card-img-overlay d-flex ">
                    <div class="mx-auto align-self-center pb-5 text-center">
-                        <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);"><?php echo _("Nuru Banque");?></span></span><?php echo _(" avec plus de facilite");?>
+                        <h3 class="text-uppercase text-warning" style="font-weight: 200; color: rgb(255, 102, 0)"><span style="color: rgb(39, 148, 29);"><span style="color: rgb(39, 148, 29);"><?php echo _("Nuru Banque");?></span></span><?php echo _(" avec plus de facilité");?>
                         </h3>
-                        <h6 class="text-white"style="font-weight: 100;"><?php echo _('Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilite');?>
+                        <h6 class="text-white"style="font-weight: 100;"><?php echo _('Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilité');?>
                         </h6>
                         <div class="col-6 col-lg-4 mx-auto">
-                            <a class="list-group-item text-warning" href="B_users/loginsecure.php" ><?php echo _("Debuter avec nous");?>
+                            <a class="list-group-item text-warning" href="B_users/loginsecure.php" ><?php echo _("Débuter avec nous");?>
                             </a>
                         </div>
                    </div>

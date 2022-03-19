@@ -84,7 +84,7 @@
                     <a href="/mon_epargne" class="nav-link text-white">{{ __("Mon epargne")}}</a>
                 </li>
                 <li class="nav-item dropdown m-0 p-0">
-                    <a href="#" class="nav-link text-white">{{ __("intermediaire Financiers")}}</a>
+                    <a href="#" class="nav-link text-white">{{ __("Intermédiaire Financiers")}}</a>
                     <div class="dropdown-content">
                         <div class="dropdown2">
                             <small>{{ __("Reglementation")}}</small>
@@ -100,7 +100,7 @@
                         </div>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown3">
-                        <small>{{ __("Etablissements de credits")}}</small>
+                        <small>{{ __("Établissements de crédits")}}</small>
                             <div class="dropdown-content3 left">
                                 <div>
                                     <small>{{ __("Operationnel") }}</small>
@@ -113,22 +113,22 @@
                         </div>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown4">
-                        <small>{{ __("Autres intermediaire financiers")}}</small>
+                        <small>{{ __("Autres intermédiaire financiers")}}</small>
                         <div class="dropdown-content4 left">
                                 <div>
                                     <small>{{ __("Banques") }}</small>
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
-                                    <small>{{ __("Institutions de MIcro Finance") }}</small>
+                                    <small>{{ __("Institutions de Micro Finance") }}</small>
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
-                                    <small>{{ __("Cooperatives d'epargnes et de credits") }}</small>
+                                    <small>{{ __("Coopératives d'épargnes et de crédits") }}</small>
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
-                                    <small>{{ __("Institutions financiers") }}</small>
+                                    <small>{{ __("Institutions financières") }}</small>
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
-                                    <small>{{ __("Caisse d'epargne et de credit") }}</small>
+                                    <small>{{ __("Caisse d'épargne et de crédit") }}</small>
                                 </div>
                                 <div class="dropdown-divider"></div>
                                 <div>
@@ -181,7 +181,7 @@
                 <li class="nav-item">
                     <select  name="langue" id="langue" class="form-control text-success border-0" style="background: #1D264A!important;">
                         <option value="">Langue 🇫🇷🇬🇧&emsp;</option>
-                        <option value="fr" >🇫🇷&emsp;Francais</option>
+                        <option value="fr" >🇫🇷&emsp;Français</option>
                         <option value="en">🇬🇧&emsp;Anglais</option>
                     </select>
                 </li>

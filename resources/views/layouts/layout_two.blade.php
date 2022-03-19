@@ -111,7 +111,7 @@
                     @if(session('account')==='Caissier')
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="#" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#depot">
-                            <i class="bi-stack bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Depot") }}</span>
+                            <i class="bi-stack bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Dépôt") }}</span>
                         </a>
                     </li>
                     @endif
@@ -122,7 +122,7 @@
                     </li>
                     <li class="nav-item w-100">
                         <a href="{{ url('logout') }}" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Deconnection") }}</span>
+                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Déconnection") }}</span>
                         </a>
                     </li>
                     <!-- <div class="dropdown pb-4">

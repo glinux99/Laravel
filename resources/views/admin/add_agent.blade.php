@@ -20,7 +20,7 @@
         <div class="row mx-auto">
             <div class="col-lg-9 card adC ">
                 <div class="card-header text-success text-center">
-                    {{ __("Creation du compte ")}} @if($admin) {{ __("pour Agent")}} @else {{ __("pour Client")}} @endif
+                    {{ __("Création du compte ")}} @if($admin) {{ __("pour Agent")}} @else {{ __("pour Client")}} @endif
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -66,7 +66,7 @@
                                     <option value="">--{{ __("Select Categorie client")}}--</option>
                                     <option value="Particulier">{{ __("Particulier")}}</option>
                                     <option value="Actionnaire">{{ __("Actionnaire / Investisseur")}}</option>
-                                    <option value="Emploi">{{ __("Candidat a l emploi")}}</option>
+                                    <option value="Emploi">{{ __("Candidat à l'emploi")}}</option>
                                     <option value="PME">{{ __("PME")}}</option>
                                     <option value="Entreprise">{{ __("Entreprise")}}</option>
                                 @elseif($admin)
@@ -82,7 +82,7 @@
                             <label for="nomB" >Genre</label>
                             <select name="genre" id="" class="form-control">
                                 <option value="">--{{ __("Select Genre")}}--</option>
-                                <option value="F">{{ __("Feminin")}}</option>
+                                <option value="F">{{ __("Féminin")}}</option>
                                 <option value="M">{{ __("Masculin")}}</option>
                             </select>
                         </div>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
             <div class="col-lg-3 align-self-center text-center">
-                <p class="card-header">{{ __("Photo par defaut du client")}}</p>
+                <p class="card-header">{{ __("Photo par défaut du client")}}</p>
                 <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
             </div>
         </div>

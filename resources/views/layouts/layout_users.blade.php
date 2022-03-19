@@ -96,7 +96,7 @@
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                         <a href="#" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-motherboard-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Coffre fort") }}</span>
+                            <i class="bi-motherboard-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Coffre-fort") }}</span>
                         </a>
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
@@ -106,7 +106,7 @@
                     </li>
                     <li class="nav-item w-100">
                         <a href="{{ url('logout')}}" class="nav-link align-middle px-0 mhl  h-50 ">
-                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Deconnection") }}</span>
+                            <i class="bi-box-arrow-in-right icon-2x bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Déconnection") }}</span>
                         </a>
                     </li>
                     <!-- <div class="dropdown pb-4">

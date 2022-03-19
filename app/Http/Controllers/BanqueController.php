@@ -50,7 +50,8 @@ class BanqueController extends Controller
             if(session('account')==='Admins'){
                 $data_users = \DB:: table ('Customers')
                         ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
-                        ->join('Compte', 'Adresse.id_compte', '=','Compte.id')->get();
+                        ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                        ->where('Customers.id', '!=', 1)->get();
                         
                 return view('admin.suppression_agent', compact(['data_users']));
             }
@@ -468,7 +469,7 @@ class BanqueController extends Controller
                                     ->insert([
                                         'montant_ret'=>$request->montant,
                                         'solde'=>$solde,
-                                        'motif'=>__('Depot ').$effect_par,
+                                        'motif'=>__('Dépôt ').$effect_par,
                                         'trans_mat'=>$trans_mat,
                                         'client_mat'=>$matricule,
                                         'caissier_id'=>$id->id
@@ -576,13 +577,24 @@ class BanqueController extends Controller
                                 $trans_mat = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTVWXYZ123456789"), 0, 6).'.'.$trans_mat;
                                 \DB:: table('Transactions')
                                     ->insert([
-                                        'montant_ret'=>$request->montant,
-                                        'solde'=>$solde_f,
-                                        'motif'=>__('Virement sur le compte de ').$compte_de,
-                                        'trans_mat'=>$trans_mat,
-                                        'client_mat'=>$data->matricule,
-                                        'benef_mat' =>$request->mail,
-                                        'caissier_id'=>null
+                                        [
+                                            'montant_ret'=>$request->montant,
+                                            'solde'=>$solde_f,
+                                            'motif'=>__('Virement sur le compte de ').$compte_de,
+                                            'trans_mat'=>$trans_mat,
+                                            'client_mat'=>$data->matricule,
+                                            'benef_mat' =>'requette d apres::commentaire',
+                                            'caissier_id'=>null
+                                        ],
+                                        [
+                                            'montant_ret'=>$request->montant,
+                                            'solde'=>$soldeb,
+                                            'motif'=>__('Virement effectuer par ').$data->nom.' '.$data->prenom,
+                                            'trans_mat'=>$trans_mat,
+                                            'client_mat'=>'requette precedent::commentaire',
+                                            'benef_mat' =>$request->mail,
+                                            'caissier_id'=>null
+                                        ]
                                     ]);
                                 $data =json_decode(json_encode($data), true);
                                 session()->flash('error','no_error');
@@ -691,10 +703,11 @@ class BanqueController extends Controller
                     if(session('account')!='Client'){
                         $chp = ['client_mat', 'benef_mat'];
                         $transaction = \DB::table('Transactions')
-                                        ->join('Customers', 'matricule', 'client_mat')
+                                        ->table('Customers')
                                         ->where('client_mat',$request->mail)
                                         ->orwhere('benef_mat', $request->mail)->get();
                                         $trans=$transaction;
+                                        dd($trans);
                                         if(session('account')==='Admins'){
                                             $transaction = \DB::table('Transactions')
                                                 ->join('Caissier', 'Caissier.id', 'caissier_id')
