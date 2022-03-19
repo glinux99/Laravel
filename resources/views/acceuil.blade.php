@@ -38,6 +38,51 @@ $login='non';
                     </div>
                     </div>
                 </div>
+                <div class="card carousel-item">
+                    <img src="{{url('assets/img/money3.jpg')}}" alt="" class="card-img-top w-50 mx-auto d-block" style="transform: scale(2);">
+                    <div class="card-img-overlay d-flex pb-5">
+                    <div class="mx-auto align-self-center  text-center">
+                            <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilité") }}
+                            </h3>
+                            <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilité")}}
+                            </h6>
+                            <div class="col-6 col-lg-4 mx-auto">
+                                <a class="list-group-item text-warning" href="/login" >{{  __("Débuter avec nous") }}
+                                </a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card carousel-item">
+                    <img src="{{url('assets/img/money.jpg')}}" alt="" class="card-img-top w-50 mx-auto d-block" style="transform: scale(2);">
+                    <div class="card-img-overlay d-flex pb-5">
+                    <div class="mx-auto align-self-center  text-center">
+                            <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilité") }}
+                            </h3>
+                            <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilité")}}
+                            </h6>
+                            <div class="col-6 col-lg-4 mx-auto">
+                                <a class="list-group-item text-warning" href="/login" >{{  __("Débuter avec nous") }}
+                                </a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="card carousel-item">
+                    <img src="{{url('assets/img/nuru1.png')}}" alt="" class="card-img-top mx-auto d-block"  >
+                    <div class="card-img-overlay d-flex pb-5">
+                    <div class="mx-auto align-self-center  text-center">
+                            <h3 class="text-uppercase fw-bold text-warning " ><span style="color: rgb(39, 148, 29);">{{  __("Nuru Banque") }}</span>{{  __(" avec plus de facilité") }}
+                            </h3>
+                            <h6 class="text-white"style="font-weight: 100;">{{ __("Epargnez avec Nuru Merchant Bank et realisez vos projets avec facilité")}}
+                            </h6>
+                            <div class="col-6 col-lg-4 mx-auto">
+                                <a class="list-group-item text-warning" href="/login" >{{  __("Débuter avec nous") }}
+                                </a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="w-100 text-white px-3" style="background: #011720d3!important;">

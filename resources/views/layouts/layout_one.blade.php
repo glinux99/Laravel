@@ -11,7 +11,7 @@
     <script src="{{url('assets/vendor/dist/js/jquery.min.js')}}"></script>
     <title>@yield('titre')</title>
 </head>
-<body class="w-100" style="background-image: url('assets/img/banque_img.jpg');background-size: cover;">  
+<body class="w-100" style="background-image: url('assets/img/fee.png');background-size: cover;">  
     <div class="m-auto px-3 row text-white-50" style="background: #0f222b;">
         <div class="col-2 col-md-1">
             <img src="{{url('assets/img/logo1.png')}}" class="" height="60" width="80">

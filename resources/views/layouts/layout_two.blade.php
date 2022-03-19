@@ -13,17 +13,17 @@
 @include('layouts.modals')
 @php if(session('account')==='Caissier') 
     {
-        $adS="Nouveau Client";
-        $modS="Modifier Compte Client";
-        $men ="Client";
+        $adS=__("Nouveau Client");
+        $modS=__("Modifier Compte Client");
+        $men =__("Client");
     }
   else {
-    $adS = "Nouveau Agent";
-    $modS="Modifier Compte Agent";
-    $men = "Agent";
+    $adS = __("Nouveau Agent");
+    $modS=__("Modifier Compte Agent");
+    $men = __("Agent");
   }
 @endphp
-<body class="w-100" style="background-image: url({{url('assets/img/banque_img.jpg')}});background-size: cover;">  
+<body class="w-100" style="background-image: url({{url('assets/img/bank.jpg')}});background-size: cover;">  
     <!-- Menu principal -->
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark border-bottom " style="background: #0f222b!important; color: rgb(39, 148, 29);line-height: 24px;
         font-family: 'Source Sans Pro', sans-serif;">
@@ -137,9 +137,9 @@
         </div>
         
     </div>
-    <div class="col-md-10 col-10 p-0 position-relative">
+    <div class="col-md-10 col-10 p-0 position-relative ">
         <div style="z-index: 2!important;" class="position-absolute col-lg-12 mx-auto">@include('layouts.errorException')</div>
-        <div class="position-absolute w-100" style="z-index: 1!important;">
+        <div class=" w-100" style="z-index: 1!important; ">
         @yield('contenu')
         </div>
     </div>
