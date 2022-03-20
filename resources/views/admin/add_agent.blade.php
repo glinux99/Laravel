@@ -109,6 +109,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="nomB" >{{ __("Pays")}}</label>
+                                <!-- <input class="form-control" id="myInput" type="text" placeholder="Search.."> -->
                                 <input type="mail" name="pays" id="" class="form-control" placeholder="RDC" disabled value="">
                             </div>
                         </div>
@@ -129,4 +130,14 @@
             </div>
         </div>
     </form>
+    <script>
+// $(document).ready(function(){
+//   $("#myInput").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     $(".dropdown-menu li").filter(function() {
+//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//     });
+//   });
+// });
+// </script>
 @stop

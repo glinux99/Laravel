@@ -287,10 +287,11 @@ $login='non';
                         </div>
                     </div>
                     </p>    
-                    <table  class="table table-bordered text-primary table-hover text-center table-striped">
-                            <thead>
+                    <div class="table-responsive-lg">
+                    <table  class="table table-bordered text-primary table-hover text-center table-striped rounded">
+                            <thead style="background: #0f222b!important;">
                                 <tr>
-                                    <td>{{ __("Unite") }}</td>
+                                    <td >{{ __("Unite") }}</td>
                                     <td>{{ __("code") }}</td>
                                     <td> {{ __("libele") }}</td>
                                     <td> {{ __("Cours acheteur") }}</td>
@@ -309,7 +310,8 @@ $login='non';
                                     @endforeach
                                 </tr>
                             </tbody>
-                        </table>
+                    </table>
+                    </div>
                     </div>
                     <div class="col-lg-5 card mx-auto pt-3">
                     <div class="row " style="background: #0f222b!important;">
@@ -381,13 +383,13 @@ $login='non';
                         <button type="submit" class="btn"><span class="text-center bi-caret-down bi--5xl"></span></button>
                         </div>
                         </form>
-                        <p class="result text-white text-center pt-2 " style="height: 50px;background: #0f222b!important;">
+                        <p class="result text-white text-center pt-2 rounded" style="height: 50px;background: #0f222b!important;">
                                 <span>{{
                                     session('result') ?? '0'
                                     }}</span>
                         </p>
                         <div>
-                            <canvas id="cours_G" width="30" height="20"></canvas>
+                            <canvas id="cours_G" width="30" height="20" style="background: #0f222b!important;" class="rounded"></canvas>
                         </div>
                     </div>
                 </div>
