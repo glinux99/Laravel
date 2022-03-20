@@ -444,7 +444,8 @@ class BanqueController extends Controller
                 }
                 $modal_aff=1;
                 $data_users =json_decode(json_encode($data_users), true);
-                if(!$data_user){
+                //dd($data_users)
+                if(!$data_users){
                     session()->flash('error','no_autorization');
                     $modal_aff=0;
                 }
@@ -496,6 +497,9 @@ class BanqueController extends Controller
                 return redirect(url('admin'));
             }      
 
+        }
+        public function statistiques_users(){
+            return view('client.statistiques_user');
         }
         public function retrait_argent(Request $request){
             try{

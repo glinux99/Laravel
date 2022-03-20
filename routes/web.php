@@ -78,6 +78,7 @@ Route::get('locale/{locale}', function ($locale){
         Route::post('/retrait_argent', [ BanqueController::class, 'retrait_argent']);
         Route::get('/delete_add_desactivate_clients_or_agent', [ BanqueController::class, 'alter_clients_and_agents']);
     });
+    Route::get('/statistiques_user', [ BanqueController::class, 'statistiques_users']);
     Route::get('/pdf', [ pdfController::class, 'index']);
     Route::post('/send_message', [ BanqueController::class, 'send_message']);
     Route::get('/message/{dest}', [ BanqueController::class, 'message']);
