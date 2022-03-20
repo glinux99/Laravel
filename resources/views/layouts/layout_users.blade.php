@@ -11,7 +11,7 @@
     <title>@yield('titre')</title>
 </head>
 @include('layouts.modals')
-<body class="w-100" style="background-image: url({{url('assets/img/banque_img.jpg')}});background-size: cover;">  
+<body class="w-100" style="background-image: url({{url('assets/img/bank.jpg')}});background-size: cover;">  
     <!-- Menu principal -->
     <nav class="px-3 navbar navbar-expand-lg navbar-dark bg-dark border-bottom " style="background: #0f222b!important; color: rgb(39, 148, 29);line-height: 24px;
         font-family: 'Source Sans Pro', sans-serif;">
@@ -22,19 +22,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse coll justify-content-center">
-            <ul class="nav nav-pills" role="tablist">
+            <ul class="nav nav-pills h5" role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="../" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
+                    <a class="nav-link text-success" href="../" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span>{{ __("Virement") }}</a>
+                    <a class="nav-link text-success" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span>{{ __("Virement") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
+                    <a class="nav-link text-success" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">
-                        <a class="nav-link text-white" href="#" id="drop" data-bs-toggle="dropdown">
+                        <a class="nav-link text-success" href="#" id="drop" data-bs-toggle="dropdown">
                             <span class="bi-person-plus"></span>{{ __("Partenaires") }}
                         </a>
 
@@ -47,7 +47,7 @@
                     </div>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" role="tab" aria-selected="true"><span class="icon-cogs"></span>{{ __("Info Alert") }}</a>
+                    <a class="nav-link text-success" href="#" role="tab" aria-selected="true"><span class="bi-info-circle"></span>{{ __("Info Alert") }}</a>
                 </li>
             </ul>
         </div>
@@ -79,7 +79,7 @@
                     </li>
                     <li class="nav-item border-bottom w-100 pt-2 pb-2">
                             <div class="dropdown">
-                                <a href="#" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#solde">
+                                <a href="" class="nav-link align-middle px-0 mhl  h-50 " data-bs-toggle="modal" data-bs-target="#verifier_solde">
                                 <i class="bi-safe-fill bi--xl "></i>  <span class="ms-1 d-none d-sm-inline">{{ __("Verifier Solde") }}</span></a>
                             </div>
                       

@@ -5,7 +5,11 @@ $login='non';
 @endphp
 @section('contenu-start')
 <div class="w-100">
-<canvas id="cours" width="30" height="20"></canvas>
+<div class="mx-auto mx-4" style="background: #0f222b!important;">
+<canvas id="cours" width="30" height="20" style="
+    height: 30vw;
+    object-fit: cover;"></canvas>
+</div>
     <div class="w-100 text-white px-3" style="background: #011720d3!important;">
         <div class="navbar navbar-dark d-flex justify-content-center">
             <div class=" d-flex flex-columns">
@@ -61,8 +65,8 @@ $login='non';
         </div>
     </div>
     <div class="w-100">
-        <div class="card-header text-center">
-            {{ __("TAUX D'ECHANGE")}}
+        <div class="card-header text-center h2 text-white mt-2">
+            {{ __("RAPPORT ET DEVISES")}}
         </div>
         @php
             $taux = array (

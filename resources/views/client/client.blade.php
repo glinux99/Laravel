@@ -5,8 +5,8 @@
         <div class="row mx-auto p-0">
             <div class="col-lg-6 card adC">
                 <div class="w-100">
-                    <div class="card-header text-success">
-                        {{ __("Information basique") }}
+                    <div class="card-header text-success h4 text-uppercase">
+                        <span class="bi-info-circle"></span>{{ __("Information basique") }}
                     </div>
                     <div class="card-body px-0">
                         <div class="list-group">
@@ -26,8 +26,8 @@
                     </div>
                 </div>
                 <div class="w-100">
-                    <div class="card-header text-success">
-                        {{ __("Parametre du Compte") }}
+                    <div class="card-header text-success h4 text-uppercase">
+                        <span class="bi-gear"></span>{{ __("Parametre du Compte") }}
                     </div>
                     <div class="card-body px-0">
                         <div class="list-group">
@@ -53,8 +53,8 @@
                 </div>
             </div>
             <div class="col-lg-6 p-0 adC align-self-center">
-                <div class="card-header text-success">
-                    {{ __("Information Supplementaire") }}
+                <div class="card-header text-success h4 text-uppercase">
+                    <span class="bi-info-circle-fill"></span>{{ __("Information Supplementaire") }}
                 </div>
                 <div class="card-body">
                     <div class="list-group">

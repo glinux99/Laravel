@@ -54,8 +54,13 @@ else{
         </button>
       </div>
       <div class="modal-body">
+            @if (session('account')==='Client')
+            <label for="">{{ __("Tapez votre mot de passe pour confimer la requette") }}</label>
+            <input type="password" name="psswd" id="" class="form-control" placeholder="*****************">
+            @else
             <input type="text" name="username" id="" class="form-control mb-3" placeholder="Noms du client">
             <input type="text" name="mail" id="" class="form-control mb-3" placeholder="mail ou matricule du Client">
+            @endif
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">{{ __("Rechercher") }}</button>
