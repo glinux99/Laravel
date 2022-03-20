@@ -425,15 +425,30 @@ class BanqueController extends Controller
     }
         public function verifier_solde(Request $request){
             try{
-                $data_users = \DB:: table ('Client')
+                $data_users='';
+                if(session('account')!='Client'){
+                    $data_users = \DB:: table ('Client')
                                 ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
                                 ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
                                 ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
                                 ->where ('Customers.matricule', $request->mail)
                                 ->orwhere('Customers.adresse_mail', $request->mail)
                                 ->first();
-                                $modal_aff=1;
-                                $data_users =json_decode(json_encode($data_users), true);
+                }else{
+                    $data_users =\DB:: table ('Client')
+                    ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
+                    ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
+                    ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                    ->where ('Customers.password_customers', $request->psswd)
+                    ->first();
+                }
+                $modal_aff=1;
+                $data_users =json_decode(json_encode($data_users), true);
+                if(!$data_user){
+                    session()->flash('error','no_autorization');
+                    $modal_aff=0;
+                }
+                                
                                return view('caissier.caissier', compact(['data_users','modal_aff']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
