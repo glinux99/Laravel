@@ -30,11 +30,11 @@ Route::get('locale/{locale}', function ($locale){
         $from_conv = $request->from_conv;
         $to_conv =$request->to_conv;
         $result = $montant*($from_conv/$to_conv);
-        session()->put('result', $result);
+        session()->flash('result', $result);
         return redirect(url('/#echange'));
         }catch(Exception $e){
-            session()->put('error','no_valide_enter');
-            session()->put('result', 0);
+            session()->flash('error','no_valide_enter');
+            session()->flash('result', 0);
             return redirect(url('/#echange'));
         }
         //return view('acceuil#echange', compact('result'));

@@ -348,7 +348,7 @@ $login='non';
                         <div class="row" >
                             <div class="col-4">
                                 <label for="">{{ __("Montant") }} </label>
-                                <input type="text" class="form-control" name="montant">
+                                <input type="number" class="form-control text-end" name="montant" value="0" min="0"> 
                             </div>
                             <div class="col-4">
                                 <label for="">De</label>
@@ -396,7 +396,13 @@ $login='non';
             </div>
         </div>
 </div> 
-
+<style>
+    .card-img-top {
+    width: 100%;
+    height: 35vw;
+    object-fit: cover;
+}
+</style>
 <script>
 const ctx = document.getElementById('cours_G');
 var tb = <?php echo json_encode($taux);?>;
