@@ -78,7 +78,7 @@
                     <a href="{{ Route('login')}}" class="nav-link text-white">{{ __("Mon compte")}}</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#taux" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
+                    <a href="/acceuil#taux" class="nav-link text-white ">{{ __("Taux d'echange")}}</a>
                 </li>
                 <li class="nav-item">
                     <a href="/mon_epargne" class="nav-link text-white">{{ __("Mon epargne")}}</a>
@@ -203,7 +203,7 @@
     </footer>
 </div>
 <!-- Fin footer -->
-< /body>
+</body>
 </html>
 <script>
    document.getElementById('langue').addEventListener('change', function() {

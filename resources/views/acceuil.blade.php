@@ -140,8 +140,8 @@ $login='non';
             </div>
         </div>
         <div class="w-100" id="taux">
-            <div class="card-header text-center">
-                {{ __("TAUX D'ECHANGE")}}
+            <div class="card-header text-center h2 text-white mt-2">
+            <span class="bi-graph-up-arrow text-success bi--1xl"></span> {{ __("TAUX D'ECHANGE")}} 
             </div>
             @php
                 $taux = array (
