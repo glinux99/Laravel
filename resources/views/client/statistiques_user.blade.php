@@ -27,7 +27,7 @@ var myArray2 = output.length;
 var myArray3 = solde.length;
 var nbr = myArray+myArray2+myArray3;
 var tableau = [];
-for (var j = 1; j <=nbr/2; j++){
+for (var j = 1; j <=(nbr/2)+1; j++){
     tableau.push(j);
 }
 const data2 = {
@@ -55,6 +55,13 @@ const myChart2 = new Chart(ctx2, {
   type: 'line',
   data: data2,
   options: {
+    plugins: {
+            title: {
+                display: true,
+                text: 'Montant Entrant et Sortant',
+                color: 'green',
+            }
+        },
     animations: {
       tension: {
         duration: 3000,

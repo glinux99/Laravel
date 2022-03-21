@@ -449,8 +449,10 @@ class BanqueController extends Controller
                     session()->flash('error','no_autorization');
                     $modal_aff=0;
                 }
-                                
-                               return view('caissier.caissier', compact(['data_users','modal_aff']));
+                $data=session('data');
+                $data=json_decode(json_encode($data), true);
+                                if(session('account')=='Client') return view('client.client', compact(['data_users','modal_aff','data']));
+                                else return view('caissier.caissier', compact(['data_users','modal_aff']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
                 return redirect(url('admin'));
