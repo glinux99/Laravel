@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{url('assets/vendor/icons/font/bootstrap-icons.css')}}">
     <script src="{{url('assets/vendor/dist/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{url('assets/vendor/dist/js/jquery.min.js')}}"></script>
+    <script src="{{url('assets/package/dist/chart.min.js')}}"></script>
+    <script src="{{url('assets/vendor/dist/js/jquery.min.js')}}"></script>
     <title>@yield('titre')</title>
 </head>
 @include('layouts.modals')

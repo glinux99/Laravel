@@ -575,7 +575,8 @@ class BanqueController extends Controller
         public function virement(Request $request){
             try{
                 $data= session('data');
-                $data_users = \DB:: table ('Client')
+                if($request->mail!=$data->matricule){
+                    $data_users = \DB:: table ('Client')
                                 ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
                                 ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
                                 ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
@@ -639,6 +640,10 @@ class BanqueController extends Controller
                                 session()->flash('error','solde_insuf');
                                 return redirect()->back();
                                }  
+                }else{
+                    session()->flash('error','one_thing_not_running');
+                    return redirect(url('admin'));
+                }
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
                 return redirect(url('admin'));
