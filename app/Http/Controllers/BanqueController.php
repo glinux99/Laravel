@@ -499,7 +499,20 @@ class BanqueController extends Controller
 
         }
         public function statistiques_users(){
-            return view('client.statistiques_user');
+            try{
+                $mat = session('data');
+
+            // $transaction =\DB::table('Transactions')
+            //                 ->join('Customers', 'Customers.matricule','=', 'client_mat')
+            //                 ->where('Customers.matricule',$mat->matricule)->get();
+            $transaction = \DB::table('Transactions')
+                            ->where('client_mat',$mat->matricule)
+                            ->orwhere('benef_mat', $mat->matricule)->get();
+            return view('client.statistiques_user', compact('transaction'));
+            } catch (Exception $e){
+                session()->flash('error','one_thing_not_running');
+                return redirect(url('client'));
+            }
         }
         public function retrait_argent(Request $request){
             try{
