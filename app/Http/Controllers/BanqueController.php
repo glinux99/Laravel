@@ -166,7 +166,6 @@ class BanqueController extends Controller
                                         'matricule'=>$request->matricule,
                                         'password_customers' =>$request->psswd,
                                         'type_compte'=>'Client',
-                                        'photo'=>$request->photo,
                                         'code_auth'=>$code_auth,
                                         'adresse_id'=>$adresse_id->id
                                     )
@@ -413,7 +412,16 @@ class BanqueController extends Controller
                     $photo = "assets/img/default_user.png";
                 }
             }
-            
+            $tab = ['nom','prenom','adresse_mail','type_compte','numero_tel','genre','quart_av','ville','province','pays','apropos'];
+                foreach($tab as $items){
+                    if($request->$items===null){
+                        $request->$items = session('data_user')->$items;
+                    }
+                }
+                if(!$request->psswd)  $request->psswd = session('data_user')->password_customers;
+                if(!$request->image)  $photo= session('data_user')->photo;
+
+                echo $request->photo;
             $d=\DB:: table('Customers')
                 ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                 ->where('Customers.matricule', $request->matricule)
@@ -429,7 +437,7 @@ class BanqueController extends Controller
                     'quart_av'=>$request->quart_av,
                     'ville'=>$request->ville,
                     'province'=>$request->province,
-                    'pays'=>'RDC',
+                    'pays'=>$request->pays,
                     'apropos'=>$request->apropos
                 ));
                 $items=session('account');
@@ -447,7 +455,7 @@ class BanqueController extends Controller
                                 session()->put('data_user',$data);
                session()->flash('error', 'no_error');
                //echo session('data')->photo;
-              return back();
+             return back();
        
     }
         public function verifier_solde(Request $request){

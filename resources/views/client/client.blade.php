@@ -1,7 +1,12 @@
 @extends('layouts.layout_users')
 @section('contenu')
+@php 
+$data_user = session('data_user');
+@endphp
     <div class="col-lg-11 mx-auto card adC2">
-    <img src="" alt="user-default-profil" id="img" class="align-self-center adC rounded-circle" width="20%" height="50%">
+    <div class="w-100 vh-50">
+
+    </div>
         <div class="row mx-auto p-0">
             <div class="col-lg-6 card adC">
                 <div class="w-100">

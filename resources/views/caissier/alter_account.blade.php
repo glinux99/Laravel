@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <input type="image" src="" alt="" id="sendimage" class="d-none" name="photo6"> 
-                                        <input type="hidden" name="image" class="image_cli">
+                        <input type="hidden" name="image" class="image_cli">
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark  mt-2 mb-lg-2 col-lg-3">{{ __("Mettre a jour")}}</button>
                         </div>
@@ -130,7 +130,7 @@
                 </div>
             <div class="col-lg-3 align-self-center text-center">
                 <p class="card-header text-muted">{{ __("Photo par défaut du client")}}</p>
-                <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
+                <img src="{{url($data_user->photo)}}" alt="user-default-profil" id="mm" class="adC card-img-top rounded-circle" width="80%" height="80%">
                 <canvas id="canvas" width=350 height=340 style="display: none"></canvas>
             </div>
         </div>
