@@ -10,7 +10,7 @@ class BanqueController extends Controller
     public function login(){
         echo session('lang');
         \App::setLocale('en');
-        //return \Redirect::to('login');
+        return \Redirect::to('login');
     }
     public function accounts($data){
         try{

@@ -28,7 +28,7 @@
 @elseif(session('error')==='compte_disable')
     <div class="mt-2 alert alert-dismissible fade show bg-danger col-lg-5 mx-auto" role="alert">
         <strong>{{ __("Erreur!") }}</strong>
-        {{__("Votre compte a ete desactiver! Contactez nos services!!!")}} <br>
+        {{__("Certaines de vos données saisies sont incorrects! Si cela persiste, Contactez-nous")}} <br>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @elseif(session('error')==='no_autorization')
