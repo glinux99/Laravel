@@ -28,13 +28,13 @@
                             <label for="nomB" >
                                 {{ __("Nom")}}
                             </label>
-                            <input type="text" name="nom" id="" class="form-control" placeholder="votre nom" value="" >
+                            <input type="text" name="nom" id="" class="form-control" placeholder='{{ __("votre nom") }}' >
                         </div>
                         <div class="col-lg-4">
                             <label for="nomB" >
                                 {{ __("Prenom")}}
                             </label>
-                            <input type="text" name="prenom" id="" class="form-control" placeholder="votre prenom" value="">
+                            <input type="text" name="prenom" id="" class="form-control" placeholder='{{ __("votre prenom")}}' value="">
                         </div>
                         <div class="col-lg-4">
                             <label for="nomB" >
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-lg-4">
                         <label for="nomB" >{{ __("Password")}}</label>
-                        <input type="text" name="psswd" id="" class="form-control" placeholder="password" value="">
+                        <input type="text" name="psswd" id="" class="form-control" placeholder="password" >
                     </div>
                     <div class="col-lg-4">
                         <label for="nomB" >{{ __("Numero Tel:")}} </label>
@@ -79,7 +79,7 @@
                             </select>
                         </div>
                         <div class="col-lg-4">
-                            <label for="nomB" >Genre</label>
+                            <label for="nomB" >{{ __("Genre") }}</label>
                             <select name="genre" id="" class="form-control">
                                 <option value="">--{{ __("Select Genre")}}--</option>
                                 <option value="F">{{ __("Féminin")}}</option>
@@ -87,9 +87,9 @@
                             </select>
                         </div>
                         <div class="col-lg-4">
-                            <label for="nomB" >Prendre une photo </label>
+                            <label for="nomB" >{{ __("Prendre une photo ") }}</label>
                             <input type="text" name="photo" id="" hidden>
-                            <input type="button" class="form-control" value="<?php echo "Capture";?>" data-toggle="modal" data-target="#photo">
+                            <input type="button" class="form-control" value='{{ __("Capture") }}' data-bs-toggle="modal" data-bs-target="#photo">
                         </div>
                         </div>
                         <div class="row">
@@ -125,7 +125,7 @@
                     </div>
                 </div>
             <div class="col-lg-3 align-self-center text-center">
-                <p class="card-header">{{ __("Photo par défaut du client")}}</p>
+                <p class="card-header text-muted">{{ __("Photo par défaut du client")}}</p>
                 <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
             </div>
         </div>

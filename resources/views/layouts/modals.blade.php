@@ -230,4 +230,31 @@ else{
    </form> 
   </div>
 </div>
+<!-- Div prendre photo -->
+<div class="modal show" id="photo" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="1" aria-labelledby="rapportdropLabel" aria-hidden="false">
+  <div class="modal-dialog">
+  <div class="modal-content adC text-white">
+      <div class="modal-header" style="background: #0f222b!important;">
+        <h5 class="modal-title" id="photodropLabel">{{ __("Prendre une photo")}} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" >
+        </button>
+      </div>
+      <div class="modal-body">
+        <video id="video_capture" autoplay class="w-100"></video>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger" id="capture"> {{ __("Valider") }}</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="confirmer" style="display: none">{{ __("Annuler") }}</button>
+      </div>
+    </div> 
+  </div>
+</div>
+<!-- Script add pic -->
+<script>
+  $('#capture').click(function() {
+  $('#confirmer').css('display', '');
+});
+</script>
+<!-- en pic add script -->
+<!-- fin div prendre photo -->
 @php $modal_aff=0; @endphp

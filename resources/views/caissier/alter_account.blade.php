@@ -17,10 +17,10 @@
     @csrf
         <div class="row mx-auto">
             <div class="col-lg-9 card adC ">
-                <div class="card-header text-success text-center">
+                <div class="card-header text-success text-center bi--lg">
                     {{ __("Modification du compte ")}} @if($admin) {{ __("pour Agent")}} @elseif($caissier) {{ __("pour Client")}} @endif
                 </div>
-                <div class="card-body">
+                <div class="card-body text-muted">
                     <div class="row">
                         <div class="col-lg-4">
                             <label for="nomB" >
@@ -91,8 +91,8 @@
                             </select>
                         </div>
                         <div class="col-lg-4">
-                            <label for="nomB" >Prendre une photo </label>
-                            <input type="button" class="form-control" value="<?php echo "Capture";?>" data-toggle="modal" data-target="#photo">
+                            <label for="nomB" >{{ __("Prendre une photo ") }}</label>
+                            <input type="button" class="form-control" value='{{ __("Capture") }}' data-bs-toggle="modal" data-bs-target="#photo">
                         </div>
                         </div>
                         <div class="row">
@@ -121,14 +121,17 @@
                                 <textarea name="apropos" placeholder="À propos de moi" class="form-control"> {{ $data_user->apropos}}</textarea>
                             </div>
                         </div>
+                        <input type="image" src="" alt="" id="sendimage" class="d-none" name="photo6"> 
+                                        <input type="hidden" name="image" class="image_cli">
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark  mt-2 mb-lg-2 col-lg-3">{{ __("Mettre a jour")}}</button>
                         </div>
                     </div>
                 </div>
             <div class="col-lg-3 align-self-center text-center">
-                <p class="card-header">{{ __("Photo par défaut du client")}}</p>
+                <p class="card-header text-muted">{{ __("Photo par défaut du client")}}</p>
                 <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
+                <canvas id="canvas" width=350 height=340 style="display: none"></canvas>
             </div>
         </div>
     </form>
