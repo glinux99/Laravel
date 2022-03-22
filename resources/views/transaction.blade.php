@@ -3,7 +3,7 @@
 @section('contenu')
     <div class="card adC">
         <div class="card-header text-center text-success">
-            <div class="card-header">
+            <div class="card-header bi--lg">
             {{ __("HISTORIQUE DE TRANSACTION DE VOTRE COMPTE")}}
             </div> 
             <a class="btn btn-success mt-2" href="/pdf">{{ __("Générer l'apperçu en pdf")}}</a>

@@ -34,21 +34,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse coll justify-content-center">
-            <ul class="nav nav-pills" role="tablist">
+            <ul class="nav nav-pills bi--lg " role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="/" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
+                    <a class="nav-link text-success" href="/" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
                 </li>
                 @if(session('account')==='Caissier')
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#retrait"><span class="bi bi-currency-exchange"></span>{{ __("Retrait") }}</a>
+                    <a class="nav-link text-success" href="#" data-bs-toggle="modal" data-bs-target="#retrait"><span class="bi bi-currency-exchange"></span>{{ __("Retrait") }}</a>
                 </li>
                 @endif
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
+                    <a class="nav-link text-success" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">
-                        <a class="nav-link text-white" href="#" id="drop" data-bs-toggle="dropdown">
+                        <a class="nav-link text-success" href="#" id="drop" data-bs-toggle="dropdown">
                             <span class="bi-person-plus"></span>{{ __("Partenaires") }}
                         </a>
 
@@ -61,7 +61,7 @@
                     </div>
                 </li>
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-white" href="#" role="tab" aria-selected="true"><span class="icon-cogs"></span>{{ __("Info Alert") }}</a>
+                    <a class="nav-link text-success" href="#" role="tab" aria-selected="true"><span class="icon-cogs"></span>{{ __("Info Alert") }}</a>
                 </li>
             </ul>
         </div>

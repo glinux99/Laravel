@@ -4,7 +4,7 @@
 @include('layouts.modals')
     <div class="row mb-5 mt-1 w-100 p-0 m-0 ">
         <div class="col-md-6 m-0 p-0 mx-auto" style="background:#0f222bd2;">
-            <div class="card-header text-success text-uppercase text-center">
+            <div class="card-header text-success text-uppercase text-center bi--lg">
                 Nuru Banque {{ __("Administation $agent2 ") }}
             </div>
             <div class="card-group shadow mb-1 col-11 mx-auto" >

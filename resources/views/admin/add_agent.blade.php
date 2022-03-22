@@ -19,10 +19,10 @@
     @csrf
         <div class="row mx-auto">
             <div class="col-lg-9 card adC ">
-                <div class="card-header text-success text-center">
+                <div class="card-header text-success text-center bi--lg">
                     {{ __("Création du compte ")}} @if($admin) {{ __("pour Agent")}} @else {{ __("pour Client")}} @endif
                 </div>
-                <div class="card-body">
+                <div class="card-body text-muted">
                     <div class="row">
                         <div class="col-lg-4">
                             <label for="nomB" >
