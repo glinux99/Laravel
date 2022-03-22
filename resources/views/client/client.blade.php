@@ -1,12 +1,24 @@
 @extends('layouts.layout_users')
 @section('contenu')
-@php 
-$data_user = session('data_user');
-@endphp
-    <div class="col-lg-11 mx-auto card adC2">
-    <div class="w-100 vh-50">
+<style>
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .blurred-container {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
 
-    </div>
+/* slightly transparent fallback for Firefox (not supporting backdrop-filter) */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .blurred-container {
+    background-color: rgba(255, 255, 255, .8);
+  }
+}
+</style>
+    <div class="col-lg-11 mx-auto card adC2">
+        <div class="w-100 mb-5 text-center adC" >
+        <img src="{{url(session('data')->photo)}}" alt="user-default-profil" style="z-index:2;border: 1px double green;" id="img" class="align-self-center adC rounded-circle mt-3" width="200rem" height="200rem">
+        </div>
         <div class="row mx-auto p-0">
             <div class="col-lg-6 card adC">
                 <div class="w-100">
