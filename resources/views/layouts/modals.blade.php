@@ -249,12 +249,5 @@ else{
     </div> 
   </div>
 </div>
-<!-- Script add pic -->
-<script>
-  $('#capture').click(function() {
-  $('#confirmer').css('display', '');
-});
-</script>
-<!-- en pic add script -->
-<!-- fin div prendre photo -->
+
 @php $modal_aff=0; @endphp

@@ -135,4 +135,28 @@
             </div>
         </div>
     </form>
+    <!-- fin div prendre photo -->
+<script>
+  const video_capture = document.getElementById('video_capture');
+  var canvas = document.getElementById('canvas');
+  var img = canvas.getContext('2d');
+  const constraints = {
+    video: true,
+  };
+  $('#capture').click(function(){
+    img.drawImage(video_capture, 0, 0, canvas.width, canvas.height);
+    var imgurl= canvas.toDataURL();
+    $(".image_cli").val(imgurl);
+    $('#mm').attr('src', imgurl).load(function(){
+    this.width; 
+
+});
+    $('#confirmer').css('display', '');
+   
+  });
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      video_capture.srcObject = stream;
+    });
+</script>
 @stop

@@ -397,7 +397,23 @@ class BanqueController extends Controller
         }
     }
     public function update(Request $request){
-        try{
+            $photo='';
+            $img=$request->image;
+            if(strlen($img)){
+                $dossier = "'../../assets/img/";
+                $img_partie = explode(";base64,", $img);
+                $img_typ_f = explode("/image",$img_partie[0]);
+                $img_type = $img_typ_f[0];
+                $img_base64 = base64_decode($img_partie[1]);
+                $fileName ='nuru_banque'.$request->matricule.'.png';
+                $file =$dossier.$fileName;
+                file_put_contents($file, $img_base64);
+                $photo = "assets/img/".$fileName;
+                if(!session('data')->photo){
+                    $photo = "assets/img/default_user.png";
+                }
+            }
+            
             $d=\DB:: table('Customers')
                 ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                 ->where('Customers.matricule', $request->matricule)
@@ -409,19 +425,30 @@ class BanqueController extends Controller
                     'numero_tel'=>$request->numero_tel,
                     'type_compte'=>$request->type_compte,
                     'genre'=>$request->genre,
-                    'photo'=>$request->photo,
+                    'photo'=>$photo,
                     'quart_av'=>$request->quart_av,
                     'ville'=>$request->ville,
                     'province'=>$request->province,
-                    'pays'=>$request->pays,
+                    'pays'=>'RDC',
                     'apropos'=>$request->apropos
                 ));
-               session('error', 'no_error');
-               return back();
-        }catch (Exception $e){
-            session()->flash('error','one_thing_not_running');
-            return redirect(url('admin'));
-        }
+                $items=session('account');
+                
+                    $customers_id=$items.'.customers_id';
+                    $adresse_id = 'Customers.Adresse_id';
+                    $adresse = $items.'.adresse_mail';
+                    $data = \DB::table($items)
+                                ->join('Customers', $customers_id, '=', 'Customers.id')
+                                ->join ('Adresse', $adresse_id, '=', 'Adresse.id')
+                                ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                                ->where ('Customers.matricule', session('data')->matricule)
+                                ->first();
+                        
+                                session()->put('data_user',$data);
+               session()->flash('error', 'no_error');
+               //echo session('data')->photo;
+              return back();
+       
     }
         public function verifier_solde(Request $request){
             try{
@@ -618,7 +645,7 @@ class BanqueController extends Controller
                                             'motif'=>__('Virement sur le compte de ').$compte_de,
                                             'trans_mat'=>$trans_mat,
                                             'client_mat'=>$data->matricule,
-                                            'benef_mat' =>'requette d apres::commentaire',
+                                            'benef_mat' =>__('Virement sur le compte de ').$compte_de,
                                             'caissier_id'=>null
                                         ],
                                         [
@@ -626,7 +653,7 @@ class BanqueController extends Controller
                                             'solde'=>$soldeb,
                                             'motif'=>__('Virement effectuer par ').$data->nom.' '.$data->prenom,
                                             'trans_mat'=>$trans_mat,
-                                            'client_mat'=>'requette precedent::commentaire',
+                                            'client_mat'=>__('Virement effectuer par ').$data->nom.' '.$data->prenom,
                                             'benef_mat' =>$request->mail,
                                             'caissier_id'=>null
                                         ]

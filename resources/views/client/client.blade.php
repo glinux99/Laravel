@@ -1,7 +1,7 @@
 @extends('layouts.layout_users')
 @section('contenu')
     <div class="col-lg-11 mx-auto card adC2">
-    <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="align-self-center adC rounded-circle" width="20%" height="50%">
+    <img src="" alt="user-default-profil" id="img" class="align-self-center adC rounded-circle" width="20%" height="50%">
         <div class="row mx-auto p-0">
             <div class="col-lg-6 card adC">
                 <div class="w-100">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group">
-                        @php $x = [__('Genre')=>$data['genre'],__('Numero Tel')=>$data['numero_tel'],__('Type de Compte')=>$data['type_compte'], __('Adresse')=>$data['quart_av'],__('Ville')=>$data['ville'], __('Province')=>$data['province'], __('Pays')=>$data['province'],__('À propos')=>$data['apropos']];
+                        @php $x = [__('Genre')=>$data['genre'],__('Numero Tel')=>$data['numero_tel'],__('Type de Compte')=>$data['type_compte'], __('Adresse')=>$data['quart_av'],__('Ville')=>$data['ville'], __('Province')=>$data['province'], __('Pays')=>$data['pays'],__('À propos')=>$data['apropos']];
                         @endphp
                         @foreach ($x as $item => $val)
                             <div class="list-group-item d-flex adC">
