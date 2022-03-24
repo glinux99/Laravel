@@ -84,11 +84,10 @@ Route::get('locale/{locale}', function ($locale){
     Route::get('/message/{dest}', [ BanqueController::class, 'message']);
     Route::post('/rapport', [ BanqueController::class, 'rapport']);
     Route::get('/transaction', [ BanqueController::class, 'transaction']);
-    Route::get('/alter_account', [ BanqueController::class, 'alter_account']);
     Route::post('/alter_account', [ BanqueController::class, 'alter_account']);
     Route::post('/inscription', [ BanqueController::class, 'connection']);
     Route::post('/connection', [ BanqueController::class, 'connection']);
-    Route::get('/login', [ BanqueController::class, 'login'])->name('login')->middleware(SignOn::class);
+    Route::get('/login', [ BanqueController::class, 'login'])->name('login');
     Route::get('/add-agents-or-clients', [ BanqueController::class, 'add_agents']);
     Route::post('/add_agent_submit',[ BanqueController::class, 'add_agent_submit']);
     Route::get('/logout', [ BanqueController::class, 'logout'])->name('logout');

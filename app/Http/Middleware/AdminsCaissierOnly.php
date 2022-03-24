@@ -17,6 +17,7 @@ class AdminsCaissierOnly
     public function handle(Request $request, Closure $next)
     {
         if(session('account')==='Client'){
+            session()->flash('error','no_autorization');
             return back();
         }
         return $next($request);

@@ -30,7 +30,10 @@ class SignUp
             }
         }
         else
-        return response()->view('/acceuil');
+        {
+            session()->flash('error','no_autorization');
+            return response()->view('/acceuil');
+        }
     }
 }
 

@@ -12,6 +12,7 @@
                     <div class="overflow-auto p-0"style="height: 21rem;">
                     
                     @php
+                        $def=0;
                         $validator=0;
                         if($message->count()>0) $validator=0;
                         else $validator=1;

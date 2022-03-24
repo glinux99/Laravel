@@ -64,7 +64,7 @@ class NuruDb extends Migration
             $table->string('prenom', 15);
             $table->string('matricule', 17);
             $table->string('adresse_mail',30)->unique();
-            $table->string('password_customers');
+            $table->text('password_customers');
             $table->string('numero_tel')->default('');
             $table->string('type_compte',15)->default('');
             $table->string('genre')->default('');

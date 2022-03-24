@@ -114,7 +114,7 @@
                                     <small>{{$items->adresse_mail}}</small>
                                 </td>
                                 <td>
-                                    133
+                                {{$items->solde}}
                                 </td>
                             </tr>
                         @endforeach

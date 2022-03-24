@@ -98,7 +98,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <label for="nomB" >{{ __("Adresse")}}</label>
-                                <input type="text" name="quart_av" id="" class="form-control" placeholder="Goma, 22 Box Dego" value="">
+                                <input type="text" name="quart_av" id="" class="form-control" placeholder="Goma, 22 Box Dego" value="{{ $data_user->quart_av}}">
                             </div>
                         </div>
                         <div class="row">
@@ -112,7 +112,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="nomB" >{{ __("Pays")}}</label>
-                                <input type="mail" name="pays" id="" class="form-control" placeholder="RDC" disabled value="{{ $data_user->pays}}">
+                                <input type="mail" name="pays" id="" class="form-control" placeholder="RDC" value="{{ $data_user->pays}}">
                             </div>
                         </div>
                         <div class="row">

@@ -59,28 +59,30 @@ class pdfController extends Controller
             $this->fpdf->SetX(188); 
             $this->fpdf->Cell(20,8, __("Montant($)"),1,0,'C');
             $x=0;
-        foreach($db as $items){
-            $x++;
-            $this->fpdf->Ln(8);
-            $this->fpdf->SetX(2);
-            $this->fpdf->Cell(8,8, $x,1,0,'C');
-            $this->fpdf->SetX(10);
-            $this->fpdf->Cell(38,8, $items->date_trans,1,0,'C');
-            $this->fpdf->SetX(48);
-            $this->fpdf->Cell(60,8, $items->trans_mat,1,0,'C');
-            $this->fpdf->SetX(108); 
-            //mot doit etre inferieur a 30 cad 30-12
-            if(session('account')==='Client') $this->fpdf->Cell(60,8, $items->motif,1,0,'C');
-            else{
-                $this->fpdf->SetFont('Helvetica','',8);
-                $this->fpdf->Cell(60,8,$items->client_mat,1,0,'C');
-                $this->fpdf->SetFont('Helvetica','',10);
-            }
-            $this->fpdf->SetX(168);
-            $this->fpdf->Cell(20,8, $items->solde,1,0,'C');
-            $this->fpdf->SetX(188); 
-            $this->fpdf->Cell(20,8, $items->montant_ret,1,0,'C');
-      }
+        if($db!=null){
+            foreach($db as $items){
+                $x++;
+                $this->fpdf->Ln(8);
+                $this->fpdf->SetX(2);
+                $this->fpdf->Cell(8,8, $x,1,0,'C');
+                $this->fpdf->SetX(10);
+                $this->fpdf->Cell(38,8, $items->date_trans,1,0,'C');
+                $this->fpdf->SetX(48);
+                $this->fpdf->Cell(60,8, $items->trans_mat,1,0,'C');
+                $this->fpdf->SetX(108); 
+                //mot doit etre inferieur a 30 cad 30-12
+                if(session('account')==='Client') $this->fpdf->Cell(60,8, $items->motif,1,0,'C');
+                else{
+                    $this->fpdf->SetFont('Helvetica','',8);
+                    $this->fpdf->Cell(60,8,$items->client_mat,1,0,'C');
+                    $this->fpdf->SetFont('Helvetica','',10);
+                }
+                $this->fpdf->SetX(168);
+                $this->fpdf->Cell(20,8, $items->solde,1,0,'C');
+                $this->fpdf->SetX(188); 
+                $this->fpdf->Cell(20,8, $items->montant_ret,1,0,'C');
+          }
+        }
     //footer
         $this->fpdf->SetY(0);
 		// Police Arial italique 8

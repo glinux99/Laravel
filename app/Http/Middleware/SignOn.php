@@ -30,6 +30,9 @@ class SignOn
             }
         }
         else
-        return response()->view('/login');
+        {
+            session()->flash('error','no_autorization');
+            return response()->view('/login');
+        }
     }
 }

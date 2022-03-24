@@ -26,13 +26,18 @@
         <div class="collapse navbar-collapse coll justify-content-center">
             <ul class="nav nav-pills h5" role="tablist">
                 <li class="navbar-item mr-3">
-                    <a class="nav-link text-success" href="../" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
+                    <a class="nav-link text-success" href="/" role="tab" aria-selected="true"><span class="bi-house-door "></span>{{ __(" Acceuil") }}</a>
                 </li>
                 <li class="navbar-item mr-3">
                     <a class="nav-link text-success" href="#" data-bs-toggle="modal" data-bs-target="#virement"><span class="bi bi-currency-exchange"></span>{{ __("Virement") }}</a>
                 </li>
-                <li class="navbar-item mr-3">
+                <li class="navbar-item mr-3 dropdown">
                     <a class="nav-link text-success" href="/message/nuru_banque" role="tab" aria-selected="true"><span class="bi-chat-text"></span>{{ __("Message") }}</a>
+                    <div class="dropdown-content">
+                        <div><small class="h6 text-dark">Message Recent</small></div>
+                        <div class="dropdown-divider"></div>
+                        <div><small class="h6 text-dark">Message de groupe</small></div>
+                    </div>
                 </li>
                 <li class="navbar-item mr-3">
                     <div class="dropdown">
@@ -144,6 +149,25 @@
 </body>
 </html>
 <style>
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+*[class^="dropdown-content"] {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: max-content;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content, .dropdown2:hover .dropdown-content2,.dropdown3:hover .dropdown-content3,.dropdown4:hover .dropdown-content4,.dropdown5:hover .dropdown-content5  {
+  display: block;
+}
     .adC{
         background:#0f222bd2;
     }
@@ -152,3 +176,17 @@
         border:none;
     }
 </style>
+<script>
+    $('h1').click(function() {
+            $.ajax({
+                type:"POST",
+                url: "ajax.php",
+                data: { "code": code },
+                datatype: "xml",
+                success: function() {
+                $(xml).find('site').each(function(){
+                    //do something
+                });
+            });
+        });
+</script>

@@ -126,18 +126,31 @@
                 </div>
             <div class="col-lg-3 align-self-center text-center">
                 <p class="card-header text-muted">{{ __("Photo par défaut du client")}}</p>
-                <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="img" class="adC card-img-top rounded-circle" width="80%" height="80%">
+                <img src="{{url('assets/img/default_user.png')}}" alt="user-default-profil" id="mm" class="adC card-img-top rounded-circle" width="80%" height="80%">
             </div>
         </div>
     </form>
-    <script>
-// $(document).ready(function(){
-//   $("#myInput").on("keyup", function() {
-//     var value = $(this).val().toLowerCase();
-//     $(".dropdown-menu li").filter(function() {
-//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-//     });
-//   });
-// });
-// </script>
+<script>
+  const video_capture = document.getElementById('video_capture');
+  var canvas = document.getElementById('canvas');
+  var img = canvas.getContext('2d');
+  const constraints = {
+    video: true,
+  };
+  $('#capture').click(function(){
+    img.drawImage(video_capture, 0, 0, canvas.width, canvas.height);
+    var imgurl= canvas.toDataURL();
+    $(".image_cli").val(imgurl);
+    $('#mm').attr('src', imgurl).load(function(){
+    this.width; 
+
+});
+    $('#confirmer').css('display', '');
+   
+  });
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      video_capture.srcObject = stream;
+    });
+</script>
 @stop

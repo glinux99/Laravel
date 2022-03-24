@@ -8,17 +8,18 @@ use Exception;
 class BanqueController extends Controller
 {
     public function login(){
-        echo session('lang');
-        \App::setLocale('en');
-        return \Redirect::to('login');
+       
+        return view('login');
     }
     public function accounts($data){
         try{
             if($data =='accounts'){
                 $data_active =1;
                 $data_users = \DB:: table ('Client')
-                                    ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')->get();
+                                    ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
+                                    ->join('Compte', 'Compte.matricule', 'Customers.matricule')->get();
                 return view('admin.admin', compact(['data_users', 'data_active']));
+                
             }
         }catch (Exception $e){
             session()->flash('error','one_thing_not_running');
@@ -219,6 +220,7 @@ class BanqueController extends Controller
                                     session()->put('data', $data);
                                     $data= session('data');
                                     $data = json_decode(json_encode($data), true);
+                                    session()->flash('error', '');
                                      switch($items){
                                          case 'Client' :
                                              return view('client.client', compact('data'));
@@ -323,7 +325,6 @@ class BanqueController extends Controller
                                         'numero_tel'=>$request->numero_tel,
                                         'type_compte'=>$request->type_compte,
                                         'genre'=>$request->genre,
-                                        'photo'=>$request->photo,
                                         'code_auth'=>$code_auth,
                                         'adresse_id'=>$adresse_id->id
                                     )
@@ -372,7 +373,7 @@ class BanqueController extends Controller
             }
                 $customers_id =$for_account.'.customers_id';
                 $username = $request->mail;
-                if($for_account==='Client'){
+                if($order==='Client'){
                     $username = session('data')->matricule;
                 }
                 $data_user2='';
@@ -381,6 +382,7 @@ class BanqueController extends Controller
                                         ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                                        ->get();
                                        foreach($data_user as $items){
+                                        //    dd($username);
                                            if($items->matricule===$username) $data_user2=$items;
                                        }
                                         session()->put('data_user', $data_user2);
@@ -388,6 +390,7 @@ class BanqueController extends Controller
                                             session()->flash('error', 'no_autorization');
                                             return back();
                                         }
+                                        // dd($data_user);
                                        // var_dump($data_user);
                 return view('caissier.alter_account');
         }catch (Exception $e){
@@ -396,7 +399,8 @@ class BanqueController extends Controller
         }
     }
     public function update(Request $request){
-            $photo='';
+            try{
+                $photo='';
             $img=$request->image;
             if(strlen($img)){
                 $dossier = "'../../assets/img/";
@@ -421,7 +425,7 @@ class BanqueController extends Controller
                 if(!$request->psswd)  $request->psswd = session('data_user')->password_customers;
                 if(!$request->image)  $photo= session('data_user')->photo;
 
-                echo $request->photo;
+                // echo $request->photo;
             $d=\DB:: table('Customers')
                 ->join('Adresse', 'Customers.adresse_id', '=', 'Adresse.id')
                 ->where('Customers.matricule', $request->matricule)
@@ -453,9 +457,14 @@ class BanqueController extends Controller
                                 ->first();
                         
                                 session()->put('data_user',$data);
-               session()->flash('error', 'no_error');
+                                session()->put('data',$data);
+                                session()->flash('error', 'no_error');
                //echo session('data')->photo;
-             return back();
+             return redirect(url('/admin'));
+            }catch (Exception $e){
+                session()->flash('error','one_thing_not_running');
+                return redirect(url('/acceuil'));
+            }
        
     }
         public function verifier_solde(Request $request){
@@ -517,7 +526,8 @@ class BanqueController extends Controller
                                 $id =\DB::table('Caissier')
                                         ->select('Caissier.id')
                                         ->join('Customers', 'Customers.id','=','customers_id')
-                                        ->where('Customers.id','=',session('data')->id)->first();
+                                        ->where('Customers.id','=',session('data')->customers_id)->first();
+
                                 \DB:: table('Transactions')
                                     ->insert([
                                         'montant_ret'=>$request->montant,
@@ -579,7 +589,7 @@ class BanqueController extends Controller
                                 $id =\DB::table('Caissier')
                                         ->select('Caissier.id')
                                         ->join('Customers', 'Customers.id','=','customers_id')
-                                        ->where('Customers.id','=',session('data')->id)->first();
+                                        ->where('Customers.id','=',session('data')->customers_id)->first();
                                 \DB:: table('Transactions')
                                     ->insert([
                                         'montant_ret'=>$request->montant,
@@ -666,6 +676,12 @@ class BanqueController extends Controller
                                             'caissier_id'=>null
                                         ]
                                     ]);
+                                    $data= \DB:: table ('Client')
+                                        ->join('Customers', 'Client.Customers_id', '=', 'Customers.id')
+                                        ->join('Adresse', 'Customers.Adresse_id', '=','Adresse.id')
+                                        ->join('Compte', 'Adresse.id_compte', '=','Compte.id')
+                                        ->where ('Customers.matricule', $data->matricule)
+                                        ->first();
                                 $data =json_decode(json_encode($data), true);
                                 session()->flash('error','no_error');
                                 return view('client.client',compact('data'));
@@ -816,7 +832,7 @@ class BanqueController extends Controller
                         if($trans){
                             $transaction = $trans;
                         }
-                    session()->flash('trans_pdf', $transaction);             
+                    session()->put('trans_pdf', $transaction);             
                     return view('transaction', compact(['transaction','client']));
             }catch (Exception $e){
                 session()->flash('error','one_thing_not_running');
